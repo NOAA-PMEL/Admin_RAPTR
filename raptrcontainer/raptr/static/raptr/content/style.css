@@ -1,0 +1,86 @@
+
+h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
+
+
+
+/*.detail_content h2       {color: white;  background-color: darkblue;
+                          font-size: 1.2em; padding: 5px 0px 5px 12px; margin: 0px}*/
+
+/*
+ Format the project details table - detail.html
+*/
+table.contact_detail{
+    width: 500px;
+}
+
+table.project_detail{
+   width: 750px;
+}
+
+.contact_photo{
+    vertical-align: top;
+}
+
+.pdata {
+    border: 1px solid lightgray;
+}
+
+.labels {
+    font-weight: 600;
+}
+
+table.funds_table{
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+table.funds_table td{
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+table.funds_table tr:nth-child(even) {
+    background-color: #eee;
+    border: 1px solid gray;
+}
+table.funds_table tr:nth-child(odd) {
+   background-color: #fff;
+   border: 1px solid gray;
+}
+table.funds_table th {
+    background-color: darkblue;
+    color: white;
+    padding: 5px;
+    text-align: left;
+}
+
+table.docs_table{
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+table.docs_table td{
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+table.docs_table tr:nth-child(even) {
+    background-color: #eee;
+    border: 1px solid gray;
+}
+table.docs_table tr:nth-child(odd) {
+   background-color: #fff;
+   border: 1px solid gray;
+}
+table.docs_table th {
+    background-color: darkblue;
+    color: white;
+    padding: 5px;
+    text-align: left;
+}
+
+#sub_tables{
+    vertical-align: top;
+}
+
+.project-note{
+    width: 40%;
+    vertical-align: top;
+    border: 1px solid lightgray;
+}

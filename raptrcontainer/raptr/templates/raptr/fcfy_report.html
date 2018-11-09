@@ -1,0 +1,33 @@
+{% extends "raptr/layout.html" %}
+{% load static %}
+{% get_media_prefix %}
+
+{% block content %}
+    <div class = "list">
+        <h2>FY19 New Funds Sample Report</h2>
+        <table style="width:30%" id="t01">
+          <tr>
+            <th>Project ID</th>
+            <th>Project #</th>
+            <th>FC Fiscal Year</th>
+            <th>Funds Received</th>
+            <th>Funds Type</th>
+          </tr>
+        {% if fcfy_project_list %}
+            <ul>
+            {% for project in fcfy_project_list %}
+                 <tr>
+                     <td>{{ project.project_id.project_id }}</td>
+                     <td>{{ project.project_id.project_number}}</td>
+                     <td>{{ project.fcfy}}</td>
+                     <td>{{ project.budget }}</td>
+                     <td>{{ project.fund_type }}</td>
+                 </tr>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No projects are available.</p>
+        {% endif %}
+        </table>
+    </div>
+{% endblock %}

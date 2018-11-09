@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/layout.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/bootstrap.css' %}" />
+</head>
+<body>
+    <div class="logo-brand">
+    <h1><img src="{% static 'raptr/images/raptr_logo.png' %}"></h1>
+    </div>
+    <div class="navbar">
+        <ul class="nav navbar-nav">
+            <li><a href="/raptr" class="navbar-item">RAPTR Dashboard</a></li>
+            <li><a href="{% url 'raptr:project_list' %}" class="navbar-item">Project List</a></li>
+            <li><a href="{% url 'raptr:contact_list' %}" class="navbar-item">Contact List</a></li>
+            <li><a href="{% url 'raptr:fcfy_report' %}" class="navbar-item">Reports</a></li>
+            <li><a href="{% url 'raptr:about' %}" class="navbar-item">About</a></li>
+        </ul>
+        {% include 'raptr/loginpartial.html' %}
+    </div>
+
+    <div class="body-content">
+        {% block content %}{% endblock %}
+        <hr/>
+        <footer>
+            <p>2018 - PMEL RAPTR</p>
+        </footer>
+    </div>
+</body>
+</html>

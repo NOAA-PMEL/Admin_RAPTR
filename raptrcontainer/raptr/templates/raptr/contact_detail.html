@@ -1,0 +1,91 @@
+{% extends "raptr/layout.html" %}
+{% load static %}
+{% get_media_prefix %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
+<body>
+    <div class="details_content">
+        <h2>Detail for Contact: {{contact.first_name}}&nbsp{{ contact.last_name }}</h2>
+    </div>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+            <div class="contactBox"> <!-- set the box border -->
+                <div class="top"><div class="bottom">
+                <div class="left"><div class="right">
+                <div class="topLeft"><div class="topRight">
+                <div class="bottomLeft"><div class="bottomRight">
+
+                    <div class="boxContent">
+                        <table class="contact_detail">
+                                <tr class="contact_photo">
+                                    <td rowspan="11">{{ contact.image_tag }}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">First Name:</td>
+                                    <td colspan="3" class="pdata">{{ contact.first_name }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">Last Name:</td>
+                                    <td colspan="3" class="pdata"> {{ contact.last_name }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">Job Title:</td>
+                                    <td colspan="3" class="pdata"> {{ contact.job_title }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">Phone:</td>
+                                    <td class="pdata">{{ contact.phone_number }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">Email:</td>
+                                    <td class="pdata">{{ contact.email_address }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">Division:</td>
+                                    <td class="pdata">{{ contact.division }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">OPT Sub Group:</td>
+                                    <td class="pdata">{{ contact.opt_sub_group }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">Research Program:</td>
+                                    <td class="pdata">{{ contact.research_program }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">Affiliation:</td>
+                                    <td class="pdata">{{ contact.affiliation }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td class="labels">Location:</td>
+                                    <td class="pdata">{{ contact.location }}</td>
+                                </tr>
+                        </table>
+                    </div>
+
+                </div></div>
+                </div></div>
+                </div></div>
+                </div></div>
+            </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,68 @@
+/*
+
+	Author: Richard Parks
+	Date:	10/30/2018
+	
+	Filename: rounded.css
+	Stylesheet controlling rounded box layouts for the details view.
+*/
+
+.topLeft
+		{
+		background: url(../images/topleft.png) no-repeat top left;
+		}
+		
+.topRight
+		{
+		background: url(../images/topright.png) no-repeat top right;
+		}
+		
+.bottomLeft
+		{
+		background: url(../images/bottomleft.png) no-repeat bottom left;
+		}
+		
+.bottomRight
+		{
+		background: url(../images/bottomright.png) no-repeat bottom right;
+		}
+		
+.top
+		{
+		background: url(../images/top.png) repeat-x top;
+		}
+		
+.bottom
+		{
+		background: url(../images/bottom.png) repeat-x bottom;
+		}
+		
+.left
+		{
+		background: url(../images/left.png) repeat-y left;
+		}
+		
+.right
+		{
+		background: url(../images/right.png) repeat-y right;
+		}
+		
+div.roundedBox
+	{
+	margin: 5px;
+	position: relative;
+	width: 800px;
+	}
+	
+div.boxContent
+	{
+	padding: 16px;
+	}
+
+div.contactBox
+	{
+	margin: 5px;
+	position: relative;
+	width: 540px;
+	}
+	
