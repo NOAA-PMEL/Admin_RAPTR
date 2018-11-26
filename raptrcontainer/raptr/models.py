@@ -194,7 +194,6 @@ class Project(models.Model):
     project_notes = models.TextField(blank=True)
     year_proposed = models.IntegerField(verbose_name='FY Proposed', choices=YEAR_CHOICES, default=datetime.datetime.now().year)
 
-
     class Meta:
         ordering = ['project_id']
 
