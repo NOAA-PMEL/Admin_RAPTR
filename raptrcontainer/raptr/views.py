@@ -58,7 +58,7 @@ def contact_list(request):
 
 
 def index(request):
-    """Renders the home page."""
+    """Renders the 'home' page."""
     return render(
         request,
         'raptr/index.html',

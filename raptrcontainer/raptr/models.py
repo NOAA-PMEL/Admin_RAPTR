@@ -5,11 +5,14 @@ from djmoney.models.fields import MoneyField
 from django.urls import reverse
 import datetime
 
+# set the year choices for the drop-downs - earliest data is from 2014
 YEAR_CHOICES = []
 for yr in range(2014, (datetime.datetime.now().year+2)):
     YEAR_CHOICES.append((yr, str(yr)))
 
 
+# support table for the file category drop-down in the projects view
+# foreign key is in the Project model
 class Filecatlist(models.Model):
     cat_list = models.CharField(max_length=50, blank=True)
 
@@ -21,23 +24,8 @@ class Filecatlist(models.Model):
         verbose_name_plural = 'file categories'
 
 
-class Optsub(models.Model):
-    opt_sub = models.CharField(max_length=20, blank=True)
-
-    def __str__(self):
-        return self.opt_sub
-
-    class Meta:
-        verbose_name = 'OPT Sub'
-
-
-class Location(models.Model):
-    location = models.CharField(max_length=20, blank=True)
-
-    def __str__(self):
-        return self.location
-
-
+# support table for the Status drop-down in the projects view
+# foreign key is in the Project Model
 class Status(models.Model):
     status = models.CharField(max_length=20, blank=True)
 
@@ -48,6 +36,29 @@ class Status(models.Model):
         verbose_name_plural = 'statuses'
 
 
+# support table for the OPT Sub Group drop-down in the contacts view
+# foreign key is in the Contact model
+class Optsub(models.Model):
+    opt_sub = models.CharField(max_length=20, blank=True)
+
+    def __str__(self):
+        return self.opt_sub
+
+    class Meta:
+        verbose_name = 'OPT Sub'
+
+
+# support table for the Location drop-down in the contacts view
+# foreign key is in the Contact model
+class Location(models.Model):
+    location = models.CharField(max_length=20, blank=True)
+
+    def __str__(self):
+        return self.location
+
+
+# support table for the Research Program drop-down in the contacts view
+# foreign key is in the Contact model
 class Program(models.Model):
     program_short_name = models.CharField(max_length=10, blank=True)
     program_long_name = models.CharField(max_length=100, blank=True)
@@ -59,6 +70,27 @@ class Program(models.Model):
         return self.program_short_name
 
 
+# support table for the Division drop-down in the contacts view
+# foreign key is in the Contact model
+class Division (models.Model):
+    division_name = models.CharField(max_length=10, blank=True)
+    division_description = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.division_name
+
+
+# support table for the Affiliation drop-down in the contacts view
+# foreign key is in the Contacts model
+class Affiliation (models.Model):
+    affiliation_name = models.CharField(max_length=10, blank=True)
+
+    def __str__(self):
+        return self.affiliation_name
+
+
+# support table for the Country drop-down in the sponsors view
+# foreign key is in the Sponsor model
 class Country (models.Model):
     country_name = models.CharField(max_length=20, blank=True)
 
@@ -69,13 +101,8 @@ class Country (models.Model):
         verbose_name_plural = 'countries'
 
 
-class Affiliation (models.Model):
-    affiliation_name = models.CharField(max_length=10, blank=True)
-
-    def __str__(self):
-        return self.affiliation_name
-
-
+# support table for the Sponsor Type drop-down in the sponsor view
+# foreign key is in the Sponsor model
 class Sponsortype (models.Model):
     sponsor_type = models.CharField(max_length=50, blank=True)
 
@@ -106,6 +133,9 @@ class Fundcodelist (models.Model):
         verbose_name = 'fund code list'
 
 
+# list of all of the sponsors PMEL does business with
+# this model supports the Sponsor drop-down in the project view
+# foreign key is in the Project model
 class Sponsor (models.Model):
     customer_number = models.CharField(max_length=15, unique=True,blank=True, null=True)
     sponsor_acronym = models.CharField(max_length=10, blank=True)
@@ -121,14 +151,7 @@ class Sponsor (models.Model):
         return str(self.sponsor_name)+ ' (' + str(self.sponsor_acronym) +')'
 
 
-class Division (models.Model):
-    division_name = models.CharField(max_length=10, blank=True)
-    division_description = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.division_name
-
-
+# list of PMEL contacts
 class Contact(models.Model):
     last_name = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
