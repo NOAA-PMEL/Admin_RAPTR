@@ -10,5 +10,6 @@ urlpatterns =[
     path('contact/', views.FilteredContactListView.as_view(), name='contact_list'),
     path('<int:pk>/', views.ProjectDetailView.as_view(), name='project_detail'),
     path('table/', views.FilteredProjectListView.as_view(), name='project_list'),
-    path('<int:pk>/contact/', views.ContactDetailView.as_view(), name='contact_detail')
+    path('<int:pk>/contact/', views.ContactDetailView.as_view(), name='contact_detail'),
+    path('<int:pk>/sponsor/', views.SponsorDetailView.as_view(), name='sponsor_detail')
 ]

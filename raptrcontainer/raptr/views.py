@@ -1,5 +1,5 @@
 from django.views import generic
-from .models import Project, Contact, Fundfy
+from .models import Project, Contact, Fundfy, Sponsor
 from .filters import ProjectFilter, ContactFilter
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
@@ -17,6 +17,11 @@ class ProjectDetailView(DetailView):
 class ContactDetailView(DetailView):
     model = Contact
     template_name = 'raptr/contact_detail.html'
+
+
+class SponsorDetailView(DetailView):
+    model = Sponsor
+    template_name = 'raptr/sponsor_detail.html'
 
 
 class FilteredProjectListView(SingleTableMixin, FilterView):

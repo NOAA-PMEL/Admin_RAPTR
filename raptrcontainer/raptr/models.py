@@ -204,6 +204,9 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse('raptr:project_detail', args=(self.pk,))
 
+    def get_absolute_url_sponsor(self):
+        return reverse('raptr:sponsor_detail', args=(self.pk,))
+
 
 class Fundfy(models.Model):
     project_id = models.ForeignKey(Project, on_delete=models.CASCADE, blank=True, null=True)

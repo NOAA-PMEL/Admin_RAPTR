@@ -1,0 +1,59 @@
+{% extends "raptr/layout.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
+<body>
+    <div class="details_content">
+        <h2>Detail for Sponsor: {{sponsor.sponsor_acronym}}</h2>
+    </div>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+            <div class="contactBox"> <!-- set the box border -->
+                <div class="top"><div class="bottom">
+                <div class="left"><div class="right">
+                <div class="topLeft"><div class="topRight">
+                <div class="bottomLeft"><div class="bottomRight">
+
+                    <div class="boxContent">
+                        <table class="sponsor_detail">
+                                <tr>
+                                    <td class="labels">Contact Number:</td>
+                                    <td class="pdata">{{sponsor.contact_number}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="labels">Sponsor Acronym:</td>
+                                    <td class="pdata">{{ sponsor.sponsor_acronym }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="labels">Sponsor Name:</td>
+                                    <td class="pdata"> {{ sponsor.sponsor_name }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="labels">Sponsor Type:</td>
+                                    <td class="pdata"> {{ contact.job_title }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="labels">Country:</td>
+                                    <td class="pdata">{{ sponsor.sponsor_country }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="labels">Website:</td>
+                                    <td class="pdata">{{ sponsor.sponsor_url }}</td>
+                                </tr>
+                        </table>
+                    </div>
+
+                </div></div>
+                </div></div>
+                </div></div>
+                </div></div>
+            </div>
+    </div>
+</body>
+{% endblock %}

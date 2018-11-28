@@ -7,6 +7,7 @@ import django_tables2 as tables
 class ProjectTable(tables.Table):
     project_id = tables.Column(linkify=True)
     investigator_supported = tables.Column(linkify=True)
+    sponsor = tables.Column(linkify=True)
 
     class Meta:
         model = Project
