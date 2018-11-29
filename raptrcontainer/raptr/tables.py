@@ -1,5 +1,3 @@
-# coding: utf-8
-from __future__ import unicode_literals
 from .models import Project, Contact
 import django_tables2 as tables
 
@@ -12,7 +10,7 @@ class ProjectTable(tables.Table):
     class Meta:
         model = Project
         template_name = 'raptr/project_list.html'
-        exclude = ('id', 'sponsor', 'oar_accept_date', 'project_expiration_date', 'fund_code', 'project_notes')
+        exclude = ('id', 'sponsor', 'oar_accept_date', 'project_expiration_date', 'fund_code', 'project_notes',)
 
 
 class ContactTable(tables.Table):

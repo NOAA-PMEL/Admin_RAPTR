@@ -19,8 +19,8 @@
                     <div class="boxContent">
                         <table class="sponsor_detail">
                                 <tr>
-                                    <td class="labels">Contact Number:</td>
-                                    <td class="pdata">{{sponsor.contact_number}}</td>
+                                    <td class="labels">Customer #:</td>
+                                    <td class="pdata">{{ sponsor.customer_number }}</td>
                                 </tr>
 
                                 <tr>
@@ -35,7 +35,7 @@
 
                                 <tr>
                                     <td class="labels">Sponsor Type:</td>
-                                    <td class="pdata"> {{ contact.job_title }}</td>
+                                    <td class="pdata"> {{ sponsor.sponsor_type }}</td>
                                 </tr>
 
                                 <tr>
@@ -44,7 +44,7 @@
                                 </tr>
                                 <tr>
                                     <td class="labels">Website:</td>
-                                    <td class="pdata">{{ sponsor.sponsor_url }}</td>
+                                    <td class="pdata"><a href="{{ sponsor.sponsor_url }}">{{ sponsor.sponsor_url }}</a></td>
                                 </tr>
                         </table>
                     </div>

@@ -40,7 +40,12 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
 
 
 def project_list(request):
-    return render(request, 'project_list', {'title': 'RAPTR Project List'})
+    return render(request,
+                  'project_list',
+                  {
+                      'title': 'RAPTR Project List'
+                  }
+    )
 
 
 class FilteredContactListView(SingleTableMixin, FilterView):
@@ -59,7 +64,24 @@ class FilteredContactListView(SingleTableMixin, FilterView):
 
 
 def contact_list(request):
-    return render(request, 'contact_list', {'title': 'RAPTR Contact List'})
+    return render(request,
+                  'contact_list',
+                  {
+                      'title': 'RAPTR Contact List'
+                  }
+    )
+
+
+class FundsReceived(generic.ListView):
+    model = Project
+    template_name = 'raptr/fcfy_report.html'
+    context_object_name = 'fcfy_project_list'
+
+    def get_queryset(self):
+        all_recs = Fundfy.objects.all().prefetch_related('project_id')
+        new_funds_recs = all_recs.filter(fund_type=1)
+        fy_funds_recs = new_funds_recs.filter(fcfy='2019')
+        return fy_funds_recs
 
 
 def index(request):
@@ -85,18 +107,6 @@ def about(request):
             'message': 'PMEL RAPTR.',
         }
     )
-
-
-class FundsReceived(generic.ListView):
-    model = Project
-    template_name = 'raptr/fcfy_report.html'
-    context_object_name = 'fcfy_project_list'
-
-    def get_queryset(self):
-        all_recs = Fundfy.objects.all().prefetch_related('project_id')
-        new_funds_recs = all_recs.filter(fund_type=1)
-        fy_funds_recs = new_funds_recs.filter(fcfy='2019')
-        return fy_funds_recs
 
 
 def fcfy_report (request):

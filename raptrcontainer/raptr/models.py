@@ -5,7 +5,7 @@ from djmoney.models.fields import MoneyField
 from django.urls import reverse
 import datetime
 
-# set the year choices for the drop-downs - earliest data is from 2014
+# set the year choices for various drop-downs - earliest data is from 2014
 YEAR_CHOICES = []
 for yr in range(2014, (datetime.datetime.now().year+2)):
     YEAR_CHOICES.append((yr, str(yr)))
@@ -150,6 +150,9 @@ class Sponsor (models.Model):
     def __str__(self):
         return str(self.sponsor_name)+ ' (' + str(self.sponsor_acronym) +')'
 
+    def get_absolute_url(self):
+        return reverse('raptr:sponsor_detail', args=(self.pk,))
+
 
 # list of PMEL contacts
 class Contact(models.Model):
@@ -203,10 +206,6 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('raptr:project_detail', args=(self.pk,))
-
-    def get_absolute_url_sponsor(self):
-        return reverse('raptr:sponsor_detail', args=(self.pk,))
-
 
 class Fundfy(models.Model):
     project_id = models.ForeignKey(Project, on_delete=models.CASCADE, blank=True, null=True)
