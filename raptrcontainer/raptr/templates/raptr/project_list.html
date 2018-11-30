@@ -1,29 +1,11 @@
 {% extends "raptr/layout.html" %}
-{% load static %}
-{% load render_table from django_tables2 %}
-{% load bootstrap3 %}
 {% block content %}
 
 <body>
     <div class="container">
         {% block body %}
-
-        <h3>{% block title %}Project List{% endblock %}</h3>
-        <div class="row">
-            {% if filter %}
-                <div class="col-sm-10">
-                    <form action="" method="get" class="form form-inline">
-                        {% csrf_token %}
-                        {% bootstrap_form filter.form %}
-                        {% bootstrap_button 'filter' %}
-                    </form>
-                 </div>
-            {% endif %}
-             <br><br>
-            <div class="col-sm-10">
-               {% render_table table 'raptr/bootstrap.html'%}
-            </div>
-        </div>
+            <h3>{% block title %}Project List{% endblock %}</h3>
+            {% include 'raptr/listview.html' %}
         {% endblock %}
     </div>
 </body>

@@ -39,15 +39,6 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
         return {'template_name': 'raptr/bootstrap.html'}
 
 
-def project_list(request):
-    return render(request,
-                  'project_list',
-                  {
-                      'title': 'RAPTR Project List'
-                  }
-    )
-
-
 class FilteredContactListView(SingleTableMixin, FilterView):
     table_class = ContactTable
     model = Contact
@@ -62,14 +53,16 @@ class FilteredContactListView(SingleTableMixin, FilterView):
     def get_table_kwargs(self):
         return {'template_name': 'raptr/bootstrap.html'}
 
+    def get_context_data(self, **kwargs):
+        context = super(FilteredContactListView, self).get_context_data(**kwargs)
+        context['title'] = 'RAPTR Contact List'
+        return context
 
-def contact_list(request):
-    return render(request,
-                  'contact_list',
-                  {
-                      'title': 'RAPTR Contact List'
-                  }
-    )
+
+
+
+
+
 
 
 class FundsReceived(generic.ListView):
@@ -86,6 +79,7 @@ class FundsReceived(generic.ListView):
 
 def index(request):
     """Renders the 'home' page."""
+    assert isinstance(request, HttpRequest)
     return render(
         request,
         'raptr/index.html',
