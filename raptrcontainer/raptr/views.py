@@ -59,12 +59,6 @@ class FilteredContactListView(SingleTableMixin, FilterView):
         return context
 
 
-
-
-
-
-
-
 class FundsReceived(generic.ListView):
     model = Project
     template_name = 'raptr/fcfy_report.html'
