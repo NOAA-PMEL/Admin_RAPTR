@@ -102,13 +102,12 @@ def about(request):
     )
 
 
-def fcfy_report (request):
+def fcfy_report(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-            'fcfy_report',
-            {
-                'report_title': 'FY19 New Funds',
-            }
+        'fcfy_report',
+        {
+            'report_title': 'FY19 New Funds',
+        }
     )
-

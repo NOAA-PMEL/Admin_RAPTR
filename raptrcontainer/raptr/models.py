@@ -177,7 +177,7 @@ class Fundcodelist(models.Model):
         return self.fund_code
 
 
-# list of all of the sponsors PMEL does business with
+# table of all of the sponsors PMEL does business with
 # this model supports the Sponsor drop-down in the project view
 # foreign key is in the Project model
 class Sponsor(models.Model):
@@ -223,7 +223,8 @@ class Sponsor(models.Model):
         return reverse('raptr:sponsor_detail', args=(self.pk,))
 
 
-# list of PMEL contacts
+# table of PMEL contacts (PIs)
+# foreign key is in the Project model
 class Contact(models.Model):
     last_name = models.CharField(
         max_length=50
@@ -232,7 +233,7 @@ class Contact(models.Model):
         max_length=50
     )
     photo = models.ImageField(
-        verbose_name= 'Upload Photo',
+        verbose_name='Upload Photo',
         upload_to='photos',
         default='photos/no_photo.png',
         blank=True,
@@ -294,11 +295,13 @@ class Contact(models.Model):
         return reverse('raptr:contact_detail', args=(self.pk,))
 
     def image_tag(self):
-        return mark_safe('<img src="/media/%s" width="150" height="150" />' % (self.photo))
+        return mark_safe('<img src="/media/%s" width="150" height="150" />'
+                         % (self.photo))
 
     image_tag.short_description = 'Photo of Contact'
 
 
+# table of Advance, Reimbursable, and Proposed Projects
 class Project(models.Model):
     project_id = models.CharField(
         max_length=10,
@@ -361,8 +364,13 @@ class Project(models.Model):
         ordering = ['project_id']
 
     def __str__(self):
-        return str(self.project_id) + ' - ' + str(self.project_number) + ' -- ' + str(self.investigator_supported) + \
-               '  -  ' + str(self.sponsor)
+        return str(self.project_id) \
+               + ' - ' \
+               + str(self.project_number) \
+               + ' -- ' \
+               + str(self.investigator_supported) \
+               + '  -  ' \
+               + str(self.sponsor)
 
     def get_absolute_url(self):
         return reverse('raptr:project_detail', args=(self.pk,))
@@ -399,7 +407,13 @@ class Fundfy(models.Model):
         ordering = ['fcfy']
 
     def __str__(self):
-        return str(self.project_id) + ', ' + str(self.fund_type) + ', ' + str(self.fcfy) + ', ' + str(self.budget)
+        return str(self.project_id) \
+               + ', '\
+               + str(self.fund_type)\
+               + ', '\
+               + str(self.fcfy)\
+               + ', '\
+               + str(self.budget)
 
 
 class Fileupload(models.Model):

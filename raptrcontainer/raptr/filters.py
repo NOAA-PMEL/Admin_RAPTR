@@ -1,6 +1,5 @@
 from django_filters import FilterSet
 from .models import Project, Contact
-import django_filters
 
 
 class ProjectFilter(FilterSet):
