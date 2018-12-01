@@ -11,12 +11,12 @@ class ProjectTable(tables.Table):
         model = Project
         template_name = 'raptr/project_list.html'
         exclude = (
+            'fund_code',
             'id',
-            'sponsor',
             'oar_accept_date',
             'project_expiration_date',
-            'fund_code',
             'project_notes',
+            'sponsor',
         )
 
 
@@ -27,12 +27,12 @@ class ContactTable(tables.Table):
         model = Contact
         template_name = 'raptr/contact_list.html'
         exclude = (
-            'id',
-            'photo',
-            'job_title',
-            'opt_sub_group',
             'affiliation',
-            'location',
-            'research_program',
             'archive',
+            'id',
+            'job_title',
+            'location',
+            'opt_sub_group',
+            'photo',
+            'research_program',
         )
