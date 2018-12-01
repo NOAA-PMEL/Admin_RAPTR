@@ -1,13 +1,10 @@
 {% extends "raptr/layout.html" %}
 {% block content %}
 
-<body>
     <div class="container">
         {% block body %}
-            <h3>{% block title %}Project List{% endblock %}</h3>
             {% include 'raptr/listview.html' %}
         {% endblock %}
     </div>
-</body>
 
 {% endblock %}

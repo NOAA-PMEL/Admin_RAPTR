@@ -4,11 +4,12 @@
 {% block content %}
 
 <body>
+    <h3>{% block title %}{{ title }}{% endblock %}</h3>
     <div class="container">
         {% block body %}
         <div class="row">
             {% if filter %}
-                <div class="col-sm-10">
+                <div class="col-lg-11">
                     <form action="" method="get" class="form form-inline">
                         {% csrf_token %}
                         {% bootstrap_form filter.form %}
@@ -17,7 +18,7 @@
                  </div>
             {% endif %}
              <br><br>
-            <div class="col-sm-10">
+            <div class="col-lg-11">
                {% render_table table 'raptr/bootstrap.html'%}
             </div>
         </div>

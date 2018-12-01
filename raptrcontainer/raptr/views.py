@@ -38,6 +38,11 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
     def get_table_kwargs(self):
         return {'template_name': 'raptr/bootstrap.html'}
 
+    def get_context_data(self, **kwargs):
+        context = super(FilteredProjectListView, self).get_context_data(**kwargs)
+        context['title'] = 'RAPTR Project List'
+        return context
+
 
 class FilteredContactListView(SingleTableMixin, FilterView):
     table_class = ContactTable
