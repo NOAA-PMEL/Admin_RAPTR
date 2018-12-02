@@ -7,7 +7,7 @@ from .tables import ProjectTable, ContactTable
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpRequest
 from django.views.generic.detail import DetailView
-
+from django.views.generic import TemplateView
 
 class ProjectDetailView(DetailView):
     model = Project
@@ -76,17 +76,13 @@ class FundsReceived(generic.ListView):
         return fy_funds_recs
 
 
-def index(request):
-    """Renders the 'home' page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'raptr/index.html',
-        {
-            'title': 'RAPTR Dashboard',
-            'content': 'Welcome to RAPTR',
-        }
-    )
+class IndexView(TemplateView):
+    template_name = 'raptr/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['title'] = 'RAPTR Dashboard'
+        return context
 
 
 def about(request):
