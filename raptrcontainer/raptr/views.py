@@ -75,6 +75,10 @@ class FundsReceived(generic.ListView):
         fy_funds_recs = new_funds_recs.filter(fcfy='2019')
         return fy_funds_recs
 
+    def get_context_data(self, **kwargs):
+        context = super(FundsReceived, self).get_context_data(**kwargs)
+        context['title'] = 'RAPTR Reports'
+        return context
 
 class IndexView(TemplateView):
     template_name = 'raptr/index.html'
@@ -92,14 +96,3 @@ class AboutView(TemplateView):
         context = super(AboutView, self).get_context_data(**kwargs)
         context['title'] = 'About RAPTR'
         return context
-
-
-def fcfy_report(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'fcfy_report',
-        {
-            'report_title': 'FY19 New Funds',
-        }
-    )
