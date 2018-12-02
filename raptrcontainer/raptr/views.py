@@ -85,17 +85,13 @@ class IndexView(TemplateView):
         return context
 
 
-def about(request):
-    """Renders the about page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'raptr/about.html',
-        {
-            'title': 'About',
-            'message': 'PMEL RAPTR.',
-        }
-    )
+class AboutView(TemplateView):
+    template_name = 'raptr/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutView, self).get_context_data(**kwargs)
+        context['title'] = 'About RAPTR'
+        return context
 
 
 def fcfy_report(request):

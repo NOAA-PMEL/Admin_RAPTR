@@ -10,7 +10,7 @@ urlpatterns = [
     ),
     path(
         'about/',
-        views.about,
+        views.AboutView.as_view(),
         name='about'
     ),
     path(
