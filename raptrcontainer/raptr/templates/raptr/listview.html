@@ -9,7 +9,7 @@
         {% block body %}
         <div class="row">
             {% if filter %}
-                <div class="col-lg-11">
+                <div class="col-lg-12">
                     <form action="" method="get" class="form form-inline">
                         {% csrf_token %}
                         {% bootstrap_form filter.form %}
@@ -18,7 +18,7 @@
                  </div>
             {% endif %}
              <br><br>
-            <div class="col-lg-11">
+            <div class="col-lg-12">
                {% render_table table 'raptr/bootstrap.html'%}
             </div>
         </div>

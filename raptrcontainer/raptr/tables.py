@@ -36,3 +36,9 @@ class ContactTable(tables.Table):
             'photo',
             'research_program',
         )
+
+
+class NewFundsByDivisionTable(tables.Table):
+
+    class Meta:
+        model = Project

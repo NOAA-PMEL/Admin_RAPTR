@@ -2,10 +2,11 @@ from django.views import generic
 from .models import Project, Contact, Fundfy, Sponsor
 from .filters import ProjectFilter, ContactFilter
 from django_filters.views import FilterView
-from django_tables2 import SingleTableMixin
+from django_tables2 import SingleTableMixin, MultiTableMixin
 from .tables import ProjectTable, ContactTable
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
+
 
 class ProjectDetailView(DetailView):
     model = Project
@@ -77,6 +78,7 @@ class FundsReceived(generic.ListView):
         context = super(FundsReceived, self).get_context_data(**kwargs)
         context['title'] = 'RAPTR Reports'
         return context
+
 
 class IndexView(TemplateView):
     template_name = 'raptr/index.html'
