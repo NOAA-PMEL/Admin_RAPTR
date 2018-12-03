@@ -4,8 +4,6 @@ from .filters import ProjectFilter, ContactFilter
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
 from .tables import ProjectTable, ContactTable
-from django.shortcuts import get_object_or_404, render
-from django.http import HttpRequest
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
 

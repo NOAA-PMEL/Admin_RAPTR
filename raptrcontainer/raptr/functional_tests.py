@@ -15,7 +15,6 @@ class NewVistiorTest(unittest.TestCase):
     def test_can_access_user_view(self):
         self.browser.get('http://localhost:8000/')
         self.assertIn('RAPTR', self.browser.title)
-#        self.fail('Load of RAPTR Dashboard Failed.')
 
 
 if __name__ == '__main__':

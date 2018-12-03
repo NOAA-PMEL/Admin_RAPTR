@@ -60,3 +60,23 @@ class ProjectListPageTests(TestCase):
     def test_project_list_page_contains_correct_html(self):
         response = self.client.get(reverse('raptr:project_list'))
         self.assertContains(response, '<title>RAPTR Project List</title>')
+
+
+class AboutPageTests(TestCase):
+
+    def test_about_page_status_code(self):
+        response = self.client.get('/raptr/about')
+        self.assertEquals(response.status_code, 301)
+
+    def test_about_view_url_by_name(self):
+        response = self.client.get(reverse('raptr:about'))
+        self.assertEquals(response.status_code, 200)
+
+    def test_about_view_uses_correct_template(self):
+        response = self.client.get(reverse('raptr:about'))
+        self.assertEquals(response.status_code, 200)
+        self.assertTemplateUsed(response, 'raptr/about.html')
+
+    def test_about_page_contains_correct_html(self):
+        response = self.client.get(reverse('raptr:about'))
+        self.assertContains(response, '<title>About RAPTR</title>')
