@@ -307,23 +307,27 @@ class Project(models.Model):
         max_length=10,
         unique=True,
         blank=True,
-        null=True
+        null=True,
+        verbose_name='Project ID'
     )
     project_number = models.CharField(
         max_length=20,
         unique=True,
         blank=True,
-        null=True
+        null=True,
+        verbose_name='Project Number'
     )
     project_title = models.CharField(
         max_length=200,
-        blank=True
+        blank=True,
+        verbose_name='Project Title'
     )
     investigator_supported = models.ForeignKey(
         Contact,
         on_delete=models.CASCADE,
         blank=True,
-        null=True
+        null=True,
+        verbose_name='Investigator Supported'
     )
     sponsor = models.ForeignKey(
         Sponsor,

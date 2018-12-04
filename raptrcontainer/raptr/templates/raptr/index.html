@@ -7,4 +7,37 @@
   <img src="{% static 'raptr/images/App_RA.png' %}">
   <img src="{% static 'raptr/images/New_RA_5yr.png' %}">
 
+  <div class = "list">
+        <h2>FY19 New Funds Received</h2>
+        <table style="width:30%" id="t01">
+          <tr>
+            <th>Project ID</th>
+            <th>Project #</th>
+            <th>FC Fiscal Year</th>
+            <th>Funds Received</th>
+            <th>Funds Type</th>
+          </tr>
+        {% if fcfy_project_list %}
+            <ul>
+            {% for project in fcfy_project_list %}
+                 <tr>
+                     <td>{{ project.project_id.project_id }}</td>
+                     <td>{{ project.project_id.project_number}}</td>
+                     <td>{{ project.fcfy}}</td>
+                     <td>{{ project.budget }}</td>
+                     <td>{{ project.fund_type }}</td>
+                 </tr>
+            {% endfor %}
+                <tr>
+                    <td colspan="3"><strong>Total</strong></td>
+                    <td><strong>{{ total_received }}</strong></td>
+                    <td></td>
+                </tr>
+            </ul>
+        {% else %}
+            <p>No projects are available.</p>
+        {% endif %}
+        </table>
+    </div>
+
 {% endblock %}
