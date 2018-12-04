@@ -4,7 +4,7 @@ import time
 import unittest
 
 
-class NewVistiorTest(unittest.TestCase):
+class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
