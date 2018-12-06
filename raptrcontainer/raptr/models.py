@@ -370,11 +370,11 @@ class Project(models.Model):
     def __str__(self):
         return str(self.project_id) \
                + ' - ' \
-               + str(self.project_number) \
-               + ' -- ' \
-               + str(self.investigator_supported) \
-               + '  -  ' \
-               + str(self.sponsor)
+               + str(self.project_number)
+               # + ' -- ' \
+               # + str(self.investigator_supported) \
+               # + '  -  ' \
+               # + str(self.sponsor)
 
     def get_absolute_url(self):
         return reverse('raptr:project_detail', args=(self.pk,))

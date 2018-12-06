@@ -3,9 +3,10 @@ from .models import Project, Contact, Fundfy, Sponsor
 from .filters import ProjectFilter, ContactFilter
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin, MultiTableMixin
-from .tables import ProjectTable, ContactTable
+from .tables import ProjectTable, ContactTable, NewFundsTable
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
+from django.db.models import Sum
 
 
 class ProjectDetailView(DetailView):
@@ -80,20 +81,20 @@ class FundsReceived(generic.ListView):
         return context
 
 
-class IndexView(generic.ListView):
+class IndexView(MultiTableMixin, TemplateView):
+    table_class = NewFundsTable
+    model = Fundfy
     template_name = 'raptr/index.html'
-    context_object_name = 'fcfy_project_list'
 
-    def get_queryset(self):
+    def get_tables(self):
         all_recs = Fundfy.objects.all().prefetch_related('project_id')
         new_funds_recs = all_recs.filter(fund_type=1)
         fy_funds_recs = new_funds_recs.filter(fcfy='2019')
-        return fy_funds_recs
+        return [NewFundsTable(fy_funds_recs)]
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['title'] = 'RAPTR Dashboard'
-        context['total_received'] = '$20,976.00'
         return context
 
 

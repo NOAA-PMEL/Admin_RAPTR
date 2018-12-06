@@ -1,4 +1,4 @@
-from .models import Project, Contact
+from .models import Project, Contact, Fundfy
 import django_tables2 as tables
 
 
@@ -38,7 +38,20 @@ class ContactTable(tables.Table):
         )
 
 
-class NewFundsByDivisionTable(tables.Table):
+class NewFundsTable(tables.Table):
+    project_id = tables.Column(linkify=True)
+    fcfy = tables.Column(footer='Total:')
 
     class Meta:
-        model = Project
+        model = Fundfy
+        template_name = 'raptr/index.html'
+        exclude = (
+            'fund_code',
+            'id',
+            'oar_accept_date',
+            'project_expiration_date',
+            'project_notes',
+            'sponsor',
+            'budget_currency',
+            'fund_type'
+        )
