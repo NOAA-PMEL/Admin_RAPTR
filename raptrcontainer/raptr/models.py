@@ -232,13 +232,6 @@ class Contact(models.Model):
     first_name = models.CharField(
         max_length=50
     )
-    photo = models.ImageField(
-        verbose_name='Upload Photo',
-        upload_to='photos',
-        default='photos/no_photo.png',
-        blank=True,
-        null=True
-    )
     email_address = models.EmailField(
         blank=True,
         null=True
@@ -284,6 +277,13 @@ class Contact(models.Model):
         null=True,
         default=False
     )
+    photo = models.ImageField(
+        verbose_name='Upload Photo',
+        upload_to='photos',
+        default='photos/no_photo.png',
+        blank=True,
+        null=True
+    )
 
     class Meta:
         ordering = ['last_name']
@@ -327,7 +327,8 @@ class Project(models.Model):
         on_delete=models.CASCADE,
         blank=True,
         null=True,
-        verbose_name='Investigator Supported'
+        verbose_name='Investigator Supported',
+        related_name='working_projects'
     )
     sponsor = models.ForeignKey(
         Sponsor,

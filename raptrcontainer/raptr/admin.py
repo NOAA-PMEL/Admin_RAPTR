@@ -4,22 +4,26 @@ from .models import Contact, Project, Division, Sponsor, Sponsortype, Program,\
     Location, Fileupload, Filecatlist
 
 
+@admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    fields = [
-        'first_name',
+    list_display = (
         'last_name',
-        'job_title',
-        'email_address',
-        'phone_number',
+        'first_name',
         'division',
-        'opt_sub_group',
         'research_program',
-        'affiliation',
-        'location',
-        'image_tag',
-        'photo',
-        'archive',
-    ]
+    )
+    list_filter = (
+        'division',
+        'research_program'
+    )
+    search_fields = (
+        'last_name',
+        'first_name'
+    )
+    ordering = (
+        'last_name',
+        'first_name'
+    )
     readonly_fields = [
         'image_tag',
     ]
@@ -42,24 +46,36 @@ class FundfyInLine(admin.StackedInline):
     extra = 0
 
 
+@admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    fields = [
+    list_display = (
         'year_proposed',
         'project_id',
         'project_number',
         'project_title',
         'investigator_supported',
         'sponsor',
-        'fund_code',
         'status',
-        'oar_accept_date',
-        'project_expiration_date',
-        'project_notes',
-    ]
-    inlines = [
+    )
+    list_filter = (
+        'year_proposed',
+        'status'
+    )
+    search_fields = (
+        'project_id',
+        'project_number',
+    )
+    ordering = (
+        'project_id',
+        'project_number'
+    )
+    raw_id_fields = (
+        'investigator_supported',
+    )
+    inlines = (
         FundfyInLine,
         FileuploadInLine
-    ]
+    )
 
 
 class DivisionAdmin(admin.ModelAdmin):
@@ -69,16 +85,22 @@ class DivisionAdmin(admin.ModelAdmin):
     ]
 
 
+@admin.register(Sponsor)
 class SponsorAdmin(admin.ModelAdmin):
-    fields = [
-        'customer_number',
+    list_display = (
         'sponsor_acronym',
         'sponsor_name',
         'sponsor_type',
         'sponsor_country',
-        'sponsor_url',
-    ]
-
+    )
+    list_filter = (
+        'sponsor_type',
+        'sponsor_country'
+    )
+    search_fields = (
+        'sponsor_acronym',
+        'sponsor_name'
+    )
 
 class SponsortypeAdmin(admin.ModelAdmin):
     fields = [
@@ -151,10 +173,7 @@ class FilecatlistAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Contact, ContactAdmin)
-admin.site.register(Project, ProjectAdmin)
 admin.site.register(Division, DivisionAdmin)
-admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(Sponsortype, SponsortypeAdmin)
 admin.site.register(Program, ProgramAdmin)
 admin.site.register(Country, CountryAdmin)
