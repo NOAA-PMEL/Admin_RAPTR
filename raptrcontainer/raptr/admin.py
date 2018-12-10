@@ -11,10 +11,12 @@ class ContactAdmin(admin.ModelAdmin):
         'first_name',
         'division',
         'research_program',
+        'active'
     )
     list_filter = (
         'division',
-        'research_program'
+        'research_program',
+        'active'
     )
     search_fields = (
         'last_name',

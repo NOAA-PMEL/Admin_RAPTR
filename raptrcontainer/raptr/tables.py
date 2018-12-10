@@ -28,7 +28,7 @@ class ContactTable(tables.Table):
         template_name = 'raptr/contact_list.html'
         exclude = (
             'affiliation',
-            'archive',
+            'active',
             'id',
             'job_title',
             'location',

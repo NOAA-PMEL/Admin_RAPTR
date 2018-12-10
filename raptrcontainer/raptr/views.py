@@ -53,7 +53,7 @@ class FilteredContactListView(SingleTableMixin, FilterView):
     paginate_by = 12
 
     def get_queryset(self):
-        return super(FilteredContactListView, self).get_queryset().all()
+        return super(FilteredContactListView, self).get_queryset().filter(active=True)
 
     def get_table_kwargs(self):
         return {'template_name': 'raptr/bootstrap.html'}

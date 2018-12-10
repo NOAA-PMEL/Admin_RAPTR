@@ -273,9 +273,8 @@ class Contact(models.Model):
         blank=True,
         null=True
     )
-    archive = models.BooleanField(
-        null=True,
-        default=False
+    active = models.BooleanField(
+        default=True
     )
     photo = models.ImageField(
         verbose_name='Upload Photo',
