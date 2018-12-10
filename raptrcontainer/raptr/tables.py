@@ -1,6 +1,6 @@
 from .models import Project, Contact, Fundfy
 import django_tables2 as tables
-
+from django.db.models import Sum
 
 class ProjectTable(tables.Table):
     project_id = tables.Column(linkify=True)
@@ -39,13 +39,14 @@ class ContactTable(tables.Table):
 
 
 class NewFundsTable(tables.Table):
-    project_id = tables.Column(linkify=True)
-    fcfy = tables.Column(footer='Total:')
+    project_id = tables.Column(linkify=True, footer='Total:')
+    budget = tables.Column(footer=lambda table: sum(x.budget for x in table.data), attrs={"td": {"align": "right"}})
 
     class Meta:
         model = Fundfy
         template_name = 'raptr/index.html'
         exclude = (
+            'fcfy',
             'fund_code',
             'id',
             'oar_accept_date',

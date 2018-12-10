@@ -73,6 +73,7 @@ class FundsReceived(generic.ListView):
         all_recs = Fundfy.objects.all().prefetch_related('project_id')
         new_funds_recs = all_recs.filter(fund_type=1)
         fy_funds_recs = new_funds_recs.filter(fcfy='2019')
+
         return fy_funds_recs
 
     def get_context_data(self, **kwargs):
