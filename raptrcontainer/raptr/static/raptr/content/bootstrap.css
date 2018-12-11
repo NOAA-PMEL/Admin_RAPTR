@@ -1439,6 +1439,10 @@ th {
   border-top: 1px solid #dddddd;
 }
 
+.table tfoot > tr > td {
+  text-align: right;
+}
+
 .table thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #dddddd;
