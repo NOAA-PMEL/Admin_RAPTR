@@ -78,9 +78,7 @@ class IndexView(MultiTableMixin, TemplateView):
     template_name = 'raptr/index.html'
 
     def get_tables(self):
-        all_recs = Fundfy.objects.all().prefetch_related('project_id')
-        new_funds_recs = all_recs.filter(fund_type=1)
-        fy_funds_recs = new_funds_recs.filter(fcfy='2019')
+        fy_funds_recs = Fundfy.objects.all().prefetch_related('project_id').filter(fund_type=1).filter(fcfy='2019')
         return [NewFundsTable(fy_funds_recs)]
 
     def get_context_data(self, **kwargs):
