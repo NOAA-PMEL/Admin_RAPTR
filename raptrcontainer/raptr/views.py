@@ -6,7 +6,6 @@ from django_tables2 import SingleTableMixin, MultiTableMixin
 from .tables import ProjectTable, ContactTable, NewFundsTable
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
-from django.db.models import Sum
 
 
 class ProjectDetailView(DetailView):
@@ -64,20 +63,11 @@ class FilteredContactListView(SingleTableMixin, FilterView):
         return context
 
 
-class FundsReceived(generic.ListView):
-    model = Project
-    template_name = 'raptr/fcfy_report.html'
-    context_object_name = 'fcfy_project_list'
-
-    def get_queryset(self):
-        all_recs = Fundfy.objects.all().prefetch_related('project_id')
-        new_funds_recs = all_recs.filter(fund_type=1)
-        fy_funds_recs = new_funds_recs.filter(fcfy='2019')
-
-        return fy_funds_recs
+class ReportView(generic.TemplateView):
+    template_name = 'raptr/reports.html'
 
     def get_context_data(self, **kwargs):
-        context = super(FundsReceived, self).get_context_data(**kwargs)
+        context = super(ReportView, self).get_context_data(**kwargs)
         context['title'] = 'RAPTR Reports'
         return context
 

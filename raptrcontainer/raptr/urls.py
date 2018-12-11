@@ -5,8 +5,8 @@ app_name = 'raptr'
 urlpatterns = [
     path(
         'report/',
-        views.FundsReceived.as_view(),
-        name='fcfy_report'
+        views.ReportView.as_view(),
+        name='reports'
     ),
     path(
         'about/',

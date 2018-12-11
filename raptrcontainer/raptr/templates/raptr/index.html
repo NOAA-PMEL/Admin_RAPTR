@@ -4,16 +4,13 @@
 {% load static %}
 
 {% block content %}
-
-  <span class="message">{{ message }}</span>
-
   <span>
-    <img src="{% static 'raptr/images/New_RA_5yr.png' %}">
-  </span>
-  <span>
+    <h3>Fiscal Year 2019 New Funds</h3>
     {% for table in tables %}
       <div class="col-sm-3">{% render_table table 'raptr/semantic.html' %}</div>
     {% endfor %}
   </span>
-
+  <span>
+    <img src="{% static 'raptr/images/New_RA_5yr.png' %}">
+  </span>
 {% endblock %}
