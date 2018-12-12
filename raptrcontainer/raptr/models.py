@@ -177,6 +177,7 @@ class Fundcodelist(models.Model):
         return self.fund_code
 
 
+# TODO: Add slug field
 # table of all of the sponsors PMEL does business with
 # this model supports the Sponsor drop-down in the project view
 # foreign key is in the Project model
@@ -223,6 +224,7 @@ class Sponsor(models.Model):
         return reverse('raptr:sponsor_detail', args=(self.pk,))
 
 
+# TODO: Add slug field
 # table of PMEL contacts (PIs)
 # foreign key is in the Project model
 class Contact(models.Model):
@@ -243,11 +245,13 @@ class Contact(models.Model):
     phone_number = PhoneField(
         blank=True
     )
+    # TODO: Should this be hard coded?
     division = models.ForeignKey(
         Division,
         on_delete=models.DO_NOTHING,
         blank=True,
-        null=True
+        null=True,
+        related_name='division'
     )
     opt_sub_group = models.ForeignKey(
         Optsub,
@@ -300,6 +304,7 @@ class Contact(models.Model):
     image_tag.short_description = 'Photo of Contact'
 
 
+# TODO: Add slug field
 # table of Advance, Reimbursable, and Proposed Projects
 class Project(models.Model):
     project_id = models.CharField(
@@ -327,7 +332,7 @@ class Project(models.Model):
         blank=True,
         null=True,
         verbose_name='Investigator Supported',
-        related_name='working_projects'
+        related_name='contact'
     )
     sponsor = models.ForeignKey(
         Sponsor,
@@ -381,7 +386,7 @@ class Fundfy(models.Model):
         Project,
         on_delete=models.CASCADE,
         blank=True,
-        null=True
+        null=True,
     )
     fcfy = models.CharField(
         max_length=10,
