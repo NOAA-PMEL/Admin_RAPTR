@@ -321,6 +321,10 @@ class Project(models.Model):
         null=True,
         verbose_name='Project Number'
     )
+    project_slug = models.SlugField(
+        max_length=20,
+        default=''
+    )
     project_title = models.CharField(
         max_length=200,
         blank=True,
