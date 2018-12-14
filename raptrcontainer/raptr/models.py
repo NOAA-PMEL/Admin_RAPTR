@@ -287,6 +287,10 @@ class Contact(models.Model):
         blank=True,
         null=True
     )
+    slug = models.SlugField(
+        unique=True,
+        max_length=100
+    )
 
     class Meta:
         ordering = ['last_name']
@@ -304,7 +308,6 @@ class Contact(models.Model):
     image_tag.short_description = 'Photo of Contact'
 
 
-# TODO: Add slug field
 # table of Advance, Reimbursable, and Proposed Projects
 class Project(models.Model):
     project_id = models.CharField(
@@ -321,9 +324,9 @@ class Project(models.Model):
         null=True,
         verbose_name='Project Number'
     )
-    project_slug = models.SlugField(
-        max_length=20,
-        default=''
+    slug = models.SlugField(
+        unique=True,
+        max_length=10,
     )
     project_title = models.CharField(
         max_length=200,
@@ -382,7 +385,7 @@ class Project(models.Model):
                + str(self.project_number)
 
     def get_absolute_url(self):
-        return reverse('raptr:project_detail', args=(self.pk,))
+        return reverse('raptr:project_detail', kwargs={'slug': self.slug})
 
 
 class Fundfy(models.Model):

@@ -75,7 +75,7 @@ class ProjectAdmin(admin.ModelAdmin):
         'investigator_supported',
     )
     prepopulated_fields = {
-        'project_slug': ('project_number',)
+        'slug': ('project_id',)
     }
     inlines = (
         FundfyInLine,

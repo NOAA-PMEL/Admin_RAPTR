@@ -24,7 +24,7 @@ urlpatterns = [
         name='contact_list'
     ),
     path(
-        'project/<int:pk>/',
+        'project/<slug:slug>/',
         views.ProjectDetailView.as_view(),
         name='project_detail'
     ),

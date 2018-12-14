@@ -16,7 +16,7 @@ class ProjectTable(tables.Table):
             'oar_accept_date',
             'project_expiration_date',
             'project_notes',
-            'project_slug',
+            'slug',
             'sponsor',
         )
 
