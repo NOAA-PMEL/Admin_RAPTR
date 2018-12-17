@@ -25,10 +25,6 @@ admin.autodiscover()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('raptr/', include('raptr.urls')),
-    path('login', LoginView.as_view(template_name='raptr/login.html'),
-         name="login"),
-    path('logout', LogoutView.as_view(template_name='raptr/logout.html'),
-         name="logout"),
     path('', RedirectView.as_view(url='/raptr/', permanent=True)),
 ]
 

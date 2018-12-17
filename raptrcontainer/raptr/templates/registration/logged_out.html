@@ -1,0 +1,6 @@
+﻿{% extends "raptr/base.html" %}
+{% block title %}Logged out{% endblock %}
+{% block content %}
+  <h3>You have been logged off</h3>
+  <p>You have been successfully logged out. You can <a href="{% url 'raptr:login' %}">Log-in again</a>.</p>
+{% endblock %}

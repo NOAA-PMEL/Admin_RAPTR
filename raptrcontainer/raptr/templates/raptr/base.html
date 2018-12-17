@@ -20,7 +20,20 @@
             <li><a href="{% url 'raptr:reports' %}" class="navbar-item">Reports</a></li>
             <li><a href="{% url 'raptr:about' %}" class="navbar-item">About</a></li>
         </ul>
-        {% include 'raptr/loginpartial.html' %}
+
+        <ul class="nav navbar-nav navbar-right">
+        {% if request.user.is_authenticated%}
+            <li><a href="/admin">Administration</a></li>
+        {% endif %}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if request.user.is_authenticated %}
+            <li><a href = "">Hello, {{ request.user.first_name }}</a></li>
+            <li><a href="{% url 'raptr:logout' %}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'raptr:login' %}">Log-in</a></li>
+          {% endif %}
+          </ul>
     </div>
 
     <div class="body-content">
