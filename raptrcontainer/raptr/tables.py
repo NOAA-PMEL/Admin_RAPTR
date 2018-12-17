@@ -36,6 +36,7 @@ class ContactTable(tables.Table):
             'opt_sub_group',
             'photo',
             'research_program',
+            'slug',
         )
 
 

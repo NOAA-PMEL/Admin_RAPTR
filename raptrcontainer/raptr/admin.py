@@ -26,6 +26,9 @@ class ContactAdmin(admin.ModelAdmin):
         'last_name',
         'first_name'
     )
+    prepopulated_fields = {
+        'slug': ('last_name', 'first_name')
+    }
     readonly_fields = [
         'image_tag',
     ]

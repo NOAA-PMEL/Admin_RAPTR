@@ -12,6 +12,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm
 
+
 class ProjectDetailView(DetailView):
     model = Project
     template_name = 'raptr/project_detail.html'
@@ -82,7 +83,7 @@ class IndexView(MultiTableMixin, TemplateView):
     template_name = 'raptr/index.html'
 
     def get_tables(self):
-        fy_funds_received = Fundfy.objects.filter(fcfy="2019", fund_type = 1)
+        fy_funds_received = Fundfy.objects.filter(fcfy="2019", fund_type = 1).order_by('project_id')
         return [NewFundsTable(fy_funds_received)]
 
     def get_context_data(self, **kwargs):

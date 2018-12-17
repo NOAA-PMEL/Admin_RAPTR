@@ -4,6 +4,7 @@ from phone_field import PhoneField
 from djmoney.models.fields import MoneyField
 from django.urls import reverse
 import datetime
+from django.utils import timezone
 
 # set the year choices for various drop-downs - earliest data is from 2014
 YEAR_CHOICES = []
@@ -289,7 +290,7 @@ class Contact(models.Model):
     )
     slug = models.SlugField(
         unique=True,
-        max_length=100
+        max_length=100,
     )
 
     class Meta:
@@ -299,7 +300,7 @@ class Contact(models.Model):
         return str(self.last_name) + ', ' + str(self.first_name)
 
     def get_absolute_url(self):
-        return reverse('raptr:contact_detail', args=(self.pk,))
+        return reverse('raptr:contact_detail', kwargs={'slug': self.slug})
 
     def image_tag(self):
         return mark_safe('<img src="/media/%s" width="150" height="150" />'
