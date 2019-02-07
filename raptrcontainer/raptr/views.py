@@ -32,6 +32,7 @@ class ContactDetailView(DetailView):
         context['title'] = 'Contact Detail'
         return context
 
+
 class SponsorDetailView(DetailView):
     model = Sponsor
     template_name = 'raptr/sponsor_detail.html'
@@ -126,8 +127,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated '\
-                                        'successfully')
+                    return HttpResponse('Authenticated successfully')
                 else:
                     return HttpResponse('Disabled account')
             else:
