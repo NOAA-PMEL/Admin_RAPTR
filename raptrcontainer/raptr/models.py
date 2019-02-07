@@ -372,7 +372,7 @@ class Project(models.Model):
         blank=True
     )
     year_proposed = models.IntegerField(
-        verbose_name='FY Proposed',
+        verbose_name='FY Submitted',
         choices=YEAR_CHOICES,
         default=datetime.datetime.now().year
     )

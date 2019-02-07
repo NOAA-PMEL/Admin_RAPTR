@@ -54,13 +54,13 @@ class FundfyInLine(admin.StackedInline):
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = (
-        'year_proposed',
         'project_id',
         'project_number',
         'project_title',
         'investigator_supported',
         'sponsor',
         'status',
+        'year_proposed',
     )
     list_filter = (
         'year_proposed',
