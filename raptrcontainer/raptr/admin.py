@@ -110,6 +110,7 @@ class SponsorAdmin(admin.ModelAdmin):
         'sponsor_name'
     )
 
+
 class SponsortypeAdmin(admin.ModelAdmin):
     fields = [
         'sponsor_type',

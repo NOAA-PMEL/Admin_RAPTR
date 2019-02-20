@@ -11,6 +11,20 @@ YEAR_CHOICES = []
 for yr in range(2014, (datetime.datetime.now().year + 2)):
     YEAR_CHOICES.append((yr, str(yr)))
 
+GRADE_CHOICES = (
+    ('ZA', 'ZA'),
+    ('ZP', 'ZP'),
+    ('ZS', 'ZS'),
+    ('ZT', 'ZT'),
+    ('ST', 'ST'),
+    ('GS', 'GS'),
+    ('WG', 'WG'),
+)
+
+FLSA_CHOICES =(
+    ('E', 'E'),
+    ('N', 'N'),
+)
 
 # support table for the file category drop-down in the projects view
 # foreign key is in the Project model
@@ -229,6 +243,14 @@ class Sponsor(models.Model):
 # table of PMEL contacts (PIs)
 # foreign key is in the Project model
 class Contact(models.Model):
+    position_billet = models.CharField(
+        max_length=10,
+        blank=True
+    )
+    position_id = models.CharField(
+        max_length=12,
+        blank=True
+    )
     last_name = models.CharField(
         max_length=50
     )
@@ -241,6 +263,28 @@ class Contact(models.Model):
     )
     job_title = models.CharField(
         max_length=50,
+        blank=True
+    )
+    job_series = models.CharField(
+        max_length=4,
+        blank=True
+    )
+    pay_plan = models.CharField(
+        max_length=4,
+        choices=GRADE_CHOICES,
+        blank=True
+    )
+    employee_band = models.CharField(
+        max_length=4,
+        blank=True
+    )
+    employee_interval = models.CharField(
+        max_length=4,
+        blank=True
+    )
+    flsa_status = models.CharField(
+        max_length=4,
+        choices=FLSA_CHOICES,
         blank=True
     )
     phone_number = PhoneField(

@@ -30,11 +30,18 @@ class ContactTable(tables.Table):
         exclude = (
             'affiliation',
             'active',
+            'employee_band',
+            'employee_interval',
             'id',
             'job_title',
+            'job_series',
+            'pay_plan',
             'location',
             'opt_sub_group',
             'photo',
+            'position_billet',
+            'position_id',
+            'flsa_status',
             'research_program',
             'slug',
         )
