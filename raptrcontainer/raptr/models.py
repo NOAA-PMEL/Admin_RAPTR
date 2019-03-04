@@ -239,13 +239,12 @@ class Sponsor(models.Model):
         return reverse('raptr:sponsor_detail', args=(self.pk,))
 
 
-# TODO: Add slug field
 # table of PMEL contacts (PIs)
 # foreign key is in the Project model
 class Contact(models.Model):
     position_billet = models.CharField(
         max_length=10,
-        blank=True
+        blank=True,
     )
     position_id = models.CharField(
         max_length=12,
@@ -265,13 +264,13 @@ class Contact(models.Model):
         max_length=50,
         blank=True
     )
-    job_series = models.CharField(
-        max_length=4,
-        blank=True
-    )
     pay_plan = models.CharField(
         max_length=4,
         choices=GRADE_CHOICES,
+        blank=True
+    )
+    job_series = models.CharField(
+        max_length=4,
         blank=True
     )
     employee_band = models.CharField(
