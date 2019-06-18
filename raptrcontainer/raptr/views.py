@@ -1,5 +1,5 @@
 from django.views import generic
-from .models import Project, Contact, Fundfy, Sponsor, Division
+from .models import Project, Contact, Fundfy, Sponsor
 from .filters import ProjectFilter, ContactFilter
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin, MultiTableMixin

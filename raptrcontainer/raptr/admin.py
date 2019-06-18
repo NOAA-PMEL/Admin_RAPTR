@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact, Project, Division, Sponsor, Sponsortype, Program,\
+from .models import Contact, Project, Sponsor, Sponsortype, Program,\
     Country, Affiliation, Status, Fundfy, Fundtype, Fundcodelist, Optsub,\
     Location, Fileupload, Filecatlist
 
@@ -86,13 +86,6 @@ class ProjectAdmin(admin.ModelAdmin):
         FundfyInLine,
         FileuploadInLine
     )
-
-
-class DivisionAdmin(admin.ModelAdmin):
-    fields = [
-        'division_name',
-        'division_description',
-    ]
 
 
 @admin.register(Sponsor)
@@ -184,7 +177,6 @@ class FilecatlistAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Division, DivisionAdmin)
 admin.site.register(Sponsortype, SponsortypeAdmin)
 admin.site.register(Program, ProgramAdmin)
 admin.site.register(Country, CountryAdmin)

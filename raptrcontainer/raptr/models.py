@@ -17,6 +17,7 @@ GRADE_CHOICES = (
     ('ZS', 'ZS'),
     ('ZT', 'ZT'),
     ('ST', 'ST'),
+    ('ES', 'ES'),
     ('GS', 'GS'),
     ('WG', 'WG'),
 )
@@ -24,6 +25,15 @@ GRADE_CHOICES = (
 FLSA_CHOICES =(
     ('E', 'E'),
     ('N', 'N'),
+)
+
+DIVISION_CHOICES = (
+    ('AD', 'AD'),
+    ('CS', 'CS'),
+    ('ED', 'ED'),
+    ('OC', 'OC'),
+    ('OD', 'OD'),
+    ('OE', 'OE'),
 )
 
 # support table for the file category drop-down in the projects view
@@ -104,21 +114,6 @@ class Program(models.Model):
 
     def __str__(self):
         return self.program_short_name
-
-
-# support table for the Division drop-down in the contacts view
-# foreign key is in the Contact model
-class Division(models.Model):
-    division_name = models.CharField(
-        max_length=10,
-        blank=True
-    )
-    division_description = models.CharField(
-        max_length=50
-    )
-
-    def __str__(self):
-        return self.division_name
 
 
 # support table for the Affiliation drop-down in the contacts view
@@ -289,13 +284,10 @@ class Contact(models.Model):
     phone_number = PhoneField(
         blank=True
     )
-    # TODO: Should this be hard coded?
-    division = models.ForeignKey(
-        Division,
-        on_delete=models.DO_NOTHING,
+    division = models.CharField(
+        max_length=4,
+        choices=DIVISION_CHOICES,
         blank=True,
-        null=True,
-        related_name='division'
     )
     opt_sub_group = models.ForeignKey(
         Optsub,
