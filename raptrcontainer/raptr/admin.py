@@ -104,8 +104,9 @@ class SponsorAdmin(admin.ModelAdmin):
         'sponsor_acronym',
         'sponsor_name'
     )
-
-
+    prepopulated_fields = {
+        'slug': ('sponsor_acronym',)
+    }
 class SponsortypeAdmin(admin.ModelAdmin):
     fields = [
         'sponsor_type',

@@ -62,7 +62,7 @@ urlpatterns = [
         name='contact_detail'
     ),
     path(
-        'sponsor/<int:pk>/',
+        'sponsor/<slug:slug>/',
         views.SponsorDetailView.as_view(),
         name='sponsor_detail'
     )

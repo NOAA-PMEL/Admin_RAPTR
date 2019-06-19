@@ -220,7 +220,13 @@ class Sponsor(models.Model):
     )
     sponsor_url = models.URLField(
         max_length=200,
-        blank=True)
+        blank=True
+    )
+
+    slug = models.SlugField(
+        unique=True,
+        max_length=10,
+    )
 
     class Meta:
         verbose_name = 'Sponsor'
@@ -231,7 +237,7 @@ class Sponsor(models.Model):
         return str(self.sponsor_name) + ' (' + str(self.sponsor_acronym) + ')'
 
     def get_absolute_url(self):
-        return reverse('raptr:sponsor_detail', args=(self.pk,))
+        return reverse('raptr:sponsor_detail', kwargs={'slug': self.slug})
 
 
 # table of PMEL contacts (PIs)
