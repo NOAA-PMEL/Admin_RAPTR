@@ -45,7 +45,7 @@ class Crada (models.Model):
         verbose_name='Project Title'
     )
     collaborator = models.ForeignKey(
-        'raptr:Sponsor',
+        'raptr.Sponsor',
         on_delete=models.DO_NOTHING,
         blank=True,
         null=True
@@ -55,7 +55,7 @@ class Crada (models.Model):
         blank=True
     )
     noaa_pi = models.ForeignKey(
-        'raptr:Contact',
+        'raptr.Contact',
         on_delete=models.DO_NOTHING,
         verbose_name='NOAA PI',
         blank=True,
@@ -69,4 +69,8 @@ class Crada (models.Model):
     partner_contact = models.CharField(
         max_length=50,
         blank=True
+    )
+    slug = models.SlugField(
+        unique=True,
+        max_length=50,
     )
