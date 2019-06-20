@@ -1,9 +1,11 @@
+import datetime
+
 from django.db import models
 from django.utils.safestring import mark_safe
 from phone_field import PhoneField
 from djmoney.models.fields import MoneyField
 from django.urls import reverse
-import datetime
+
 from django.utils import timezone
 
 # set the year choices for various drop-downs - earliest data is from 2014
