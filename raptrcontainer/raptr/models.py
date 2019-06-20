@@ -187,7 +187,6 @@ class Fundcodelist(models.Model):
         return self.fund_code
 
 
-# TODO: Add slug field
 # table of all of the sponsors PMEL does business with
 # this model supports the Sponsor drop-down in the project view
 # foreign key is in the Project model
