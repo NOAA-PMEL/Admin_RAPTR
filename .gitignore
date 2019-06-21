@@ -164,7 +164,10 @@ atlassian-ide-plugin.xml
 
 \.idea/misc\.xml
 
-raptrcontainer/raptr/migrations/
+/raptrcontainer/raptr/migrations/
 .idea/encodings.xml
 .idea/vcs.xml
-raptrcontainer/shared/static/raptr/migrations/
+/raptrcontainer/shared/migrations/
+/raptrcontainer/crada/migrations/
+/raptrcontainer/proposal/migrations/
+/raptrcontainer/raptr/static
