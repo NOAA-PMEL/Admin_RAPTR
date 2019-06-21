@@ -1,6 +1,6 @@
 from raptr.models import Contact, Sponsor
-
 from django.views.generic.detail import DetailView
+from django.views.generic import TemplateView
 
 
 class ContactDetailView(DetailView):
@@ -20,4 +20,13 @@ class SponsorDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(SponsorDetailView, self).get_context_data(**kwargs)
         context['title'] = 'Sponsor Detail'
+        return context
+
+
+class AboutView(TemplateView):
+    template_name = 'shared/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutView, self).get_context_data(**kwargs)
+        context['title'] = 'About RAPTR'
         return context

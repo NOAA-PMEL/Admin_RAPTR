@@ -15,13 +15,13 @@
     <div class="navbar">
         <ul class="nav navbar-nav">
             <li><a href="/raptr" class="navbar-item">RAPTR Dashboard</a></li>
-            <li><a href="/raptr" class="navbar-item">Reimbursable & Advance</a></li>
+            <li><a href="{% url 'raptr:project_list' %}" class="navbar-item">Reimbursable & Advance</a></li>
             <li><a href="" class="navbar-item">CRADA</a></li>
             <li><a href="" class="navbar-item">Proposals</a></li>
-            <li><a href="{% url 'raptr:project_list' %}" class="navbar-item">Project List</a></li>
+<!--            <li><a href="{% url 'raptr:project_list' %}" class="navbar-item">Project List</a></li>-->
             <li><a href="{% url 'raptr:contact_list' %}" class="navbar-item">Contact List</a></li>
             <li><a href="{% url 'raptr:reports' %}" class="navbar-item">Reports</a></li>
-            <li><a href="{% url 'raptr:about' %}" class="navbar-item">About</a></li>
+            <li><a href="{% url 'shared:about' %}" class="navbar-item">About</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

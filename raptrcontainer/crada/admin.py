@@ -5,8 +5,8 @@ from .models import Crada
 @admin.register(Crada)
 class CradaAdmin(admin.ModelAdmin):
     list_display = (
-        'noaa_pi',
         'docket_number',
+        'noaa_pi',
         'project_status',
         'activity_phase',
         'project_title',

@@ -14,4 +14,10 @@ urlpatterns = [
         views.SponsorDetailView.as_view(),
         name='sponsor_detail'
     ),
+
+    path(
+        'about/',
+        views.AboutView.as_view(),
+        name='about'
+    ),
 ]

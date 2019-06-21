@@ -87,15 +87,6 @@ class IndexView(MultiTableMixin, TemplateView):
         return context
 
 
-class AboutView(TemplateView):
-    template_name = 'raptr/about.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(AboutView, self).get_context_data(**kwargs)
-        context['title'] = 'About RAPTR'
-        return context
-
-
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)

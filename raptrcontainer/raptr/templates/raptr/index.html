@@ -1,16 +1,20 @@
-{% extends "raptr/base.html" %}
+{% extends "shared/base.html" %}
 {% load render_table from django_tables2 %}
 {% load bootstrap3 %}
 {% load static %}
 
 {% block content %}
+  <h3>Current Fiscal Year New Reimbursable Funds</h3>
+
   <span>
-    <h3>Fiscal Year 2019 New Funds</h3>
     {% for table in tables %}
-      <div class="col-sm-3">{% render_table table 'raptr/semantic.html' %}</div>
+      {% render_table table 'raptr/semantic.html' %}
     {% endfor %}
   </span>
-  <span>
-    <img src="{% static 'raptr/images/New_RA_5yr.png' %}">
-  </span>
+
+   <h3>Current CRADAs</h3>
+
+<!--  <span>-->
+<!--    <img src="{% static 'raptr/images/New_RA_5yr.png' %}">-->
+<!--  </span>-->
 {% endblock %}
