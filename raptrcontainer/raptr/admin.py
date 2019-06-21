@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Contact, Project, Sponsor, Sponsortype, Program,\
-    Country, Affiliation, Status, Fundfy, Fundtype, Fundcodelist, Optsub,\
+from .models import Contact, Project, Program, Affiliation, Status,\
+    Fundfy, Fundtype, Fundcodelist, Optsub,\
     Location, Fileupload, Filecatlist
 
 
@@ -88,41 +88,10 @@ class ProjectAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(Sponsor)
-class SponsorAdmin(admin.ModelAdmin):
-    list_display = (
-        'sponsor_acronym',
-        'sponsor_name',
-        'sponsor_type',
-        'sponsor_country',
-    )
-    list_filter = (
-        'sponsor_type',
-        'sponsor_country'
-    )
-    search_fields = (
-        'sponsor_acronym',
-        'sponsor_name'
-    )
-    prepopulated_fields = {
-        'slug': ('sponsor_acronym',)
-    }
-class SponsortypeAdmin(admin.ModelAdmin):
-    fields = [
-        'sponsor_type',
-    ]
-
-
 class ProgramAdmin(admin.ModelAdmin):
     fields = [
         'program_short_name',
         'program_long_name',
-    ]
-
-
-class CountryAdmin(admin.ModelAdmin):
-    fields = [
-        'country_name',
     ]
 
 
@@ -178,9 +147,7 @@ class FilecatlistAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Sponsortype, SponsortypeAdmin)
 admin.site.register(Program, ProgramAdmin)
-admin.site.register(Country, CountryAdmin)
 admin.site.register(Affiliation, AffiliationAdmin)
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Fundtype, FundtypeAdmin)

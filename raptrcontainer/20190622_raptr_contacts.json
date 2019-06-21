@@ -1,0 +1,515 @@
+[
+{
+  "model": "shared.sponsor",
+  "pk": 1,
+  "fields": {
+    "customer_number": "12656",
+    "sponsor_acronym": "NCAOR",
+    "sponsor_name": "National Center for Antarctic and Ocean Research",
+    "sponsor_type": 10,
+    "sponsor_country": 3,
+    "sponsor_url": "http://www.ncaor.gov.in/",
+    "sponsor_slug": "NCAOR"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 2,
+  "fields": {
+    "customer_number": "745",
+    "sponsor_acronym": "WHOI",
+    "sponsor_name": "Woods Hole Oceanographic Institution",
+    "sponsor_type": 14,
+    "sponsor_country": 1,
+    "sponsor_url": "http://www.whoi.edu/",
+    "sponsor_slug": "WHOI"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 3,
+  "fields": {
+    "customer_number": "6860",
+    "sponsor_acronym": "UBREMEN",
+    "sponsor_name": "University of Bremen",
+    "sponsor_type": 15,
+    "sponsor_country": 2,
+    "sponsor_url": "https://www.uni-bremen.de/en.html",
+    "sponsor_slug": "UBREMEN"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 4,
+  "fields": {
+    "customer_number": "8239",
+    "sponsor_acronym": "KIOST",
+    "sponsor_name": "Korean Institute of Ocean Science & Technology",
+    "sponsor_type": 10,
+    "sponsor_country": 7,
+    "sponsor_url": "http://www.kiost.ac.kr/eng.do",
+    "sponsor_slug": "KIOST"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 5,
+  "fields": {
+    "customer_number": "50-1",
+    "sponsor_acronym": "NOS",
+    "sponsor_name": "NOAA National Ocean Service",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://oceanservice.noaa.gov/",
+    "sponsor_slug": "NOS"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 6,
+  "fields": {
+    "customer_number": "2127",
+    "sponsor_acronym": "NPBR",
+    "sponsor_name": "North Pacific Research Board",
+    "sponsor_type": 2,
+    "sponsor_country": 1,
+    "sponsor_url": "http://www.nprb.org/",
+    "sponsor_slug": "NPBR"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 7,
+  "fields": {
+    "customer_number": "364",
+    "sponsor_acronym": "CSU",
+    "sponsor_name": "Colorado State University",
+    "sponsor_type": 14,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.colostate.edu/",
+    "sponsor_slug": "CSU"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 8,
+  "fields": {
+    "customer_number": "451",
+    "sponsor_acronym": "JPL",
+    "sponsor_name": "California Institute of Technology - JPL",
+    "sponsor_type": 14,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.jpl.nasa.gov/",
+    "sponsor_slug": "JPL"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 9,
+  "fields": {
+    "customer_number": "2433",
+    "sponsor_acronym": "SAIC",
+    "sponsor_name": "Science Applications International Corporation",
+    "sponsor_type": 1,
+    "sponsor_country": 1,
+    "sponsor_url": "http://www.saic.com/",
+    "sponsor_slug": "SAIC"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 10,
+  "fields": {
+    "customer_number": "8365",
+    "sponsor_acronym": "GNS",
+    "sponsor_name": "GNS Science",
+    "sponsor_type": 10,
+    "sponsor_country": 5,
+    "sponsor_url": "https://www.gns.cri.nz/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 11,
+  "fields": {
+    "customer_number": "12117",
+    "sponsor_acronym": "PGAFF",
+    "sponsor_name": "Paul G. Allen Family Foundation",
+    "sponsor_type": 2,
+    "sponsor_country": 1,
+    "sponsor_url": "http://www.pgaphilanthropies.org/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 12,
+  "fields": {
+    "customer_number": "10600",
+    "sponsor_acronym": "KINGCO",
+    "sponsor_name": "King County",
+    "sponsor_type": 11,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.kingcounty.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 13,
+  "fields": {
+    "customer_number": "5009",
+    "sponsor_acronym": "KOPRI",
+    "sponsor_name": "Korea Polar Research Institute",
+    "sponsor_type": 10,
+    "sponsor_country": 7,
+    "sponsor_url": "http://eng.kopri.re.kr/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 14,
+  "fields": {
+    "customer_number": "409",
+    "sponsor_acronym": "GSFC",
+    "sponsor_name": "NASA Goddard Space Flight Center",
+    "sponsor_type": 7,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.nasa.gov/goddard"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 15,
+  "fields": {
+    "customer_number": "11913",
+    "sponsor_acronym": "TGFOE",
+    "sponsor_name": "The Global Foundation for Ocean Exploration",
+    "sponsor_type": 2,
+    "sponsor_country": 1,
+    "sponsor_url": "http://www.engineeringfordiscovery.org/author/tgfoe/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 16,
+  "fields": {
+    "customer_number": "429",
+    "sponsor_acronym": "USGS",
+    "sponsor_name": "United States Geological Survey",
+    "sponsor_type": 6,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.usgs.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 17,
+  "fields": {
+    "customer_number": "533",
+    "sponsor_acronym": "UAF",
+    "sponsor_name": "University of Alaska, Fairbanks",
+    "sponsor_type": 14,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.uaf.edu/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 18,
+  "fields": {
+    "customer_number": "30-61",
+    "sponsor_acronym": "MML",
+    "sponsor_name": "NOAA National Marine Mammal Laboratory",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.afsc.noaa.gov/nmml/index.php"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 19,
+  "fields": {
+    "customer_number": "9414",
+    "sponsor_acronym": "BGR",
+    "sponsor_name": "Bundesanstalt f\u00fcr Geowissenschaften und Rohstoffe",
+    "sponsor_type": 10,
+    "sponsor_country": 2,
+    "sponsor_url": "https://www.bgr.bund.de/EN/Home/homepage_node_en.html"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 20,
+  "fields": {
+    "customer_number": "6757",
+    "sponsor_acronym": "PSRF",
+    "sponsor_name": "Puget Sound Restoration Fund",
+    "sponsor_type": 2,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.restorationfund.org/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 21,
+  "fields": {
+    "customer_number": "40-14",
+    "sponsor_acronym": "NESDIS",
+    "sponsor_name": "NOAA National Environmental Satellite, Data and Information Service",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.nesdis.noaa.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 22,
+  "fields": {
+    "customer_number": "541",
+    "sponsor_acronym": "URI",
+    "sponsor_name": "University of Rhode Island",
+    "sponsor_type": 14,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.uri.edu/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 23,
+  "fields": {
+    "customer_number": "9080",
+    "sponsor_acronym": "OET",
+    "sponsor_name": "Ocean Exploration Trust, Inc.",
+    "sponsor_type": 2,
+    "sponsor_country": 1,
+    "sponsor_url": "http://www.oceanexplorationtrust.org/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 24,
+  "fields": {
+    "customer_number": "8514-1",
+    "sponsor_acronym": "GEOMAR",
+    "sponsor_name": "Helmholtz Institute for Ocean Research Keil",
+    "sponsor_type": 10,
+    "sponsor_country": 2,
+    "sponsor_url": "https://www.geomar.de/en/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 25,
+  "fields": {
+    "customer_number": "3067-6",
+    "sponsor_acronym": "CSIRO",
+    "sponsor_name": "Commonwealth Scientific & Industrial Research Organization",
+    "sponsor_type": 10,
+    "sponsor_country": 4,
+    "sponsor_url": "https://www.csiro.au/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 26,
+  "fields": {
+    "customer_number": "586",
+    "sponsor_acronym": "BOEM",
+    "sponsor_name": "Bureau of Ocean Energy Management",
+    "sponsor_type": 6,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.boem.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 27,
+  "fields": {
+    "customer_number": "9358",
+    "sponsor_acronym": "FAU",
+    "sponsor_name": "Friedrich-Alexander-Universit\u00e4t Erlangen-Nu\u0308rnberg",
+    "sponsor_type": 15,
+    "sponsor_country": 2,
+    "sponsor_url": "https://www.fau.eu/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 28,
+  "fields": {
+    "customer_number": "2273",
+    "sponsor_acronym": "BCDC",
+    "sponsor_name": "Bjerknes Climate Data Center, University of Bergen",
+    "sponsor_type": 15,
+    "sponsor_country": 6,
+    "sponsor_url": "https://www.bcdc.no/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 29,
+  "fields": {
+    "customer_number": "50-",
+    "sponsor_acronym": "CPO/OOMD",
+    "sponsor_name": "NOAA Climate Program Office/Ocean Observing and Monitoring Division",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://cpo.noaa.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 30,
+  "fields": {
+    "customer_number": null,
+    "sponsor_acronym": "NWS",
+    "sponsor_name": "NOAA National Weather Service",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.weather.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 31,
+  "fields": {
+    "customer_number": null,
+    "sponsor_acronym": "OER",
+    "sponsor_name": "NOAA Office of Ocean Exploration and Research",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://oceanexplorer.noaa.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 32,
+  "fields": {
+    "customer_number": null,
+    "sponsor_acronym": "NOPP",
+    "sponsor_name": "National Oceanographic Partnership Program",
+    "sponsor_type": 2,
+    "sponsor_country": 1,
+    "sponsor_url": "http://www.nopp.org/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 33,
+  "fields": {
+    "customer_number": null,
+    "sponsor_acronym": "OAP",
+    "sponsor_name": "NOAA Ocean Acidification Program",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://oceanacidification.noaa.gov/Home.aspx"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 34,
+  "fields": {
+    "customer_number": "531",
+    "sponsor_acronym": "NSF",
+    "sponsor_name": "National Science Foundation",
+    "sponsor_type": 9,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.nsf.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 35,
+  "fields": {
+    "customer_number": null,
+    "sponsor_acronym": "OAR",
+    "sponsor_name": "NOAA Office of Oceanic and Atmospheric Research",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.oar.noaa.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 36,
+  "fields": {
+    "customer_number": "30-21",
+    "sponsor_acronym": "NMFS",
+    "sponsor_name": "NOAA National Marine Fisheries Service",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.fisheries.noaa.gov/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 37,
+  "fields": {
+    "customer_number": "3699-3",
+    "sponsor_acronym": "UIB",
+    "sponsor_name": "University of Bergen",
+    "sponsor_type": 15,
+    "sponsor_country": 6,
+    "sponsor_url": "https://www.uib.no/en"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 38,
+  "fields": {
+    "customer_number": null,
+    "sponsor_acronym": "CVP",
+    "sponsor_name": "NOAA Climate Program Office/Climate Variability and Predictability",
+    "sponsor_type": 8,
+    "sponsor_country": 1,
+    "sponsor_url": "https://cpo.noaa.gov/Meet-the-Divisions/Earth-System-Science-and-Modeling/CVP"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 39,
+  "fields": {
+    "customer_number": null,
+    "sponsor_acronym": "ISLAND",
+    "sponsor_name": "Island Institute",
+    "sponsor_type": 2,
+    "sponsor_country": 1,
+    "sponsor_url": "http://www.islandinstitute.org/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 40,
+  "fields": {
+    "customer_number": "0019",
+    "sponsor_acronym": "NNSA",
+    "sponsor_name": "National Nuclear Security Administration",
+    "sponsor_type": 5,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.energy.gov/nnsa/national-nuclear-security-administration"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 41,
+  "fields": {
+    "customer_number": "777",
+    "sponsor_acronym": "MBARI",
+    "sponsor_name": "Monterey Bay Aquarium Research Institute",
+    "sponsor_type": 2,
+    "sponsor_country": 1,
+    "sponsor_url": "https://www.mbari.org/"
+  }
+},
+{
+  "model": "shared.sponsor",
+  "pk": 42,
+  "fields": {
+    "customer_number": null,
+    "sponsor_acronym": "WADOE",
+    "sponsor_name": "Washington State Department of Ecology",
+    "sponsor_type": 12,
+    "sponsor_country": 1,
+    "sponsor_url": "https://ecology.wa.gov/"
+  }
+}
+]

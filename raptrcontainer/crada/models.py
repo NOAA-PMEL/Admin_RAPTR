@@ -1,5 +1,5 @@
 from django.db import models
-
+from shared.models import Sponsor
 
 STATUS_CHOICES = (
     ('Open', 'Open'),
@@ -45,7 +45,7 @@ class Crada (models.Model):
         verbose_name='Project Title'
     )
     collaborator = models.ForeignKey(
-        'raptr.Sponsor',
+        Sponsor,
         on_delete=models.DO_NOTHING,
         blank=True,
         null=True

@@ -2,7 +2,7 @@ import datetime
 
 from django.db import models
 from django.urls import reverse
-
+from shared.models import Sponsor
 
 # set the year choices for various drop-downs - earliest data is from 2014
 YEAR_CHOICES = []
@@ -40,7 +40,7 @@ class Proposal(models.Model):
         related_name='proposal_contact'
     )
     sponsor = models.ForeignKey(
-        'raptr.Sponsor',
+        Sponsor,
         on_delete=models.DO_NOTHING,
         blank=True,
         null=True
