@@ -25,6 +25,7 @@ admin.autodiscover()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('raptr/', include('raptr.urls')),
+    path('shared/', include('shared.urls')),
     path('', RedirectView.as_view(url='/raptr/', permanent=True)),
 ]
 

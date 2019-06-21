@@ -238,7 +238,7 @@ class Sponsor(models.Model):
         return str(self.sponsor_name) + ' (' + str(self.sponsor_acronym) + ')'
 
     def get_absolute_url(self):
-        return reverse('raptr:sponsor_detail', kwargs={'slug': self.slug})
+        return reverse('shared:sponsor_detail', kwargs={'slug': self.slug})
 
 
 # table of PMEL contacts (PIs)
@@ -342,7 +342,7 @@ class Contact(models.Model):
         return str(self.last_name) + ', ' + str(self.first_name)
 
     def get_absolute_url(self):
-        return reverse('raptr:contact_detail', kwargs={'slug': self.slug})
+        return reverse('shared:contact_detail', kwargs={'slug': self.slug})
 
     def image_tag(self):
         return mark_safe('<img src="/media/%s" width="150" height="150" />'
