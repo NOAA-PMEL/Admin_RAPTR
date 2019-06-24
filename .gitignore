@@ -172,3 +172,6 @@ atlassian-ide-plugin.xml
 /raptrcontainer/proposal/migrations/
 /raptrcontainer/shared/fixtures
 /raptrcontainer/raptr/static
+/raptrcontainer/raptr/fixtures
+
+/raptrcontainer/db.json
