@@ -1,11 +1,8 @@
 import datetime
-
 from django.db import models
-from django.utils.safestring import mark_safe
-from phone_field import PhoneField
 from djmoney.models.fields import MoneyField
 from django.urls import reverse
-from shared.models import Sponsor
+from shared.models import Sponsor, Contact
 
 from django.utils import timezone
 
@@ -13,31 +10,6 @@ from django.utils import timezone
 YEAR_CHOICES = []
 for yr in range(2014, (datetime.datetime.now().year + 2)):
     YEAR_CHOICES.append((yr, str(yr)))
-
-GRADE_CHOICES = (
-    ('ZA', 'ZA'),
-    ('ZP', 'ZP'),
-    ('ZS', 'ZS'),
-    ('ZT', 'ZT'),
-    ('ST', 'ST'),
-    ('ES', 'ES'),
-    ('GS', 'GS'),
-    ('WG', 'WG'),
-)
-
-FLSA_CHOICES =(
-    ('E', 'E'),
-    ('N', 'N'),
-)
-
-DIVISION_CHOICES = (
-    ('AD', 'AD'),
-    ('CS', 'CS'),
-    ('ED', 'ED'),
-    ('OC', 'OC'),
-    ('OD', 'OD'),
-    ('OE', 'OE'),
-)
 
 
 # support table for the file category drop-down in the projects view
@@ -71,67 +43,6 @@ class Status(models.Model):
         return self.status
 
 
-# support table for the OPT Sub Group drop-down in the contacts view
-# foreign key is in the Contact model
-class Optsub(models.Model):
-    opt_sub = models.CharField(
-        max_length=20,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name = 'OPT Sub'
-        verbose_name_plural = 'OPT Subs'
-
-    def __str__(self):
-        return self.opt_sub
-
-
-# support table for the Location drop-down in the contacts view
-# foreign key is in the Contact model
-class Location(models.Model):
-    location = models.CharField(
-        max_length=20,
-        blank=True
-    )
-
-    def __str__(self):
-        return self.location
-
-
-# support table for the Research Program drop-down in the contacts view
-# foreign key is in the Contact model
-class Program(models.Model):
-    program_short_name = models.CharField(
-        max_length=10,
-        blank=True
-    )
-    program_long_name = models.CharField(
-        max_length=100,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name = 'Research Program'
-        verbose_name_plural = 'Research Programs'
-        ordering = ['program_short_name']
-
-    def __str__(self):
-        return self.program_short_name
-
-
-# support table for the Affiliation drop-down in the contacts view
-# foreign key is in the Contacts model
-class Affiliation(models.Model):
-    affiliation_name = models.CharField(
-        max_length=10,
-        blank=True
-    )
-
-    def __str__(self):
-        return self.affiliation_name
-
-
 class Fundtype(models.Model):
     fund_type = models.CharField(
         max_length=25,
@@ -157,116 +68,6 @@ class Fundcodelist(models.Model):
 
     def __str__(self):
         return self.fund_code
-
-
-# table of PMEL contacts (PIs)
-# foreign key is in the Project model
-class Contact(models.Model):
-    position_billet = models.CharField(
-        max_length=10,
-        blank=True,
-    )
-    position_id = models.CharField(
-        max_length=12,
-        blank=True
-    )
-    last_name = models.CharField(
-        max_length=50
-    )
-    first_name = models.CharField(
-        max_length=50
-    )
-    email_address = models.EmailField(
-        blank=True,
-        null=True
-    )
-    job_title = models.CharField(
-        max_length=50,
-        blank=True
-    )
-    pay_plan = models.CharField(
-        max_length=4,
-        choices=GRADE_CHOICES,
-        blank=True
-    )
-    job_series = models.CharField(
-        max_length=4,
-        blank=True
-    )
-    employee_band = models.CharField(
-        max_length=4,
-        blank=True
-    )
-    employee_interval = models.CharField(
-        max_length=4,
-        blank=True
-    )
-    flsa_status = models.CharField(
-        max_length=4,
-        choices=FLSA_CHOICES,
-        blank=True
-    )
-    phone_number = PhoneField(
-        blank=True
-    )
-    division = models.CharField(
-        max_length=4,
-        choices=DIVISION_CHOICES,
-        blank=True,
-    )
-    opt_sub_group = models.ForeignKey(
-        Optsub,
-        on_delete=models.DO_NOTHING,
-        blank=True,
-        null=True
-    )
-    research_program = models.ForeignKey(
-        Program,
-        on_delete=models.DO_NOTHING,
-        blank=True,
-        null=True
-    )
-    affiliation = models.ForeignKey(
-        Affiliation,
-        on_delete=models.DO_NOTHING,
-        blank=True,
-        null=True
-    )
-    location = models.ForeignKey(
-        Location,
-        on_delete=models.DO_NOTHING,
-        blank=True,
-        null=True
-    )
-    active = models.BooleanField(
-        default=True
-    )
-    photo = models.ImageField(
-        verbose_name='Upload Photo',
-        upload_to='photos',
-        default='photos/no_photo.png',
-        blank=True,
-        null=True
-    )
-    slug = models.SlugField(
-        unique=True,
-        max_length=100,
-    )
-
-    class Meta:
-        ordering = ['last_name']
-
-    def __str__(self):
-        return str(self.last_name) + ', ' + str(self.first_name)
-
-    def get_absolute_url(self):
-        return reverse('shared:contact_detail', kwargs={'slug': self.slug})
-
-    def image_tag(self):
-        return mark_safe('<img src="/media/%s" width="150" height="150" />'
-                         % (self.photo))
-
-    image_tag.short_description = 'Photo of Contact'
 
 
 # table of Advance, Reimbursable, and Proposed Projects

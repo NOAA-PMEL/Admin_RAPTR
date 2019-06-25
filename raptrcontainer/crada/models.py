@@ -1,5 +1,5 @@
 from django.db import models
-from shared.models import Sponsor
+from shared.models import Sponsor, Contact
 
 STATUS_CHOICES = (
     ('Open', 'Open'),
@@ -55,7 +55,7 @@ class Crada (models.Model):
         blank=True
     )
     noaa_pi = models.ForeignKey(
-        'raptr.Contact',
+        Contact,
         on_delete=models.DO_NOTHING,
         verbose_name='NOAA PI',
         blank=True,

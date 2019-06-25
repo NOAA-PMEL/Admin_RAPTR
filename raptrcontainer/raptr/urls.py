@@ -37,11 +37,6 @@ urlpatterns = [
         name='index'
     ),
     path(
-        'contact/',
-        views.FilteredContactListView.as_view(),
-        name='contact_list'
-    ),
-    path(
         'project/<slug:slug>/',
         views.ProjectDetailView.as_view(),
         name='project_detail'

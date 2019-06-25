@@ -1,5 +1,5 @@
 from django_filters import FilterSet
-from .models import Project, Contact
+from .models import Project
 
 
 class ProjectFilter(FilterSet):
@@ -12,12 +12,3 @@ class ProjectFilter(FilterSet):
             'year_proposed': ['exact']
         }
 
-
-class ContactFilter(FilterSet):
-
-    class Meta:
-        model = Contact
-        fields = {
-            'last_name': ['exact'],
-            'division': ['exact'],
-        }

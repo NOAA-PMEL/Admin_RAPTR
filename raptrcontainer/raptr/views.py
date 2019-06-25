@@ -1,9 +1,9 @@
 from django.views import generic
 from .models import Project, Contact, Fundfy, Sponsor
-from .filters import ProjectFilter, ContactFilter
+from .filters import ProjectFilter
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin, MultiTableMixin
-from .tables import ProjectTable, ContactTable, NewFundsTable
+from .tables import ProjectTable, NewFundsTable
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
 from django.http import HttpResponse
@@ -40,26 +40,6 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
     def get_context_data(self, **kwargs):
         context = super(FilteredProjectListView, self).get_context_data(**kwargs)
         context['title'] = 'RAPTR Project List'
-        return context
-
-
-class FilteredContactListView(SingleTableMixin, FilterView):
-    table_class = ContactTable
-    model = Contact
-    template_name = 'raptr/contact_list.html'
-
-    filterset_class = ContactFilter
-    paginate_by = 12
-
-    def get_queryset(self):
-        return super(FilteredContactListView, self).get_queryset().filter(active=True)
-
-    def get_table_kwargs(self):
-        return {'template_name': 'raptr/bootstrap.html'}
-
-    def get_context_data(self, **kwargs):
-        context = super(FilteredContactListView, self).get_context_data(**kwargs)
-        context['title'] = 'RAPTR Contact List'
         return context
 
 

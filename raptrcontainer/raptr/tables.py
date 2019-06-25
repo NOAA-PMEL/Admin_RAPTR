@@ -1,6 +1,6 @@
-from .models import Project, Contact, Fundfy
+from .models import Project, Fundfy
 import django_tables2 as tables
-from django.db.models import Sum
+
 
 class ProjectTable(tables.Table):
     project_id = tables.Column(linkify=True)
@@ -18,32 +18,6 @@ class ProjectTable(tables.Table):
             'project_notes',
             'slug',
             'sponsor',
-        )
-
-
-class ContactTable(tables.Table):
-    last_name = tables.Column(linkify=True)
-
-    class Meta:
-        model = Contact
-        template_name = 'raptr/contact_list.html'
-        exclude = (
-            'affiliation',
-            'active',
-            'employee_band',
-            'employee_interval',
-            'id',
-            'job_title',
-            'job_series',
-            'pay_plan',
-            'location',
-            'opt_sub_group',
-            'photo',
-            'position_billet',
-            'position_id',
-            'flsa_status',
-            'research_program',
-            'slug',
         )
 
 
