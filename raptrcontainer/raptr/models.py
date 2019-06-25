@@ -15,9 +15,7 @@ for yr in range(2014, (datetime.datetime.now().year + 2)):
 # foreign key is in the Project model
 class Filecatlist(models.Model):
     """
-
-    An editable list of categories for project file uploads, related to :model: 'shared.Project'
-
+    An editable list of categories for project file uploads, related to :model:raptr.Project
     """
 
     cat_list = models.CharField(
@@ -78,9 +76,7 @@ class Fundcodelist(models.Model):
 # table of Advance, Reimbursable, and Proposed Projects
 class Project(models.Model):
     """
-
     Stores information about PMEL Reimbursable and Advance Agreements
-
     """
     project_id = models.CharField(
         max_length=10,
@@ -97,6 +93,7 @@ class Project(models.Model):
         verbose_name='Project Number'
     )
     slug = models.SlugField(
+        help_text="A short label, generally used in URLs.",
         unique=True,
         max_length=10,
     )
