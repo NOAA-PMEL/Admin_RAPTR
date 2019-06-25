@@ -175,3 +175,5 @@ atlassian-ide-plugin.xml
 /raptrcontainer/raptr/fixtures
 
 /raptrcontainer/db.json
+
+\.idea/
