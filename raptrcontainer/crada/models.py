@@ -15,6 +15,11 @@ ACTIVITY_CHOICES =(
 
 
 class Crada (models.Model):
+    """
+
+    Stores information about PMEL Cooperative Research And Development Agreements (CRADAs)
+
+    """
     docket_number = models.CharField(
         max_length=15,
         unique=True,

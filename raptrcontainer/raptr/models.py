@@ -4,7 +4,6 @@ from djmoney.models.fields import MoneyField
 from django.urls import reverse
 from shared.models import Sponsor, Contact
 
-from django.utils import timezone
 
 # set the year choices for various drop-downs - earliest data is from 2014
 YEAR_CHOICES = []
@@ -15,6 +14,12 @@ for yr in range(2014, (datetime.datetime.now().year + 2)):
 # support table for the file category drop-down in the projects view
 # foreign key is in the Project model
 class Filecatlist(models.Model):
+    """
+
+    An editable list of categories for project file uploads, related to :model: 'shared.Project'
+
+    """
+
     cat_list = models.CharField(
         max_length=50,
         blank=True
@@ -72,6 +77,11 @@ class Fundcodelist(models.Model):
 
 # table of Advance, Reimbursable, and Proposed Projects
 class Project(models.Model):
+    """
+
+    Stores information about PMEL Reimbursable and Advance Agreements
+
+    """
     project_id = models.CharField(
         max_length=10,
         unique=True,
