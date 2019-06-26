@@ -29,6 +29,22 @@ DIVISION_CHOICES = (
     ('OE', 'OE'),
 )
 
+PAY_BAND_CHOICES = (
+    ('I', 'I'),
+    ('II', 'II'),
+    ('III', 'III'),
+    ('IV', 'IV'),
+    ('V', 'V'),
+)
+
+PAY_INTERVAL_CHOICES = (
+    ('01', '01'),
+    ('02', '02'),
+    ('03', '03'),
+    ('04', '04'),
+    ('05', '05'),
+)
+
 # support table for the Country drop-down in the sponsors view
 # foreign key is in the Sponsor model
 class Country(models.Model):
@@ -111,6 +127,7 @@ class Sponsor(models.Model):
 
     def get_absolute_url(self):
         return reverse('shared:sponsor_detail', kwargs={'slug': self.slug})
+
 
 # support table for the OPT Sub Group drop-down in the contacts view
 # foreign key is in the Contact model
@@ -211,10 +228,12 @@ class Contact(models.Model):
         blank=True
     )
     employee_band = models.CharField(
+        choices=PAY_BAND_CHOICES,
         max_length=4,
         blank=True
     )
     employee_interval = models.CharField(
+        choices=PAY_INTERVAL_CHOICES,
         max_length=4,
         blank=True
     )
