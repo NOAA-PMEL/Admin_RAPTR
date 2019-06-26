@@ -10,6 +10,19 @@ for yr in range(2014, (datetime.datetime.now().year + 2)):
     YEAR_CHOICES.append((yr, str(yr)))
 
 
+class Status(models.Model):
+    status = models.CharField(
+        max_length=20,
+        blank=True
+    )
+
+    class Meta:
+        verbose_name_plural = 'statuses'
+
+    def __str__(self):
+        return self.status
+
+
 # table of Advance, Reimbursable, and Proposed Projects
 class Proposal(models.Model):
     proposal_id = models.CharField(
@@ -18,13 +31,6 @@ class Proposal(models.Model):
         blank=True,
         null=True,
         verbose_name='Project ID'
-    )
-    proposal_number = models.CharField(
-        max_length=20,
-        unique=True,
-        blank=True,
-        null=True,
-        verbose_name='Project Number'
     )
     proposal_title = models.CharField(
         max_length=200,
@@ -45,14 +51,8 @@ class Proposal(models.Model):
         blank=True,
         null=True
     )
-    fund_code = models.ForeignKey(
-        'raptr.Fundcodelist',
-        on_delete=models.DO_NOTHING,
-        blank=True,
-        null=True
-    )
     status = models.ForeignKey(
-        'raptr.Status',
+        Status,
         on_delete=models.DO_NOTHING,
         blank=True,
         null=True
@@ -73,6 +73,7 @@ class Proposal(models.Model):
         unique=True,
         max_length=10,
     )
+
     class Meta:
         ordering = ['proposal_id']
 
@@ -83,5 +84,3 @@ class Proposal(models.Model):
 
     def get_absolute_url(self):
         return reverse('raptr:proposal_detail', kwargs={'slug': self.slug})
-
-

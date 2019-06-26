@@ -82,6 +82,7 @@ class FilecatlistAdmin(admin.ModelAdmin):
         'cat_list',
     ]
 
+
 class StatusAdmin(admin.ModelAdmin):
     fields = [
         'status',

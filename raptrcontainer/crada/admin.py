@@ -10,9 +10,9 @@ class CradaAdmin(admin.ModelAdmin):
         'project_status',
         'activity_phase',
         'project_title',
+        'collaborator',
     )
     list_filter = (
-        'noaa_pi',
         'project_status',
         'activity_phase',
     )

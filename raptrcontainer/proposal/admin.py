@@ -1,12 +1,11 @@
 from django.contrib import admin
-from .models import Proposal
+from .models import Proposal, Status
 
 
 @admin.register(Proposal)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = (
         'proposal_id',
-        'proposal_number',
         'proposal_title',
         'investigator_supported',
         'sponsor',
@@ -19,11 +18,9 @@ class ProjectAdmin(admin.ModelAdmin):
     )
     search_fields = (
         'proposal_id',
-        'proposal_number',
     )
     ordering = (
         'proposal_id',
-        'proposal_number'
     )
     raw_id_fields = (
         'investigator_supported',
@@ -33,4 +30,10 @@ class ProjectAdmin(admin.ModelAdmin):
     }
 
 
+class StatusAdmin(admin.ModelAdmin):
+    fields = [
+        'status',
+    ]
 
+
+admin.site.register(Status, StatusAdmin)
