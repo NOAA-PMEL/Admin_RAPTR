@@ -32,7 +32,7 @@ class Crada (models.Model):
         blank=True
     )
     activity_phase = models.CharField(
-        max_length=8,
+        max_length=15,
         choices=ACTIVITY_CHOICES,
         blank=True
     )

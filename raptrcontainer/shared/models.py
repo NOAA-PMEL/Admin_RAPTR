@@ -143,6 +143,9 @@ class Location(models.Model):
 # support table for the Research Program drop-down in the contacts view
 # foreign key is in the Contact model
 class Program(models.Model):
+    """
+    Provides an editable list of research programs, related to the shared.Contact model.
+    """
     program_short_name = models.CharField(
         max_length=10,
         blank=True
