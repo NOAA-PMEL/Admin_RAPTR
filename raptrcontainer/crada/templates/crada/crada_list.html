@@ -1,0 +1,10 @@
+{% extends "shared/base.html" %}
+{% block content %}
+
+    <div class="container">
+        {% block body %}
+            {% include 'raptr/listview.html' %}
+        {% endblock %}
+    </div>
+
+{% endblock %}

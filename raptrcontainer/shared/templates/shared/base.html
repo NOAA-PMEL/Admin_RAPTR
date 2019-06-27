@@ -14,9 +14,9 @@
     </div>
     <div class="navbar">
         <ul class="nav navbar-nav">
-            <li><a href="/raptr" class="navbar-item">RAPTR Dashboard</a></li>
+            <li><a href="/raptr" class="navbar-item">Dashboard</a></li>
             <li><a href="{% url 'raptr:project_list' %}" class="navbar-item">Reimbursable & Advance</a></li>
-            <li><a href="" class="navbar-item">CRADA</a></li>
+            <li><a href="{% url 'crada:crada_list' %}" class="navbar-item">CRADA</a></li>
             <li><a href="" class="navbar-item">Proposals</a></li>
 <!--            <li><a href="{% url 'raptr:project_list' %}" class="navbar-item">Project List</a></li>-->
             <li><a href="{% url 'shared:contact_list' %}" class="navbar-item">Contact List</a></li>

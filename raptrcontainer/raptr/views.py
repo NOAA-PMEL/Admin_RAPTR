@@ -15,7 +15,7 @@ from .forms import LoginForm
 
 class ProjectDetailView(DetailView):
     model = Project
-    template_name = 'raptr/project_detail.html'
+    template_name = 'raptr/crada_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(ProjectDetailView, self).get_context_data(**kwargs)

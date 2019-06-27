@@ -47,6 +47,7 @@ urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('raptr/', include('raptr.urls')),
+    path('crada/', include('crada.urls')),
     path('shared/', include('shared.urls')),
     path('', RedirectView.as_view(url='/raptr/', permanent=True)),
 ]
