@@ -267,6 +267,9 @@ class Contact(models.Model):
         blank=True,
         null=True
     )
+    is_pi = models.BooleanField(
+        default=False
+    )
     affiliation = models.ForeignKey(
         Affiliation,
         on_delete=models.DO_NOTHING,
