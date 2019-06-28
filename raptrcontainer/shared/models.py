@@ -47,7 +47,8 @@ PAY_INTERVAL_CHOICES = (
 
 LOCATIONS = (
     ('Seattle', 'Seattle'),
-    ('Newport', 'Newport')
+    ('Newport', 'Newport'),
+    ('Other', 'Other'),
 )
 
 # support table for the Country drop-down in the sponsors view
