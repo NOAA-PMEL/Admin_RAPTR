@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from phone_field import PhoneField
+from django.core.validators import MinValueValidator,MaxValueValidator
 
 
 GRADE_CHOICES = (
@@ -50,6 +51,7 @@ LOCATIONS = (
     ('Newport', 'Newport'),
     ('Other', 'Other'),
 )
+
 
 # support table for the Country drop-down in the sponsors view
 # foreign key is in the Sponsor model
@@ -194,6 +196,11 @@ class Affiliation(models.Model):
 # table of PMEL contacts (PIs)
 # foreign key is in the Project model
 class Contact(models.Model):
+    full_time_equivalent = models.FloatField(
+        validators=[
+            MinValueValidator(0.0, message='FTEs must be between 0 and 1.'),
+            MaxValueValidator(1.0, message='FTEs must be between 0 and 1.')]
+    )
     position_billet = models.CharField(
         max_length=10,
         blank=True,
@@ -269,7 +276,11 @@ class Contact(models.Model):
     location = models.CharField(
         choices=LOCATIONS,
         max_length=15,
-        blank=True,
+        blank=True
+    )
+    room_number = models.CharField(
+        max_length=15,
+        blank=True
     )
     active = models.BooleanField(
         default=True

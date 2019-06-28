@@ -9,6 +9,7 @@ class ContactTable(tables.Table):
         model = Contact
         template_name = 'raptr/contact_list.html'
         exclude = (
+            'full_time_equivalent'
             'affiliation',
             'active',
             'employee_band',
