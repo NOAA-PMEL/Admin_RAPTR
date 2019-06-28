@@ -45,6 +45,7 @@ PAY_INTERVAL_CHOICES = (
     ('05', '05'),
 )
 
+
 # support table for the Country drop-down in the sponsors view
 # foreign key is in the Sponsor model
 class Country(models.Model):
@@ -157,11 +158,11 @@ class Location(models.Model):
         return self.location
 
 
-# support table for the Research Program drop-down in the contacts view
-# foreign key is in the Contact model
 class Program(models.Model):
     """
-    Provides an editable list of research programs, related to the shared.Contact model.
+
+    Provides an editable list of research programs, related to :model:'shared.Contact'.
+
     """
     program_short_name = models.CharField(
         max_length=10,
@@ -170,6 +171,10 @@ class Program(models.Model):
     program_long_name = models.CharField(
         max_length=100,
         blank=True
+    )
+    active = models.BooleanField(
+        help_text='Is the Research Program still active for use?',
+        default=True
     )
 
     class Meta:
