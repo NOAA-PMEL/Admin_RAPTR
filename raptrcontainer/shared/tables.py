@@ -11,6 +11,7 @@ class ContactTable(tables.Table):
         exclude = (
             'full_time_equivalent',
             'is_pi',
+            'service_computation_date',
             'pmel_base',
             'affiliation',
             'active',

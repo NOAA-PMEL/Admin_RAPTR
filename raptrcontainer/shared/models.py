@@ -242,6 +242,9 @@ class Contact(models.Model):
         max_length=4,
         blank=True
     )
+    service_computation_date = models.DateField(
+        blank=True
+    )
     flsa_status = models.CharField(
         choices=FLSA_CHOICES,
         max_length=4,

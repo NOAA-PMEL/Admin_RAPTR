@@ -40,6 +40,11 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = (
         'last_name',
         'first_name',
+        'job_title',
+        'pay_plan',
+        'job_series',
+        'employee_band',
+        'employee_interval',
         'division',
         'research_program',
         'affiliation',
