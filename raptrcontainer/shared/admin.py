@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sponsor,Sponsortype, Country, Contact, Program, Affiliation, Optsub, Location
+from .models import Sponsor,Sponsortype, Country, Contact, Program, Affiliation, Optsub
 
 
 @admin.register(Sponsor)
@@ -85,15 +85,8 @@ class OptsubAdmin(admin.ModelAdmin):
     ]
 
 
-class LocationAdmin(admin.ModelAdmin):
-    fields = [
-        'location',
-    ]
-
-
 admin.site.register(Sponsortype, SponsortypeAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Program, ProgramAdmin)
 admin.site.register(Affiliation, AffiliationAdmin)
 admin.site.register(Optsub, OptsubAdmin)
-admin.site.register(Location, LocationAdmin)

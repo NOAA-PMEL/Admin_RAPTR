@@ -45,6 +45,10 @@ PAY_INTERVAL_CHOICES = (
     ('05', '05'),
 )
 
+LOCATIONS = (
+    ('Seattle', 'Seattle'),
+    ('Newport', 'Newport')
+)
 
 # support table for the Country drop-down in the sponsors view
 # foreign key is in the Sponsor model
@@ -146,18 +150,6 @@ class Optsub(models.Model):
         return self.opt_sub
 
 
-# support table for the Location drop-down in the contacts view
-# foreign key is in the Contact model
-class Location(models.Model):
-    location = models.CharField(
-        max_length=20,
-        blank=True
-    )
-
-    def __str__(self):
-        return self.location
-
-
 class Program(models.Model):
     """
 
@@ -224,8 +216,8 @@ class Contact(models.Model):
         blank=True
     )
     pay_plan = models.CharField(
-        max_length=4,
         choices=GRADE_CHOICES,
+        max_length=4,
         blank=True
     )
     job_series = models.CharField(
@@ -243,16 +235,16 @@ class Contact(models.Model):
         blank=True
     )
     flsa_status = models.CharField(
-        max_length=4,
         choices=FLSA_CHOICES,
+        max_length=4,
         blank=True
     )
     phone_number = PhoneField(
         blank=True
     )
     division = models.CharField(
-        max_length=4,
         choices=DIVISION_CHOICES,
+        max_length=4,
         blank=True,
     )
     opt_sub_group = models.ForeignKey(
@@ -273,11 +265,10 @@ class Contact(models.Model):
         blank=True,
         null=True
     )
-    location = models.ForeignKey(
-        Location,
-        on_delete=models.DO_NOTHING,
+    location = models.CharField(
+        choices=LOCATIONS,
+        max_length=15,
         blank=True,
-        null=True
     )
     active = models.BooleanField(
         default=True
