@@ -4,15 +4,17 @@
 {% load static %}
 
 {% block content %}
+  <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
   <h3>Current Fiscal Year New Reimbursable Funds</h3>
 
-  <span>
+  <div class="dash_projs">
     {% for table in tables %}
       {% render_table table 'raptr/semantic.html' %}
     {% endfor %}
-  </span>
-
-   <h3>Current CRADAs</h3>
+  </div>
+  <div>
+    <h3>Current CRADAs</h3>
+  </div>
 
 <!--  <span>-->
 <!--    <img src="{% static 'raptr/images/New_RA_5yr.png' %}">-->

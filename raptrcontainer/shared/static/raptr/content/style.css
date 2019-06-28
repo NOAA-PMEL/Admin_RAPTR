@@ -14,7 +14,7 @@ table.contact_detail{
 }
 
 table.project_detail{
-   width: 750px;
+   width: 100%;
 }
 
 .contact_photo{
@@ -32,6 +32,7 @@ table.project_detail{
 table.funds_table{
     border: 1px solid gray;
     border-collapse: collapse;
+    width: 100%;
 }
 table.funds_table td{
     border: 1px solid gray;
@@ -55,6 +56,7 @@ table.funds_table th {
 table.docs_table{
     border: 1px solid gray;
     border-collapse: collapse;
+    width: 100%;
 }
 table.docs_table td{
     border: 1px solid gray;
@@ -80,7 +82,13 @@ table.docs_table th {
 }
 
 .project-note{
-    width: 40%;
+    width: 33%;
     vertical-align: top;
     border: 1px solid lightgray;
+}
+.dash_projs{
+  position: relative;
+  left: 30px;
+  width: 500px;
+  border: 3px solid #73AD21;
 }
