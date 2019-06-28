@@ -268,7 +268,14 @@ class Contact(models.Model):
         null=True
     )
     is_pi = models.BooleanField(
-        default=False
+        default=False,
+        verbose_name='PI?',
+        help_text='Is this person a PMEL Principal Investigator?'
+    )
+    pmel_base = models.BooleanField(
+        default=False,
+        verbose_name='PMEL Base',
+        help_text='Is the position funded by PMEL Base Funds?'
     )
     affiliation = models.ForeignKey(
         Affiliation,
