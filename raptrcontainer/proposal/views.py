@@ -1,3 +1,36 @@
-from django.shortcuts import render
+from .models import Proposal
+from .filters import ProposalFilter
+from django_filters.views import FilterView
+from django_tables2 import SingleTableMixin
+from .tables import ProposalTable
+from django.views.generic.detail import DetailView
 
-# Create your views here.
+
+class ProposalDetailView(DetailView):
+    model = Proposal
+    template_name = 'proposal/proposal_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProposalDetailView, self).get_context_data(**kwargs)
+        context['title'] = 'Proposal Detail'
+        return context
+
+
+class FilteredProposalListView(SingleTableMixin, FilterView):
+    table_class = ProposalTable
+    model = Proposal
+    template_name = 'proposal/proposal_list.html'
+
+    filterset_class = ProposalFilter
+    paginate_by = 8
+
+    def get_queryset(self):
+        return super(FilteredProposalListView, self).get_queryset().all()
+
+    def get_table_kwargs(self):
+        return {'template_name': 'shared/bootstrap.html'}
+
+    def get_context_data(self, **kwargs):
+        context = super(FilteredProposalListView, self).get_context_data(**kwargs)
+        context['title'] = 'Proposal List'
+        return context

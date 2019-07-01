@@ -1,5 +1,15 @@
 from django.contrib import admin
-from .models import Proposal, Status
+from .models import Proposal, Status, Fundtype, Fundfy, Fundcodelist, Filecatlist, Fileupload
+
+
+class FileuploadInLine(admin.StackedInline):
+    model = Fileupload
+    extra = 0
+
+
+class FundfyInLine(admin.StackedInline):
+    model = Fundfy
+    extra = 0
 
 
 @admin.register(Proposal)
@@ -28,7 +38,38 @@ class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         'slug': ('proposal_id',)
     }
+    inlines = (
+        FundfyInLine,
+        FileuploadInLine
+    )
 
+
+class FundfyAdmin(admin.ModelAdmin):
+    fields = [
+        'proposal_id',
+        'fcfy',
+        'budget',
+        'funds_expire',
+        'fund_type',
+    ]
+
+
+class FundtypeAdmin(admin.ModelAdmin):
+    fields = [
+        'fund_type',
+    ]
+
+
+class FundcodelistAdmin(admin.ModelAdmin):
+    fields = [
+        'fund_code',
+    ]
+
+
+class FilecatlistAdmin(admin.ModelAdmin):
+    fields = [
+        'cat_list',
+    ]
 
 class StatusAdmin(admin.ModelAdmin):
     fields = [
@@ -37,3 +78,6 @@ class StatusAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Status, StatusAdmin)
+admin.site.register(Fundtype, FundtypeAdmin)
+admin.site.register(Fundcodelist, FundcodelistAdmin)
+admin.site.register(Filecatlist, FilecatlistAdmin)

@@ -1,13 +1,5 @@
 from django.contrib import admin
-from .models import Contact, Project, Status,\
-    Fundfy, Fundtype, Fundcodelist, Fileupload, Filecatlist
-
-
-class FileuploadAdmin(admin.ModelAdmin):
-    fields = [
-        'file_category',
-        'file_upload',
-    ]
+from .models import Project, Status, Fundfy, Fundtype, Fundcodelist, Fileupload, Filecatlist
 
 
 class FileuploadInLine(admin.StackedInline):
