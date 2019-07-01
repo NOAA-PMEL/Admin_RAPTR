@@ -8,7 +8,7 @@ class ContactTable(tables.Table):
 
     class Meta:
         model = Contact
-        template_name = 'raptr/contact_list.html'
+        template_name = 'shared/contact_list.html'
         exclude = (
             'full_time_equivalent',
             'is_pi',

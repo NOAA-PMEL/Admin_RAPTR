@@ -25,20 +25,20 @@ class IndexPageTests(TestCase):
 class ContactListPageTests(TestCase):
 
     def test_contact_list_page_status_code(self):
-        response = self.client.get('/raptr/contact')
+        response = self.client.get('/shared/contact')
         self.assertEquals(response.status_code, 301)
 
     def test_contact_list_view_url_by_name(self):
-        response = self.client.get(reverse('raptr:contact_list'))
+        response = self.client.get(reverse('shared:contact_list'))
         self.assertEquals(response.status_code, 200)
 
     def test_contact_list_view_uses_correct_template(self):
-        response = self.client.get(reverse('raptr:contact_list'))
+        response = self.client.get(reverse('shared:contact_list'))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'raptr/contact_list.html')
+        self.assertTemplateUsed(response, 'shared/contact_list.html')
 
     def test_contact_list_page_contains_correct_html(self):
-        response = self.client.get(reverse('raptr:contact_list'))
+        response = self.client.get(reverse('shared:contact_list'))
         self.assertContains(response, '<title>RAPTR Contact List</title>')
 
 

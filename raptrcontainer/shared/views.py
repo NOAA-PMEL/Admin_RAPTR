@@ -40,7 +40,7 @@ class AboutView(TemplateView):
 class FilteredContactListView(SingleTableMixin, FilterView):
     table_class = ContactTable
     model = Contact
-    template_name = 'raptr/contact_list.html'
+    template_name = 'shared/contact_list.html'
 
     filterset_class = ContactFilter
     paginate_by = 12
