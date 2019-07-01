@@ -49,7 +49,7 @@ urlpatterns = [
     path('raptr/', include('raptr.urls')),
     path('crada/', include('crada.urls')),
     path('shared/', include('shared.urls')),
-    path('', RedirectView.as_view(url='/raptr/', permanent=True)),
+    path('', RedirectView.as_view(url='/shared/', permanent=True)),
 ]
 
 if settings.DEBUG is True:

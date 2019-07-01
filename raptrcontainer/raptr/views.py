@@ -3,7 +3,7 @@ from .models import Project, Contact, Fundfy, Sponsor
 from .filters import ProjectFilter
 from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin, MultiTableMixin
-from .tables import ProjectTable, NewFundsTable
+from .tables import ProjectTable
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView
 from django.http import HttpResponse
@@ -49,21 +49,6 @@ class ReportView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ReportView, self).get_context_data(**kwargs)
         context['title'] = 'RAPTR Reports'
-        return context
-
-
-class IndexView(MultiTableMixin, TemplateView):
-    table_class = NewFundsTable
-    model = Fundfy
-    template_name = 'raptr/index.html'
-
-    def get_tables(self):
-        fy_funds_received = Fundfy.objects.filter(fcfy="2019", fund_type = 1).order_by('project_id')
-        return [NewFundsTable(fy_funds_received)]
-
-    def get_context_data(self, **kwargs):
-        context = super(IndexView, self).get_context_data(**kwargs)
-        context['title'] = 'RAPTR Dashboard'
         return context
 
 

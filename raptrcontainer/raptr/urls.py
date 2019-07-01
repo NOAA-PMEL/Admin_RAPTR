@@ -32,11 +32,6 @@ urlpatterns = [
         name='reports'
     ),
     path(
-        '',
-        views.IndexView.as_view(),
-        name='index'
-    ),
-    path(
         'project/<slug:slug>/',
         views.ProjectDetailView.as_view(),
         name='project_detail'

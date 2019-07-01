@@ -9,16 +9,16 @@ class IndexPageTests(TestCase):
         self.assertEquals(response.status_code, 301)
 
     def test_index_view_url_by_name(self):
-        response = self.client.get(reverse('raptr:index'))
+        response = self.client.get(reverse('shared:index'))
         self.assertEquals(response.status_code, 200)
 
     def test_index_view_uses_correct_template(self):
-        response = self.client.get(reverse('raptr:index'))
+        response = self.client.get(reverse('shared:index'))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'raptr/index.html')
+        self.assertTemplateUsed(response, 'shared/index.html')
 
     def test_index_page_contains_correct_html(self):
-        response = self.client.get(reverse('raptr:index'))
+        response = self.client.get(reverse('shared:index'))
         self.assertContains(response, '<title>RAPTR Dashboard</title>')
 
 
