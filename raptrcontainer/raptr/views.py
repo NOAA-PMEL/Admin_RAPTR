@@ -43,15 +43,6 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
         return context
 
 
-class ReportView(generic.TemplateView):
-    template_name = 'raptr/reports.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(ReportView, self).get_context_data(**kwargs)
-        context['title'] = 'RAPTR Reports'
-        return context
-
-
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)

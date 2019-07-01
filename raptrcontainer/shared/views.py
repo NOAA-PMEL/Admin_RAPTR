@@ -6,6 +6,7 @@ from .tables import NewFundsTable
 from django_filters.views import FilterView
 from .filters import ContactFilter
 from .tables import ContactTable
+from django.views import generic
 
 
 class ContactDetailView(DetailView):
@@ -56,6 +57,7 @@ class FilteredContactListView(SingleTableMixin, FilterView):
         context['title'] = 'RAPTR Contact List'
         return context
 
+
 class IndexView(MultiTableMixin, TemplateView):
     table_class = NewFundsTable
     model = Fundfy
@@ -68,4 +70,13 @@ class IndexView(MultiTableMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['title'] = 'RAPTR Dashboard'
+        return context
+
+
+class ReportView(generic.TemplateView):
+    template_name = 'shared/reports.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ReportView, self).get_context_data(**kwargs)
+        context['title'] = 'RAPTR Reports'
         return context

@@ -29,4 +29,9 @@ urlpatterns = [
         views.IndexView.as_view(),
         name='index'
     ),
+    path(
+        'report/',
+        views.ReportView.as_view(),
+        name='reports'
+    ),
 ]

@@ -27,11 +27,6 @@ urlpatterns = [
         name='password_change_done'
     ),
     path(
-        'report/',
-        views.ReportView.as_view(),
-        name='reports'
-    ),
-    path(
         'project/<slug:slug>/',
         views.ProjectDetailView.as_view(),
         name='project_detail'
