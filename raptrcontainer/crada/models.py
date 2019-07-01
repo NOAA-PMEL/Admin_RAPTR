@@ -79,3 +79,39 @@ class Crada (models.Model):
         unique=True,
         max_length=50,
     )
+
+
+class Filecatlist(models.Model):
+    """
+    An editable list of categories for project file uploads, related to :model: 'crada.Crada'.
+    """
+
+    cat_list = models.CharField(
+        max_length=50,
+        blank=True
+    )
+
+    class Meta:
+        verbose_name = 'file category'
+        verbose_name_plural = 'file categories'
+
+    def __str__(self):
+        return self.cat_list
+
+
+class Fileupload(models.Model):
+    proposal_id = models.ForeignKey(
+        Crada,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    file_category = models.ForeignKey(
+        Filecatlist,
+        on_delete=models.DO_NOTHING,
+        blank=True,
+        null=True
+    )
+    file_upload = models.FileField(
+        upload_to='documents\cradas'
+    )
