@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Crada
+from .models import Crada, Fileupload, Filecatlist
+
+
+class FileuploadInLine(admin.TabularInline):
+    model = Fileupload
+    extra = 0
 
 
 @admin.register(Crada)
@@ -25,3 +30,14 @@ class CradaAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         'slug': ('docket_number',)
     }
+    inlines = (
+        FileuploadInLine,
+    )
+
+class FilecatlistAdmin(admin.ModelAdmin):
+    fields = [
+        'cat_list',
+    ]
+
+
+admin.site.register(Filecatlist, FilecatlistAdmin)

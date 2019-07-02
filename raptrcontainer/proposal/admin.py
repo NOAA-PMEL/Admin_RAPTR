@@ -2,12 +2,12 @@ from django.contrib import admin
 from .models import Proposal, Status, Fundtype, Fundfy, Fundcodelist, Filecatlist, Fileupload
 
 
-class FileuploadInLine(admin.StackedInline):
+class FileuploadInLine(admin.TabularInline):
     model = Fileupload
     extra = 0
 
 
-class FundfyInLine(admin.StackedInline):
+class FundfyInLine(admin.TabularInline):
     model = Fundfy
     extra = 0
 

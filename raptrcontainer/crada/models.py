@@ -76,6 +76,7 @@ class Crada (models.Model):
         blank=True
     )
     slug = models.SlugField(
+        help_text="A short label, used in the URLs to obfuscate the primary key.",
         unique=True,
         max_length=50,
     )
@@ -83,7 +84,9 @@ class Crada (models.Model):
 
 class Filecatlist(models.Model):
     """
+
     An editable list of categories for project file uploads, related to :model: 'crada.Crada'.
+
     """
 
     cat_list = models.CharField(
@@ -100,7 +103,12 @@ class Filecatlist(models.Model):
 
 
 class Fileupload(models.Model):
-    proposal_id = models.ForeignKey(
+    """
+
+    Saves CRADA files to media/documents/cradas, related to :model: 'crada.Crada'.
+
+    """
+    docket_number = models.ForeignKey(
         Crada,
         on_delete=models.CASCADE,
         blank=True,
