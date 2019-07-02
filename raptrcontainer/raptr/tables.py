@@ -1,4 +1,4 @@
-from .models import Project, Fundfy
+from .models import Project
 import django_tables2 as tables
 
 
