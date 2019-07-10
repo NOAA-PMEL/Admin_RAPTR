@@ -1,6 +1,7 @@
 {% extends "shared/base.html" %}
 {% load static %}
 {% get_media_prefix %}
+{% load shared_extras %}
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
@@ -80,9 +81,29 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td class = "labels">Room Number:</td>
-                                    <td class = "pdata">{{ contact.room_number }}</td>
+                                    <td class="labels">Room Number:</td>
+                                    <td class="pdata">{{ contact.room_number }}</td>
                                 </tr>
+                            {% if request.user|has_group:"human_resources" %}
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="labels">Position Billet:</td>
+                                    <td class="pdata">{{ contact.position_billet }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="labels">Position ID:</td>
+                                    <td class="pdata">{{ contact.position_id }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="labels">Employee Pay Plan:</td>
+                                    <td class="pdata">{{ contact.pay_plan }}-{{ contact.job_series }}-{{ contact.employee_band }}-{{ contact.employee_interval }}</td>
+                                </tr>
+                            {% endif %}
                         </table>
                     </div>
 
