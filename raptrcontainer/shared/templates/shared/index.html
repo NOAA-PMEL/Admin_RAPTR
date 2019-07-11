@@ -2,39 +2,31 @@
 {% load render_table from django_tables2 %}
 {% load bootstrap3 %}
 {% load static %}
+{% load my_filters %}
 
 {% block content %}
   <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
-  <h3>Current Fiscal Year New Reimbursable Funds</h3>
-
-  <div class="dash_projs">
-    {% for table in tables %}
-      {% render_table table 'shared/semantic.html' %}
-    {% endfor %}
+  <h3 class="dashboard_header">Dashboard</h3>
+  <h4>Current FY R&A Funds by Division</h4>
+  <div>
+    <table class="by_division_table">
+      <tr class="by_division_header">
+        <td>Division</td>
+        <td>Funds Received</td>
+      </tr>
+      {% if by_division %}
+        {% for division in by_division %}
+          <tr>
+            <td>{{ division.division }}</td>
+            <td>{{ division.budget__sum|currency }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td>No data retrieved.</td>
+          <td></td>
+        </tr>
+      {% endif %}
+    </table>
   </div>
-    <h3>Funds by Division</h3>
-<!--  <div>-->
-<!--    <table class="by_division_table">-->
-<!--      <tr class="by_division_header">-->
-<!--        <td>Division</td>-->
-<!--        <td>Funds Received</td>-->
-<!--      </tr>-->
-<!--      {% if by_division_sum %}-->
-<!--        {% for division in by_division_sum %}-->
-<!--          <tr>-->
-<!--            <td>{{ division.0 }}</td>-->
-<!--            <td>{{ division.1 }}</td>-->
-<!--          </tr>-->
-<!--        {% endfor %}-->
-<!--        <tr>-->
-<!--          <td>No data retrieved.</td>-->
-<!--          <td></td>-->
-<!--        </tr>-->
-<!--      {% endif %}-->
-<!--    </table>-->
-<!--  </div>-->
-
-<!--  <span>-->
-<!--    <img src="{% static 'raptr/images/New_RA_5yr.png' %}">-->
-<!--  </span>-->
 {% endblock %}
