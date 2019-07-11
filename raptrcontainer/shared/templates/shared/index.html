@@ -7,26 +7,63 @@
 {% block content %}
   <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
   <h3 class="dashboard_header">Dashboard</h3>
-  <h4>Current FY R&A Funds by Division</h4>
-  <div>
-    <table class="by_division_table">
-      <tr class="by_division_header">
-        <td>Division</td>
-        <td>Funds Received</td>
-      </tr>
-      {% if by_division %}
-        {% for division in by_division %}
-          <tr>
-            <td>{{ division.division }}</td>
-            <td>{{ division.budget__sum|currency }}</td>
-          </tr>
-        {% endfor %}
-      {% else %}
+
+  <div class="row">
+    <div class="col-md-2">
+      <h4 class="text-center">FY 2019 R&A Funds by Division</h4>
+      <table class="table table-bordered table-condensed table-striped">
+        <thead>
+        <tr class="by_division_header">
+          <th scope="col">Division</th>
+          <th scope="col">Funds Received</th>
+        </tr>
+        </thead>
+        {% if by_division %}
+          {% for division in by_division %}
+            <tr>
+              <td>{{ division.division }}</td>
+              <td class="text-right">{{ division.budget__sum|currency }}</td>
+            </tr>
+          {% endfor %}
+        {% else %}
         <tr>
           <td>No data retrieved.</td>
           <td></td>
         </tr>
-      {% endif %}
-    </table>
+        {% endif %}
+        <tr>
+          <td><strong>Total</strong></td>
+          <td class="text-right"><strong>{{ by_division_total.budget__sum|currency }}</strong></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <h4 class="text-center">FY 2019 R&A Funds by Research Program</h4>
+            <table class="table table-bordered table-condensed table-striped">
+        <thead>
+        <tr class="by_research_program_header">
+          <th scope="col">Research Program</th>
+          <th scope="col">Funds Received</th>
+        </tr>
+        </thead>
+        {% if by_research_program %}
+          {% for rp in by_research_program %}
+            <tr>
+              <td>{{ rp.research_program }}</td>
+              <td class="text-right">{{ rp.budget__sum|currency }}</td>
+            </tr>
+          {% endfor %}
+        {% else %}
+        <tr>
+          <td>No data retrieved.</td>
+          <td></td>
+        </tr>
+        {% endif %}
+        <tr>
+          <td><strong>Total</strong></td>
+          <td class="text-right"><strong>{{ by_research_program_total.budget__sum|currency }}</strong></td>
+        </tr>
+      </table>
+    </div>
   </div>
 {% endblock %}
