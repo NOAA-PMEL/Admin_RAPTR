@@ -15,7 +15,7 @@ for yr in range(2014, (datetime.datetime.now().year + 2)):
 class Filecatlist(models.Model):
     """
 
-    An editable list of categories for project file uploads, related to :model: 'raptr.Project'.
+    An editable list of categories for project file uploads, related to :model:`raptr.Fileupload`.
 
     """
 
@@ -35,7 +35,7 @@ class Filecatlist(models.Model):
 class Status(models.Model):
     """
 
-    An editable list of project statuses, related to :model:'raptr.Project'
+    An editable list of project statuses, related to :model:`raptr.Project`
 
     """
     status = models.CharField(
@@ -208,7 +208,7 @@ class Fundfy(models.Model):
 class Fileupload(models.Model):
     """
 
-    Saves Project files to media/documents/projects, related to :model: 'raptr.Project'.
+    Saves Project files to media/documents/projects, related to :model:`raptr.Project`.
 
     """
     project_id = models.ForeignKey(

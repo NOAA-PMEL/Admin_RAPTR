@@ -56,7 +56,7 @@ LOCATIONS = (
 class Country(models.Model):
     """
 
-    Provides a list of sponsor countries, related to :model:'shared.sponsor'.
+    Provides a list of sponsor countries, related to :model:`shared.Sponsor`.
 
     """
     country_name = models.CharField(
@@ -75,7 +75,7 @@ class Country(models.Model):
 class Sponsortype(models.Model):
     """
 
-    Provides a list of sponsor categories, related to :model:'shared.sponsor'.
+    Provides a list of sponsor categories, related to :model:`shared.Sponsor`.
 
     """
     sponsor_type = models.CharField(
@@ -94,8 +94,8 @@ class Sponsortype(models.Model):
 class Sponsor(models.Model):
     """
 
-    Provides information about sponsors PMEL does business with, related to model:'raptr.project', model:'crada.crada',
-    and model:'shared.project'
+    Provides information about sponsors PMEL does business with, related to model:`raptr.Project`, model:`crada.Crada`,
+    and model:`proposal.Proposal`
 
     """
     customer_number = models.CharField(
@@ -149,7 +149,7 @@ class Sponsor(models.Model):
 class Optsub(models.Model):
     """
 
-    Provides a list of OPT codes for the employee's Division, related to :model:'shared.Contact'.
+    Provides a list of OPT codes for the employee's Division, related to :model:`shared.Contact`.
 
     """
     opt_sub = models.CharField(
@@ -168,7 +168,7 @@ class Optsub(models.Model):
 class Program(models.Model):
     """
 
-    Provides a list of research programs, related to :model:'shared.Contact'.
+    Provides a list of research programs, related to :model:`shared.Contact`.
 
     """
     program_short_name = models.CharField(
@@ -196,7 +196,7 @@ class Program(models.Model):
 class Affiliation(models.Model):
     """
 
-    Provides a list of organizations that PMEL workers can be affiliated with, related to :model:'shared.contact'
+    Provides a list of organizations that PMEL workers can be affiliated with, related to :model:`shared.Contact`.
 
     """
     affiliation_name = models.CharField(
@@ -211,7 +211,7 @@ class Affiliation(models.Model):
 class Contact(models.Model):
     """
 
-    Stores a list of PMEL workers, related to :model:'raptr.project', :model:'shared.proposal', :model:'crada.crada'
+    Stores a list of PMEL workers, related to :model:`raptr.Project`, :model:`proposal.Proposal`, :model:`crada.Crada`.
 
     """
     full_time_equivalent = models.FloatField(
