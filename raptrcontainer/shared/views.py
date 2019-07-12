@@ -68,13 +68,14 @@ class IndexView(generic.TemplateView):
         context['title'] = 'Dashboard'
         context['by_division'] = Fundfy.objects.values(division=F('project_id__investigator_supported__division'))\
             .filter(fcfy="2019", fund_type=1)\
-            .annotate(Sum('budget'))
+            .annotate(Sum('budget'))\
+            .order_by('-budget__sum')
         context['by_division_total'] = Fundfy.objects.values(division=F('project_id__investigator_supported__division'))\
             .filter(fcfy="2019", fund_type=1)\
             .aggregate(Sum('budget'))
         context['by_research_program'] = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
             .filter(fcfy="2019", fund_type=1)\
-            .annotate(Sum('budget'))
+            .annotate(Sum('budget')).order_by('-budget__sum')
         context['by_research_program_total'] = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
             .filter(fcfy="2019", fund_type=1)\
             .aggregate(Sum('budget'))

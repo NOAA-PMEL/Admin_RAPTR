@@ -9,9 +9,12 @@
   <h3 class="dashboard_header">Dashboard</h3>
 
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <h4 class="text-center">FY 2019 R&A Funds by Division</h4>
       <table class="table table-bordered table-condensed table-striped">
+        <tr>
+          <img class="img-responsive" src="{% static 'raptr/images/by_division.png' %}" width="350" height="350" align="center" alt="By Division">
+        </tr>
         <thead>
         <tr class="by_division_header">
           <th scope="col">Division</th>
@@ -39,7 +42,10 @@
     </div>
     <div class="col-md-3">
       <h4 class="text-center">FY 2019 R&A Funds by Research Program</h4>
-            <table class="table table-bordered table-condensed table-striped">
+      <table class="table table-bordered table-condensed table-striped">
+        <tr>
+          <img class="img-responsive" src="{% static 'raptr/images/by_rp.png' %}" width="350" height="350" align="center" alt="By Research Program">
+        </tr>
         <thead>
         <tr class="by_research_program_header">
           <th scope="col">Research Program</th>
