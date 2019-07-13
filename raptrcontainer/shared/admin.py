@@ -90,6 +90,7 @@ class OptsubAdmin(admin.ModelAdmin):
     ]
 
 
+admin.site.site_header = 'RAPTR Admin Dashboard'
 admin.site.register(Sponsortype, SponsortypeAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Program, ProgramAdmin)
