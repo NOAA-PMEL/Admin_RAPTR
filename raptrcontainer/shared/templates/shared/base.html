@@ -5,6 +5,8 @@
     <meta charset="utf-8" />
     <title>{{ title }}</title>
     {% load static %}
+    {% include 'base/css.html' %}
+    {% include 'base/bootstrap_defaults.html' %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/layout.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/bootstrap.css' %}" />
@@ -49,5 +51,11 @@
             <p>2019 - PMEL RAPTR</p>
         </footer>
     </div>
+    {% include 'base/js.html' %}
+    <script>
+    $(document).ready(function(){
+      {% block jquery %}{% endblock %}
+    })
+    </script>
 </body>
 </html>

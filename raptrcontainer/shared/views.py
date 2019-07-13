@@ -1,13 +1,15 @@
 from raptr.models import Fundfy
 from shared.models import Contact, Sponsor
 from django.views.generic.detail import DetailView
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
 from django_tables2 import SingleTableMixin
 from django_filters.views import FilterView
 from .filters import ContactFilter
 from .tables import ContactTable
 from django.views import generic
 from django.db.models import Sum, F
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
 class ContactDetailView(DetailView):
@@ -89,3 +91,25 @@ class ReportView(generic.TemplateView):
         context = super(ReportView, self).get_context_data(**kwargs)
         context['title'] = 'Reports'
         return context
+
+
+class ChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        by_division_data = Fundfy.objects.values(division=F('project_id__investigator_supported__division')) \
+            .filter(fcfy="2019", fund_type=1) \
+            .annotate(Sum('budget')) \
+            .order_by('-budget__sum')
+        labels = []
+        for d in by_division_data:
+            labels.append(d.division)
+        default_items = []
+        for b in by_division_data:
+            default_items.append(b.budget__sum)
+        data = {
+                "labels": labels,
+                "default": default_items,
+        }
+        return Response(data)
