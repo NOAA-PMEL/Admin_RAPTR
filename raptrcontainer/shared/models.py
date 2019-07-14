@@ -56,7 +56,7 @@ LOCATIONS = (
 class Country(models.Model):
     """
 
-    Provides a list of sponsor countries, related to :model:`shared.Sponsor`.
+    Stores a list of sponsor countries, related to :model:`shared.Sponsor`.
 
     """
     country_name = models.CharField(
@@ -75,7 +75,7 @@ class Country(models.Model):
 class Sponsortype(models.Model):
     """
 
-    Provides a list of sponsor categories, related to :model:`shared.Sponsor`.
+    Stores a list of sponsor categories, related to :model:`shared.Sponsor`.
 
     """
     sponsor_type = models.CharField(
@@ -94,7 +94,7 @@ class Sponsortype(models.Model):
 class Sponsor(models.Model):
     """
 
-    Provides information about sponsors PMEL does business with, related to model:`raptr.Project`, model:`crada.Crada`,
+    Stores information about sponsors PMEL does business with, related to model:`raptr.Project`, model:`crada.Crada`,
     and model:`proposal.Proposal`
 
     """
@@ -149,7 +149,7 @@ class Sponsor(models.Model):
 class Optsub(models.Model):
     """
 
-    Provides a list of OPT codes for the employee's Division, related to :model:`shared.Contact`.
+    Stores a list of OPT codes for the employee's Division, related to :model:`shared.Contact`.
 
     """
     opt_sub = models.CharField(
@@ -168,7 +168,7 @@ class Optsub(models.Model):
 class Program(models.Model):
     """
 
-    Provides a list of research programs, related to :model:`shared.Contact`.
+    Stores a list of research programs, related to :model:`shared.Contact`.
 
     """
     program_short_name = models.CharField(
@@ -196,7 +196,7 @@ class Program(models.Model):
 class Affiliation(models.Model):
     """
 
-    Provides a list of organizations that PMEL workers can be affiliated with, related to :model:`shared.Contact`.
+    Stores a list of organizations that PMEL workers can be affiliated with, related to :model:`shared.Contact`.
 
     """
     affiliation_name = models.CharField(

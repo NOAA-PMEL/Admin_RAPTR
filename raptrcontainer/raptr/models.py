@@ -15,10 +15,9 @@ for yr in range(2014, (datetime.datetime.now().year + 2)):
 class Filecatlist(models.Model):
     """
 
-    An editable list of categories for project file uploads, related to :model:`raptr.Fileupload`.
+    Stores list of categories for project file uploads, related to :model:`raptr.Fileupload`.
 
     """
-
     cat_list = models.CharField(
         max_length=50,
         blank=True
@@ -35,7 +34,7 @@ class Filecatlist(models.Model):
 class Status(models.Model):
     """
 
-    An editable list of project statuses, related to :model:`raptr.Project`
+    Stores a list of project statuses, related to :model:`raptr.Project`
 
     """
     status = models.CharField(
@@ -51,6 +50,11 @@ class Status(models.Model):
 
 
 class Fundtype(models.Model):
+    """
+
+    Stores the status of funding (e.g. new, carry over, proposed, etc.), related to :model:`project.Fundfy`.
+
+    """
     fund_type = models.CharField(
         max_length=25,
         blank=True
@@ -65,6 +69,11 @@ class Fundtype(models.Model):
 
 
 class Fundcodelist(models.Model):
+    """
+
+    Stores a list of the fund codes, related to :model:`raptr.Fundfy`
+
+    """
     fund_code = models.CharField(
         max_length=10,
         blank=True
@@ -81,7 +90,7 @@ class Fundcodelist(models.Model):
 class Project(models.Model):
     """
 
-    Stores information about PMEL Reimbursable and Advance Agreements
+    Stores information about PMEL Reimbursable and Advance Agreements.
 
     """
     project_id = models.CharField(
@@ -166,6 +175,11 @@ class Project(models.Model):
 
 
 class Fundfy(models.Model):
+    """
+
+    Stores the funds proposed, received, and carried over. Related to :model:`raptr.Project`.
+
+    """
     project_id = models.ForeignKey(
         Project,
         on_delete=models.CASCADE,
@@ -185,6 +199,7 @@ class Fundfy(models.Model):
         blank=True,
         null=True
     )
+    # TODO: consider changing to an enumerated list - will this change that often?
     fund_type = models.ForeignKey(
         Fundtype,
         on_delete=models.DO_NOTHING,
@@ -208,7 +223,7 @@ class Fundfy(models.Model):
 class Fileupload(models.Model):
     """
 
-    Saves Project files to media/documents/projects, related to :model:`raptr.Project`.
+    Uploads Project files to media/documents/projects, related to :model:`raptr.Project`.
 
     """
     project_id = models.ForeignKey(
