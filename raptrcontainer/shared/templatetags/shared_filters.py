@@ -2,6 +2,11 @@ from django import template
 from django.contrib.humanize.templatetags.humanize import intcomma
 
 register = template.Library()
+"""
+
+Currency formatter for use in templates. {% load shared_filters %} to use.
+
+"""
 
 
 def currency(dollars):
