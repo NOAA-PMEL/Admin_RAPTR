@@ -81,6 +81,7 @@ class IndexView(generic.TemplateView):
         context['by_research_program_total'] = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
             .filter(fcfy="2019", fund_type=1)\
             .aggregate(Sum('budget'))
+        context['by_division_graph_data'] = get_chart_data()
         return context
 
 
@@ -93,23 +94,23 @@ class ReportView(generic.TemplateView):
         return context
 
 
-class ChartData(APIView):
-    authentication_classes = []
-    permission_classes = []
-
-    def get(self, request, format=None):
-        by_division_data = Fundfy.objects.values(division=F('project_id__investigator_supported__division')) \
-            .filter(fcfy="2019", fund_type=1) \
-            .annotate(Sum('budget')) \
-            .order_by('-budget__sum')
-        labels = []
-        for d in by_division_data:
-            labels.append(d.division)
-        default_items = []
-        for b in by_division_data:
-            default_items.append(b.budget__sum)
-        data = {
-                "labels": labels,
-                "default": default_items,
-        }
-        return Response(data)
+def get_chart_data():
+    by_division_data = Fundfy.objects.values_list('project_id__investigator_supported__division') \
+        .filter(fcfy="2019", fund_type=1) \
+        .annotate(Sum('budget')) \
+        .order_by('-budget__sum')
+    print(by_division_data)
+    by_division_graph_labels = []
+    for d in by_division_data:
+        by_division_graph_labels.append(d[0])
+    print(by_division_graph_labels)
+    by_division_graph_data = []
+    for gd in by_division_data:
+         by_division_graph_data.append(gd[1])
+    print(by_division_graph_data)
+    data = {
+             "labels": by_division_graph_labels,
+             "data": by_division_graph_data,
+         }
+    print(data)
+    return by_division_graph_labels
