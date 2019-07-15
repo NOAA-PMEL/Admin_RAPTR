@@ -92,3 +92,8 @@ table.docs_table th {
   width: 500px;
   border: 3px solid #73AD21;
 }
+
+.container {
+  width: 75%;
+  margin: 15px auto;
+}
