@@ -93,7 +93,6 @@
       options: {
         title: {
           display: false,
-          text: 'FY19 New Funds Received'
         },
         legend: {
           position: 'right'
@@ -129,7 +128,6 @@
       options: {
         title: {
           display: false,
-          text: 'FY19 New Funds Received'
         },
         legend: {
           position: 'right'
@@ -140,8 +138,8 @@
               return data['labels'][tooltipItem['index']] + ': $' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
             },
 <!--            afterLabel: function(tooltipItem, data) {-->
-<!--              var dataset = data['datasets'][0];-->
-<!--              var percent = Math.round((dataset['data'][tooltipItem['index']] / dataset["_meta"][0]['total']) * 100)-->
+<!--              var dataset2 = data['datasets'][0];-->
+<!--              var percent2 = Math.round((dataset['data'][tooltipItem['index']] / dataset["_meta"][0]['total']) * 100)-->
 <!--              return '(' + percent2 + '%)';-->
 <!--            }-->
           }
