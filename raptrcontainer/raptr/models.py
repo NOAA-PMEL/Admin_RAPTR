@@ -241,3 +241,24 @@ class Fileupload(models.Model):
     file_upload = models.FileField(
         upload_to='documents/projects'
     )
+
+
+class RaHistory(models.Model):
+    """
+
+    Stores the historical annual dollars received in R&A funds.
+
+    """
+    fiscal_year = models.CharField(
+        max_length=4,
+    )
+    dollars_received = MoneyField(
+        max_digits=14,
+        decimal_places=2,
+        default_currency='USD'
+    )
+    
+    class Meta:
+        ordering = ['fiscal_year']
+        verbose_name='RA History'
+        verbose_name_plural = 'RA History'

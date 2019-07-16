@@ -74,10 +74,10 @@ $.ajax({
           <td></td>
         </tr>
         {% endif %}
-        <tr>
+        <tfoot>
           <td><strong>Total</strong></td>
           <td class="text-right"><strong>{{ by_division_total.budget__sum|currency }}</strong></td>
-        </tr>
+        </tfoot>
       </table>
     </div>
     <div class="col-md-3">
@@ -109,10 +109,10 @@ $.ajax({
           <td></td>
         </tr>
         {% endif %}
-        <tr>
+        <tfoot>
           <td><strong>Total</strong></td>
           <td class="text-right"><strong>{{ by_research_program_total.budget__sum|currency }}</strong></td>
-        </tr>
+        </tfoot>
       </table>
     </div>
   </div>

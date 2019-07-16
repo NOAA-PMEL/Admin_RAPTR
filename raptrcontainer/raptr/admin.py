@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Status, Fundfy, Fundtype, Fundcodelist, Fileupload, Filecatlist
+from .models import Project, Status, Fundfy, Fundtype, Fundcodelist, Fileupload, Filecatlist, RaHistory
 
 
 class FileuploadInLine(admin.TabularInline):
@@ -78,6 +78,19 @@ class FilecatlistAdmin(admin.ModelAdmin):
 class StatusAdmin(admin.ModelAdmin):
     fields = [
         'status',
+    ]
+
+@admin.register(RaHistory)
+class RaHistoryAdmin(admin.ModelAdmin):
+    list_display = [
+        'fiscal_year',
+        'dollars_received'
+    ]
+    list_editable = [
+        'dollars_received',
+    ]
+    ordering = [
+        'fiscal_year',
     ]
 
 
