@@ -35,8 +35,13 @@ urlpatterns = [
         name='reports'
     ),
     path(
-        'api/data/',
-        views.ChartData.as_view(),
-        name='api-data'
+        'api/data/1/',
+        views.DivisionChartData.as_view(),
+        name='division-data'
     ),
+    path(
+        'api/data/2/',
+        views.ResearchProgramChartData.as_view(),
+        name='program-data'
+    )
 ]
