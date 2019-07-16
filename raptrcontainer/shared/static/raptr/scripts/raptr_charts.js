@@ -76,11 +76,11 @@ function setHistoryChart(labels, defaultData){
         }]
       },
       options: {
-        title: {
-          display: false,
+      title: {
+          display: false
         },
         legend: {
-          position: 'right'
+          display: false
         },
         tooltips: {
           callbacks: {
