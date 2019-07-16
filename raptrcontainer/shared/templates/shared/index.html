@@ -1,28 +1,81 @@
 {% extends "shared/base.html" %}
-{% load render_table from django_tables2 %}
-{% load bootstrap4 %}
-{% load static %}
-{% load shared_filters %}
+    {% load shared_filters %}
+
+<script>
+{% block jquery %}
+var endpoint = 'api/data/'
+var defaultData = []
+var labels = [];
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.default
+        console.log("success")
+        setChart()
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+function setChart(){
+    var ctx = document.getElementById('byDivisionChart').getContext('2d');
+    var byDivisionChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Funds Received",
+          backgroundColor: ["#4472C4", "#ED7D31", "#A5A5A5", "#FFC000", "#008000"],
+          data: defaultData
+        }]
+      },
+      options: {
+        title: {
+          display: false,
+        },
+        legend: {
+          position: 'right'
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              return data['labels'][tooltipItem['index']] + ': $' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
+            },
+<!--            afterLabel: function(tooltipItem, data) {-->
+<!--              var dataset = data['datasets'][0];-->
+<!--              var percent = Math.round((dataset['data'][tooltipItem['index']] / dataset["_meta"][0]['total']) * 100)-->
+<!--              return '(' + percent + '%)';-->
+<!--            }-->
+          }
+        }
+      }
+    })
+}
+{% endblock %}
+
+</script>
 
 {% block content %}
-
   <div class="row">
     <div class="col-md-3">
-      <h4 class="text-center">FY 2019 R&A Funds by Division</h4>
+      <h4 class="text-center">FY 2019 R and A Funds by Division</h4>
       <table class="table table-bordered table-condensed table-striped">
+      <thead>
         <tr>
-          <div class="container">
-            <div>
-              <canvas id="byDivisionChart"></canvas>
-            </div>
-          </div>
-        </tr>
-        <thead>
+            <td colspan="2">
+              <div class="container">
+                <canvas id="byDivisionChart"></canvas>
+              </div>
+            </td>
+          </tr>
+        </thead>
         <tr class="by_division_header">
           <th scope="col">Division</th>
           <th scope="col">Funds Received</th>
         </tr>
-        </thead>
         {% if by_division %}
           {% for division in by_division %}
             <tr>
@@ -43,20 +96,21 @@
       </table>
     </div>
     <div class="col-md-3">
-      <h4 class="text-center">FY 2019 R&A Funds by Research Program</h4>
+      <h4 class="text-center">FY 2019 R and A Funds by Research Program</h4>
       <table class="table table-bordered table-condensed table-striped">
-          <div class="container">
-            <div>
+        <thead>
+        <tr>
+          <td colspan="2">
+            <div class="container">
               <canvas id="byResearchProgramChart"></canvas>
             </div>
-          </div>
+          </td>
         </tr>
-        <thead>
+        </thead>
         <tr class="by_research_program_header">
           <th scope="col">Research Program</th>
           <th scope="col">Funds Received</th>
         </tr>
-        </thead>
         {% if by_research_program %}
           {% for rp in by_research_program %}
             <tr>
@@ -78,40 +132,6 @@
     </div>
   </div>
 
-<script>
-    var ctx = document.getElementById('byDivisionChart').getContext('2d');
-    var byDivisionChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ["ED","OE", "OC", "AD"],
-        datasets: [{
-          label: "Funds Received",
-          backgroundColor: ["#4472C4", "#ED7D31", "#A5A5A5", "#FFC000", "#008000"],
-          data: [235000, 46476, 33126, 15000]
-        }]
-      },
-      options: {
-        title: {
-          display: false,
-        },
-        legend: {
-          position: 'right'
-        },
-        tooltips: {
-          callbacks: {
-            label: function(tooltipItem, data) {
-              return data['labels'][tooltipItem['index']] + ': $' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
-            },
-            afterLabel: function(tooltipItem, data) {
-              var dataset = data['datasets'][0];
-              var percent = Math.round((dataset['data'][tooltipItem['index']] / dataset["_meta"][0]['total']) * 100)
-              return '(' + percent + '%)';
-            }
-          }
-        }
-      }
-    })
-</script>
 
 <script>
     var ctx2 = document.getElementById('byResearchProgramChart').getContext('2d');

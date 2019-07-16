@@ -34,4 +34,9 @@ urlpatterns = [
         views.ReportView.as_view(),
         name='reports'
     ),
+    path(
+        'api/data/',
+        views.ChartData.as_view(),
+        name='api-data'
+    ),
 ]
