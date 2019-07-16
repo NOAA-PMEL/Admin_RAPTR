@@ -36,5 +36,9 @@ urlpatterns = [
         views.FilteredProjectListView.as_view(),
         name='project_list'
     ),
-
+    path(
+        'api/data/3/',
+        views.RAHistoryChartData.as_view(),
+        name='history-data'
+    ),
 ]

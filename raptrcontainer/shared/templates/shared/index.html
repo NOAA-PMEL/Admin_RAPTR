@@ -40,6 +40,24 @@ $.ajax({
         console.log(error_data)
     }
 })
+
+var endpoint = '../raptr/api/data/3/'
+var defaultData = []
+var labels = [];
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.default
+        console.log("success")
+        setHistoryChart(labels, defaultData)
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
 {% endblock %}
 </script>
 
@@ -114,6 +132,10 @@ $.ajax({
           <td class="text-right"><strong>{{ by_research_program_total.budget__sum|currency }}</strong></td>
         </tfoot>
       </table>
+    </div>
+    <div class="col-md-3">
+      <h4 class="text-center">R&amp;A Funds Five-Year Trend</h4>
+      <canvas id="byHistoryChart"></canvas>
     </div>
   </div>
 

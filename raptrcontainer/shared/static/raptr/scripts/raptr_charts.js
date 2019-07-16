@@ -62,3 +62,33 @@ function setbyResearchProgramChart(labels, defaultData){
       }
     })
 }
+
+function setHistoryChart(labels, defaultData){
+    var ctx2 = document.getElementById('byHistoryChart').getContext('2d');
+    var byHistoryChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Funds Received",
+          backgroundColor: ["#4472C4", "#4472C4", "#4472C4", "#4472C4", "#4472C4" ],
+          data: defaultData
+        }]
+      },
+      options: {
+        title: {
+          display: false,
+        },
+        legend: {
+          position: 'right'
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+              return data['labels'][tooltipItem['index']] + ': $' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
+            },
+          }
+        }
+      }
+    })
+}

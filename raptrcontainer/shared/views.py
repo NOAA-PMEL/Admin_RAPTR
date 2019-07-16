@@ -10,7 +10,6 @@ from django.views import generic
 from django.db.models import Sum, F
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.http import JsonResponse
 
 
 class ContactDetailView(DetailView):
