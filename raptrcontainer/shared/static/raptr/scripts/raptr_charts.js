@@ -20,13 +20,18 @@ function setbyDivisionChart(labels, defaultData){
         tooltips: {
           callbacks: {
             label: function(tooltipItem, data) {
-              return data['labels'][tooltipItem['index']] + ': $' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
+                    var dataset = data.datasets[tooltipItem.datasetIndex];
+                    //calculate the total of this data set
+                    var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                    });
+                    //get the current items value
+                    var currentValue = dataset.data[tooltipItem.index];
+                    //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                    var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+
+                    return percentage + "%";
             },
-//            afterLabel: function(tooltipItem, data) {
-//              var dataset2 = data['datasets'][0];
-//              var percent2 = Math.round((dataset['data'][tooltipItem['index']] / dataset["_meta"][0]['total']) * 100)
-//              return '(' + percent2 + '%)';
-//            }
           }
         }
       }
@@ -55,7 +60,17 @@ function setbyResearchProgramChart(labels, defaultData){
         tooltips: {
           callbacks: {
             label: function(tooltipItem, data) {
-              return data['labels'][tooltipItem['index']] + ': $' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
+                    var dataset = data.datasets[tooltipItem.datasetIndex];
+                    //calculate the total of this data set
+                    var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                    });
+                    //get the current items value
+                    var currentValue = dataset.data[tooltipItem.index];
+                    //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                    var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+
+                    return percentage + "%";
             },
           }
         }
@@ -71,21 +86,31 @@ function setHistoryChart(labels, defaultData){
         labels: labels,
         datasets: [{
           label: "Funds Received",
-          backgroundColor: ["#4472C4", "#4472C4", "#4472C4", "#4472C4", "#4472C4" ],
+          backgroundColor: "#4472C4",
           data: defaultData
         }]
       },
       options: {
       title: {
-          display: false
+          display: false,
+          text: '(in thousands)'
         },
         legend: {
           display: false
         },
+        scales:{
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              callback: function(value, index, values){
+                return  '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");              }
+            },
+          }]
+        },
         tooltips: {
-          callbacks: {
+           callbacks: {
             label: function(tooltipItem, data) {
-              return data['labels'][tooltipItem['index']] + ': $' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
+              return '$' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
             },
           }
         }

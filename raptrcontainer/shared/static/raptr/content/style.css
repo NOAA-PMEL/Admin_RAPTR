@@ -97,3 +97,7 @@ table.docs_table th {
   width: 100%;
   margin: 15px auto;
 }
+
+.top-buffer {
+  margin-top:20px;
+}

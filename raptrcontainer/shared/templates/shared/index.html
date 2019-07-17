@@ -63,53 +63,51 @@ $.ajax({
 
 {% block content %}
   <div class="row">
+
     <div class="col-md-3">
       <h4 class="text-center">FY 2019 R&amp;A Funds by Division</h4>
-      <table class="table table-bordered table-condensed table-striped">
-      <thead>
-        <tr>
-            <td colspan="2">
-              <div class="container">
-                <canvas id="byDivisionChart"></canvas>
-              </div>
-            </td>
-          </tr>
-        </thead>
-        <tr class="by_division_header">
-          <th scope="col">Division</th>
-          <th scope="col">Funds Received</th>
-        </tr>
-        {% if by_division %}
-          {% for division in by_division %}
-            <tr>
-              <td>{{ division.division }}</td>
-              <td class="text-right">{{ division.budget__sum|currency }}</td>
-            </tr>
-          {% endfor %}
-        {% else %}
-        <tr>
-          <td>No data retrieved.</td>
-          <td></td>
-        </tr>
-        {% endif %}
-        <tfoot>
-          <td><strong>Total</strong></td>
-          <td class="text-right"><strong>{{ by_division_total.budget__sum|currency }}</strong></td>
-        </tfoot>
-      </table>
+      <canvas id="byDivisionChart"></canvas>
     </div>
+
     <div class="col-md-3">
       <h4 class="text-center">FY 2019 R&amp;A Funds by Research Program</h4>
+        <canvas id="byResearchProgramChart"></canvas>
+    </div>
+
+    <div class="col-md-3">
+      <h4 class="text-center">R&amp;A Funds Five-Year Trend</h4>
+      <canvas id="byHistoryChart"></canvas>
+    </div>
+  </div>
+
+<div class="row top-buffer">
+  <div class="col-md-3">
+    <table class="table table-bordered table-condensed table-striped">
+      <tr class="by_division_header">
+        <th scope="col">Division</th>
+        <th scope="col">Funds Received</th>
+      </tr>
+      {% if by_division %}
+        {% for division in by_division %}
+          <tr>
+            <td>{{ division.division }}</td>
+            <td class="text-right">{{ division.budget__sum|currency }}</td>
+          </tr>
+        {% endfor %}
+      {% else %}
+      <tr>
+        <td>No data retrieved.</td>
+        <td></td>
+      </tr>
+      {% endif %}
+      <tr>
+        <td><strong>Total</strong></td>
+        <td class="text-right"><strong>{{ by_division_total.budget__sum|currency }}</strong></td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-3">
       <table class="table table-bordered table-condensed table-striped">
-        <thead>
-        <tr>
-          <td colspan="2">
-            <div class="container">
-              <canvas id="byResearchProgramChart"></canvas>
-            </div>
-          </td>
-        </tr>
-        </thead>
         <tr class="by_research_program_header">
           <th scope="col">Research Program</th>
           <th scope="col">Funds Received</th>
@@ -127,16 +125,13 @@ $.ajax({
           <td></td>
         </tr>
         {% endif %}
-        <tfoot>
+        <tr>
           <td><strong>Total</strong></td>
           <td class="text-right"><strong>{{ by_research_program_total.budget__sum|currency }}</strong></td>
-        </tfoot>
+        </tr>
       </table>
-    </div>
-    <div class="col-md-3">
-      <h4 class="text-center">R&amp;A Funds Five-Year Trend</h4>
-      <canvas id="byHistoryChart"></canvas>
-    </div>
   </div>
+</div>
+
 
 {% endblock %}
