@@ -103,14 +103,15 @@ function setHistoryChart(labels, defaultData){
             ticks: {
               beginAtZero: true,
               callback: function(value, index, values){
-                return  '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
+                return  '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") +'K';
+                }
             },
           }]
         },
         tooltips: {
            callbacks: {
             label: function(tooltipItem, data) {
-              return '$' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString();
+              return '$' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString() + 'K';
             },
           }
         }

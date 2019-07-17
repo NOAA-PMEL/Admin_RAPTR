@@ -2,6 +2,7 @@
 {% load shared_filters %}
 {% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
 
 <!--get chart data-->
@@ -133,17 +134,14 @@ $.ajax({
         </tr>
       </table>
   </div>
-  <div class="col-md-3">
-    <table class="table">
-      <tr>
-        <td>
-          <h3>Current Stats:</h3>
-          <h4>Number of open Projects: {{ open_projects_total.status__count }}</h4>
-        </td>
-      </tr>
-    </table>
+
+  <div class="col-md-3 border">
+    <div class="row row-bordered">
+      <h3>Current Stats:</h3>
+    </div>
+    <h4>Number of open Projects: {{ open_projects_total.status__count }}</h4>
+    <h4>Number of Projects receiving new funds: {{ fy_new_funds_count.fcfy__count }}</h4>
   </div>
 </div>
-
 
 {% endblock %}

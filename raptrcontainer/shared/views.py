@@ -82,6 +82,7 @@ class IndexView(generic.TemplateView):
             .filter(fcfy="2019", fund_type=1)\
             .aggregate(Sum('budget'))
         context ['open_projects_total'] = Project.objects.all().filter(status=2).aggregate(Count('status'))
+        context ['fy_new_funds_count'] = Fundfy.objects.all().filter(fcfy="2019", fund_type=1).aggregate(Count('fcfy'))
         return context
 
 
