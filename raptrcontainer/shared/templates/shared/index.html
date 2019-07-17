@@ -2,6 +2,8 @@
 {% load shared_filters %}
 {% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
+
 <!--get chart data-->
 <script>
 {% block jquery %}
@@ -130,6 +132,16 @@ $.ajax({
           <td class="text-right"><strong>{{ by_research_program_total.budget__sum|currency }}</strong></td>
         </tr>
       </table>
+  </div>
+  <div class="col-md-3">
+    <table class="table">
+      <tr>
+        <td>
+          <h3>Current Stats:</h3>
+          <h4>Number of open Projects: {{ open_projects_total.status__count }}</h4>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
 

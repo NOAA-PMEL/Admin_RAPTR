@@ -1,4 +1,4 @@
-from raptr.models import Fundfy
+from raptr.models import Fundfy, Project
 from shared.models import Contact, Sponsor
 from django.views.generic.detail import DetailView
 from django.views.generic import TemplateView, View
@@ -7,7 +7,7 @@ from django_filters.views import FilterView
 from .filters import ContactFilter
 from .tables import ContactTable
 from django.views import generic
-from django.db.models import Sum, F
+from django.db.models import Sum, F, Count
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -81,6 +81,7 @@ class IndexView(generic.TemplateView):
         context['by_research_program_total'] = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
             .filter(fcfy="2019", fund_type=1)\
             .aggregate(Sum('budget'))
+        context ['open_projects_total'] = Project.objects.all().filter(status=2).aggregate(Count('status'))
         return context
 
 
@@ -104,13 +105,10 @@ class DivisionChartData(APIView):
             .order_by('-budget__sum')
 
         by_division_graph_labels = []
+        by_division_graph_data = []
         for d in by_division_data:
             by_division_graph_labels.append(d[0])
-
-        by_division_graph_data = []
-        for gd in by_division_data:
-            by_division_graph_data.append(gd[1])
-
+            by_division_graph_data.append(d[1])
         labels = by_division_graph_labels
         default_items = by_division_graph_data
         data = {
@@ -131,13 +129,10 @@ class ResearchProgramChartData(APIView):
             .order_by('-budget__sum')
 
         by_research_program_graph_labels = []
+        by_research_program_graph_data = []
         for d in by_research_program_data:
             by_research_program_graph_labels.append(d[0])
-
-        by_research_program_graph_data = []
-        for gd in by_research_program_data:
-            by_research_program_graph_data.append(gd[1])
-
+            by_research_program_graph_data.append(d[1])
         labels = by_research_program_graph_labels
         default_items = by_research_program_graph_data
         data = {

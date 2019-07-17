@@ -103,7 +103,7 @@ function setHistoryChart(labels, defaultData){
             ticks: {
               beginAtZero: true,
               callback: function(value, index, values){
-                return  '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");              }
+                return  '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");}
             },
           }]
         },
