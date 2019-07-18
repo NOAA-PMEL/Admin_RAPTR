@@ -13,15 +13,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
-def get_current_fy():
-    current_fy = 2000
-    if datetime.date.today().month > 9:
-        current_fy = datetime.date.today().year + 1
-    else:
-        current_fy = datetime.date.today().year
-    return current_fy
-
-
 class ContactDetailView(DetailView):
     model = Contact
     template_name = 'shared/contact_detail.html'
@@ -76,26 +67,17 @@ class IndexView(generic.TemplateView):
     template_name = 'shared/index.html'
 
     def get_context_data(self, **kwargs):
-        current_fy = get_current_fy()
         context = super(IndexView, self).get_context_data(**kwargs)
+        current_fy = get_current_fy()
         context['title'] = 'Dashboard'
         context['current_fy']=current_fy
-        context['by_division'] = Fundfy.objects.values(division=F('project_id__investigator_supported__division'))\
-            .filter(fcfy=str(current_fy), fund_type=1)\
-            .annotate(Sum('budget'))\
-            .order_by('-budget__sum')
-        context['by_division_total'] = Fundfy.objects.values(division=F('project_id__investigator_supported__division'))\
-            .filter(fcfy=str(current_fy), fund_type=1)\
-            .aggregate(Sum('budget'))
-        context['by_research_program'] = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
-            .filter(fcfy=str(current_fy), fund_type=1)\
-            .annotate(Sum('budget')).order_by('-budget__sum')
-        context['by_research_program_total'] = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
-            .filter(fcfy=str(current_fy), fund_type=1)\
-            .aggregate(Sum('budget'))
-        context['open_projects_total'] = Project.objects.all().filter(status=2).aggregate(Count('status'))
-        context['fy_new_funds_count'] = Fundfy.objects.all().filter(fcfy=str(current_fy), fund_type=1, project_id__status=2).aggregate(Count('fcfy'))
-        context['royalty_funds_received'] = Fundfy.objects.all().filter(fcfy=str(current_fy), project_id__fund_code__fund_code='0096').aggregate(Sum('budget'))
+        context['by_division'] = get_by_division_data()
+        context['by_division_total'] = get_by_division_total()
+        context['by_research_program'] = get_by_research_program_data()
+        context['by_research_program_total'] = get_by_research_program_total()
+        context['open_projects_total'] = get_open_projects_total()
+        context['fy_new_funds_count'] = get_fy_new_funds_count()
+        context['royalty_funds_received'] = get_royalty_funds_received()
         return context
 
 
