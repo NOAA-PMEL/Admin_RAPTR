@@ -35,9 +35,9 @@ class ProjectAdmin(admin.ModelAdmin):
         'project_id',
         'project_number'
     )
-    raw_id_fields = (
-        'investigator_supported',
-    )
+    # raw_id_fields = (
+    #     'investigator_supported',
+    # )
     prepopulated_fields = {
         'slug': ('project_id',)
     }

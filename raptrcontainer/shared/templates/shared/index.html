@@ -2,9 +2,6 @@
 {% load shared_filters %}
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
-
 <!--get chart data-->
 <script>
 {% block jquery %}
@@ -161,13 +158,13 @@ $.ajax({
       <h4 class="text-center">R&amp;A Funds Five-Year Trend</h4>
       <canvas id="byHistoryChart"></canvas>
   </div>
-  <div class="col-md-3 border">
+  <div class="col-md-2 border">
     <div class="row row-bordered">
       <h3>Current Stats:</h3>
     </div>
-    <h4>Number of open Projects: {{ open_projects_total.status__count }}</h4>
-    <h4>Number of Projects receiving new funds: {{ fy_new_funds_count.fcfy__count }}</h4>
-    <h4>FY {{ current_fy }} Royalty funds received: {{ royalty_funds_received.budget__sum|currency }}</h4>
+    <h5>Number of open Projects: {{ open_projects_total.status__count }}</h5>
+    <h5>Number of Projects receiving new funds: {{ fy_new_funds_count.fcfy__count }}</h5>
+    <h5>FY {{ current_fy }} Royalty funds received: {{ royalty_funds_received.budget__sum|currency }}</h5>
   </div>
 </div>
 

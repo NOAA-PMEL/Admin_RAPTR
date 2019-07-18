@@ -165,6 +165,16 @@ function setbySponsorTypeChart(labels, defaultData){
         legend: {
           display: false,
         },
+                scales:{
+          xAxes: [{
+            ticks: {
+              beginAtZero: true,
+              callback: function(value, index, values){
+                return  '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+            },
+          }]
+        },
         tooltips: {
           callbacks: {
             label: function(tooltipItem, data) {
