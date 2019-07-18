@@ -68,12 +68,12 @@ $.ajax({
   <div class="row">
 
     <div class="col-md-3">
-      <h4 class="text-center">FY 2019 R&amp;A Funds by Division</h4>
+      <h4 class="text-center">FY {{ current_fy }} R&amp;A Funds by Division</h4>
       <canvas id="byDivisionChart"></canvas>
     </div>
 
     <div class="col-md-3">
-      <h4 class="text-center">FY 2019 R&amp;A Funds by Research Program</h4>
+      <h4 class="text-center">FY {{ current_fy }} R&amp;A Funds by Research Program</h4>
         <canvas id="byResearchProgramChart"></canvas>
     </div>
 
@@ -141,6 +141,7 @@ $.ajax({
     </div>
     <h4>Number of open Projects: {{ open_projects_total.status__count }}</h4>
     <h4>Number of Projects receiving new funds: {{ fy_new_funds_count.fcfy__count }}</h4>
+    <h4>FY {{ current_fy }} Royalty funds received: {{ royalty_funds_received.budget__sum|currency }}</h4>
   </div>
 </div>
 

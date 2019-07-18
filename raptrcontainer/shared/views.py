@@ -1,3 +1,4 @@
+from .query_sets import *
 from raptr.models import Fundfy, Project
 from shared.models import Contact, Sponsor
 from django.views.generic.detail import DetailView
@@ -10,6 +11,15 @@ from django.views import generic
 from django.db.models import Sum, F, Count
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
+
+def get_current_fy():
+    current_fy = 2000
+    if datetime.date.today().month > 9:
+        current_fy = datetime.date.today().year + 1
+    else:
+        current_fy = datetime.date.today().year
+    return current_fy
 
 
 class ContactDetailView(DetailView):
@@ -66,23 +76,26 @@ class IndexView(generic.TemplateView):
     template_name = 'shared/index.html'
 
     def get_context_data(self, **kwargs):
+        current_fy = get_current_fy()
         context = super(IndexView, self).get_context_data(**kwargs)
         context['title'] = 'Dashboard'
+        context['current_fy']=current_fy
         context['by_division'] = Fundfy.objects.values(division=F('project_id__investigator_supported__division'))\
-            .filter(fcfy="2019", fund_type=1)\
+            .filter(fcfy=str(current_fy), fund_type=1)\
             .annotate(Sum('budget'))\
             .order_by('-budget__sum')
         context['by_division_total'] = Fundfy.objects.values(division=F('project_id__investigator_supported__division'))\
-            .filter(fcfy="2019", fund_type=1)\
+            .filter(fcfy=str(current_fy), fund_type=1)\
             .aggregate(Sum('budget'))
         context['by_research_program'] = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
-            .filter(fcfy="2019", fund_type=1)\
+            .filter(fcfy=str(current_fy), fund_type=1)\
             .annotate(Sum('budget')).order_by('-budget__sum')
         context['by_research_program_total'] = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
-            .filter(fcfy="2019", fund_type=1)\
+            .filter(fcfy=str(current_fy), fund_type=1)\
             .aggregate(Sum('budget'))
-        context ['open_projects_total'] = Project.objects.all().filter(status=2).aggregate(Count('status'))
-        context ['fy_new_funds_count'] = Fundfy.objects.all().filter(fcfy="2019", fund_type=1, project_id__status=2).aggregate(Count('fcfy'))
+        context['open_projects_total'] = Project.objects.all().filter(status=2).aggregate(Count('status'))
+        context['fy_new_funds_count'] = Fundfy.objects.all().filter(fcfy=str(current_fy), fund_type=1, project_id__status=2).aggregate(Count('fcfy'))
+        context['royalty_funds_received'] = Fundfy.objects.all().filter(fcfy=str(current_fy), project_id__fund_code__fund_code='0096').aggregate(Sum('budget'))
         return context
 
 
@@ -100,8 +113,9 @@ class DivisionChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
+        current_fy = get_current_fy()
         by_division_data = Fundfy.objects.values_list('project_id__investigator_supported__division') \
-            .filter(fcfy="2019", fund_type=1) \
+            .filter(fcfy=str(current_fy), fund_type=1) \
             .annotate(Sum('budget')) \
             .order_by('-budget__sum')
 
@@ -124,8 +138,9 @@ class ResearchProgramChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
+        current_fy = get_current_fy()
         by_research_program_data = Fundfy.objects.values_list('project_id__investigator_supported__research_program__program_short_name') \
-            .filter(fcfy="2019", fund_type=1) \
+            .filter(fcfy=str(current_fy), fund_type=1) \
             .annotate(Sum('budget')) \
             .order_by('-budget__sum')
 
