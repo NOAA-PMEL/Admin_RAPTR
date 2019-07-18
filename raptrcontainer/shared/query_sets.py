@@ -1,8 +1,8 @@
 import datetime
 from raptr.models import Project, Fundfy
-from django.db.models import Sum
 from shared.models import Contact
 from django.db.models import Sum, F, Count
+
 
 def get_current_fy():
     current_fy = 2000
@@ -49,12 +49,14 @@ def get_open_projects_total():
 
 
 def get_fy_new_funds_count():
-    fnfc = Fundfy.objects.all().filter(fcfy=str(get_current_fy()), fund_type=1, project_id__status=2).aggregate(Count('fcfy'))
+    fnfc = Fundfy.objects.all().filter(fcfy=str(get_current_fy()), fund_type=1, project_id__status=2)\
+        .aggregate(Count('fcfy'))
     return fnfc
 
 
 def get_royalty_funds_received():
-    rfr = Fundfy.objects.all().filter(fcfy=str(get_current_fy()), project_id__fund_code__fund_code='0096').aggregate(Sum('budget'))
+    rfr = Fundfy.objects.all().filter(fcfy=str(get_current_fy()), project_id__fund_code__fund_code='0096')\
+        .aggregate(Sum('budget'))
     return rfr
 
 
@@ -72,3 +74,11 @@ def get_by_research_program_chart_data():
             .annotate(Sum('budget')) \
             .order_by('-budget__sum')
     return brpcd
+
+
+def get_by_sponsor_type_chart_data():
+    bstcd = Fundfy.objects.values_list('project_id__sponsor_id__sponsor_type_id__sponsor_type') \
+            .filter(fcfy=str(get_current_fy()), fund_type=1) \
+            .annotate(Sum('budget')) \
+            .order_by('-budget__sum')
+    return bstcd

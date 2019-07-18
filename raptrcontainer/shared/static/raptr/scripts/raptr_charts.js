@@ -6,7 +6,16 @@ function setbyDivisionChart(labels, defaultData){
         labels: labels,
         datasets: [{
           label: "Funds Received",
-          backgroundColor: ["#4472C4", "#ED7D31", "#A5A5A5", "#FFC000", "#008000"],
+          backgroundColor: [
+            'rgb(57,106,177)',
+            'rgb(218,124,48)',
+            'rgb(62,150,81)',
+            'rgb(204,37,41)',
+            'rgb(83,81,84)',
+            'rgb(107,76,154)',
+            'rgb(146,36,40)',
+            'rgb(148,139,61)',
+          ],
           data: defaultData
         }]
       },
@@ -46,7 +55,16 @@ function setbyResearchProgramChart(labels, defaultData){
         labels: labels,
         datasets: [{
           label: "Funds Received",
-          backgroundColor: ["#4472C4", "#ED7D31", "#A5A5A5", "#FFC000", "#008000"],
+          backgroundColor: [
+            'rgb(57,106,177)',
+            'rgb(218,124,48)',
+            'rgb(62,150,81)',
+            'rgb(204,37,41)',
+            'rgb(83,81,84)',
+            'rgb(107,76,154)',
+            'rgb(146,36,40)',
+            'rgb(148,139,61)',
+          ],
           data: defaultData
         }]
       },
@@ -86,7 +104,7 @@ function setHistoryChart(labels, defaultData){
         labels: labels,
         datasets: [{
           label: "Funds Received",
-          backgroundColor: "#4472C4",
+          backgroundColor: 'rgb(57,106,177)',
           data: defaultData
         }]
       },
@@ -112,6 +130,55 @@ function setHistoryChart(labels, defaultData){
            callbacks: {
             label: function(tooltipItem, data) {
               return '$' + data['datasets'][0]['data'][tooltipItem['index']].toLocaleString() + 'K';
+            },
+          }
+        }
+      }
+    })
+}
+
+function setbySponsorTypeChart(labels, defaultData){
+    var ctx2 = document.getElementById('bySponsorTypeChart').getContext('2d');
+    var bySponsorTypeChart = new Chart(ctx2, {
+      type: 'horizontalBar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Funds Received",
+          backgroundColor: [
+            'rgb(57,106,177)',
+            'rgb(218,124,48)',
+            'rgb(62,150,81)',
+            'rgb(204,37,41)',
+            'rgb(83,81,84)',
+            'rgb(107,76,154)',
+            'rgb(146,36,40)',
+            'rgb(148,139,61)',
+          ],
+          data: defaultData
+        }]
+      },
+      options: {
+        title: {
+          display: false,
+        },
+        legend: {
+          display: false,
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+                    var dataset = data.datasets[tooltipItem.datasetIndex];
+                    //calculate the total of this data set
+                    var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                    });
+                    //get the current items value
+                    var currentValue = dataset.data[tooltipItem.index];
+                    //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                    var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+
+                    return percentage + "%";
             },
           }
         }

@@ -41,4 +41,9 @@ urlpatterns = [
         views.RAHistoryChartData.as_view(),
         name='history-data'
     ),
+    path(
+        'api/data/4/',
+        views.SponsorTypeChartData.as_view(),
+        name='sponsor-type-data'
+    )
 ]

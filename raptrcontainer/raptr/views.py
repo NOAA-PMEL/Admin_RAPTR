@@ -1,3 +1,4 @@
+from shared.query_sets import *
 from .models import Project, RaHistory
 from .filters import ProjectFilter
 from django_filters.views import FilterView
@@ -77,6 +78,26 @@ class RAHistoryChartData(APIView):
             ra_history_graph_data.append(d.dollars_received)
         labels = ra_history_graph_labels
         default_items = ra_history_graph_data
+        data = {
+                "labels": labels,
+                "default": default_items,
+        }
+        return Response(data)
+
+
+class SponsorTypeChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        by_sponsor_type_data = get_by_sponsor_type_chart_data()
+        by_sponsor_type_graph_labels = []
+        by_sponsor_type_graph_data = []
+        for d in by_sponsor_type_data:
+            by_sponsor_type_graph_labels.append(d[0])
+            by_sponsor_type_graph_data.append(d[1])
+        labels = by_sponsor_type_graph_labels
+        default_items = by_sponsor_type_graph_data
         data = {
                 "labels": labels,
                 "default": default_items,
