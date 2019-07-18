@@ -56,3 +56,19 @@ def get_fy_new_funds_count():
 def get_royalty_funds_received():
     rfr = Fundfy.objects.all().filter(fcfy=str(get_current_fy()), project_id__fund_code__fund_code='0096').aggregate(Sum('budget'))
     return rfr
+
+
+def get_by_division_chart_data():
+    bdgd = Fundfy.objects.values_list('project_id__investigator_supported__division') \
+            .filter(fcfy=str(get_current_fy()), fund_type=1) \
+            .annotate(Sum('budget')) \
+            .order_by('-budget__sum')
+    return bdgd
+
+
+def get_by_research_program_chart_data():
+    brpcd = Fundfy.objects.values_list('project_id__investigator_supported__research_program__program_short_name') \
+            .filter(fcfy=str(get_current_fy()), fund_type=1) \
+            .annotate(Sum('budget')) \
+            .order_by('-budget__sum')
+    return brpcd

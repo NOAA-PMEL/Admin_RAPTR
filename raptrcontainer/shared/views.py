@@ -95,12 +95,7 @@ class DivisionChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-        current_fy = get_current_fy()
-        by_division_data = Fundfy.objects.values_list('project_id__investigator_supported__division') \
-            .filter(fcfy=str(current_fy), fund_type=1) \
-            .annotate(Sum('budget')) \
-            .order_by('-budget__sum')
-
+        by_division_data = get_by_division_chart_data()
         by_division_graph_labels = []
         by_division_graph_data = []
         for d in by_division_data:
@@ -120,12 +115,7 @@ class ResearchProgramChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-        current_fy = get_current_fy()
-        by_research_program_data = Fundfy.objects.values_list('project_id__investigator_supported__research_program__program_short_name') \
-            .filter(fcfy=str(current_fy), fund_type=1) \
-            .annotate(Sum('budget')) \
-            .order_by('-budget__sum')
-
+        by_research_program_data = get_by_research_program_chart_data()
         by_research_program_graph_labels = []
         by_research_program_graph_data = []
         for d in by_research_program_data:
