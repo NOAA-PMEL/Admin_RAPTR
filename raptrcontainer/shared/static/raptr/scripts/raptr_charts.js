@@ -1,3 +1,39 @@
+function get_bgColors(){
+  bgColorSet =[
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(255, 159, 64, 0.2)',
+    'rgba(54, 162, 235, 0.45)',
+    'rgba(255, 206, 86, 0.45)',
+    'rgba(75, 192, 192, 0.45)',
+    'rgba(153, 102, 255, 0.45)',
+    'rgba(255, 159, 64, 0.45)',
+    'rgba(255, 99, 132, 0.45)',
+  ];
+  return bgColorSet;
+}
+
+function get_borderColors(){
+  borderColorSet = [
+    'rgba(255,99,132,1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)',
+    'rgba(255,99,132,1)',
+  ];
+  return borderColorSet
+}
+
 function setbyDivisionChart(labels, defaultData){
     var ctx = document.getElementById('byDivisionChart').getContext('2d');
     var byDivisionChart = new Chart(ctx, {
@@ -6,17 +42,10 @@ function setbyDivisionChart(labels, defaultData){
         labels: labels,
         datasets: [{
           label: "Funds Received",
-          backgroundColor: [
-            'rgb(57,106,177)',
-            'rgb(218,124,48)',
-            'rgb(62,150,81)',
-            'rgb(204,37,41)',
-            'rgb(83,81,84)',
-            'rgb(107,76,154)',
-            'rgb(146,36,40)',
-            'rgb(148,139,61)',
-          ],
-          data: defaultData
+          data: defaultData,
+            backgroundColor: get_bgColors(),
+            borderColor: get_borderColors(),
+            borderWidth: 1,
         }]
       },
       options: {
@@ -37,9 +66,10 @@ function setbyDivisionChart(labels, defaultData){
                     //get the current items value
                     var currentValue = dataset.data[tooltipItem.index];
                     //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                    var dollars = currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     var percentage = Math.floor(((currentValue/total) * 100)+0.5);
 
-                    return percentage + "%";
+                    return "$" + dollars + " (" + percentage + "%)";
             },
           }
         }
@@ -55,17 +85,10 @@ function setbyResearchProgramChart(labels, defaultData){
         labels: labels,
         datasets: [{
           label: "Funds Received",
-          backgroundColor: [
-            'rgb(57,106,177)',
-            'rgb(218,124,48)',
-            'rgb(62,150,81)',
-            'rgb(204,37,41)',
-            'rgb(83,81,84)',
-            'rgb(107,76,154)',
-            'rgb(146,36,40)',
-            'rgb(148,139,61)',
-          ],
-          data: defaultData
+            backgroundColor: get_bgColors(),
+            borderColor: get_borderColors(),
+            borderWidth: 1,
+            data: defaultData
         }]
       },
       options: {
@@ -86,9 +109,10 @@ function setbyResearchProgramChart(labels, defaultData){
                     //get the current items value
                     var currentValue = dataset.data[tooltipItem.index];
                     //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                    var dollars = currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     var percentage = Math.floor(((currentValue/total) * 100)+0.5);
 
-                    return percentage + "%";
+                    return "$" + dollars + " (" + percentage + "%)";
             },
           }
         }
@@ -104,7 +128,9 @@ function setHistoryChart(labels, defaultData){
         labels: labels,
         datasets: [{
           label: "Funds Received",
-          backgroundColor: 'rgb(57,106,177)',
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
           data: defaultData
         }]
       },
@@ -145,16 +171,9 @@ function setbySponsorTypeChart(labels, defaultData){
         labels: labels,
         datasets: [{
           label: "Funds Received",
-          backgroundColor: [
-            'rgb(57,106,177)',
-            'rgb(218,124,48)',
-            'rgb(62,150,81)',
-            'rgb(204,37,41)',
-            'rgb(83,81,84)',
-            'rgb(107,76,154)',
-            'rgb(146,36,40)',
-            'rgb(148,139,61)',
-          ],
+            backgroundColor: get_bgColors(),
+            borderColor: get_borderColors(),
+            borderWidth: 1,
           data: defaultData
         }]
       },
@@ -187,8 +206,8 @@ function setbySponsorTypeChart(labels, defaultData){
                     var currentValue = dataset.data[tooltipItem.index];
                     //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
                     var percentage = Math.floor(((currentValue/total) * 100)+0.5);
-
-                    return percentage + "%";
+                    var dollars = currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    return "$" + dollars + " {" + percentage + "%)";
             },
           }
         }
