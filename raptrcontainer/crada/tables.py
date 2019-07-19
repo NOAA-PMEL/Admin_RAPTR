@@ -3,7 +3,7 @@ import django_tables2 as tables
 
 
 class CradaTable(tables.Table):
-    # docket_number = tables.Column(linkify=True)
+    docket_number = tables.Column(linkify=True)
     noaa_pi = tables.Column(linkify=True)
     collaborator = tables.Column(linkify=True)
 

@@ -55,6 +55,11 @@
                                 </tr>
                                 <tr>
                                     <td></td>
+                                    <td class="labels">Room Number:</td>
+                                    <td class="pdata">{{ contact.room_number }}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
                                     <td class="labels">Division:</td>
                                     <td class="pdata">{{ contact.division }}</td>
                                 </tr>
@@ -77,11 +82,6 @@
                                     <td></td>
                                     <td class="labels">Location:</td>
                                     <td class="pdata">{{ contact.location }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td class="labels">Room Number:</td>
-                                    <td class="pdata">{{ contact.room_number }}</td>
                                 </tr>
                             {% if request.user|has_group:"human_resources" %}
                                 <tr>

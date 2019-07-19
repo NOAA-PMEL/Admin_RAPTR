@@ -1,6 +1,7 @@
 import datetime
 from raptr.models import Project, Fundfy
 from proposal.models import Proposal
+from crada.models import Crada
 from shared.models import Contact
 from django.db.models import Sum, F, Count
 
@@ -88,5 +89,10 @@ def get_fy_proposal_count():
     fpc = Proposal.objects.all().filter(year_proposed=str(get_current_fy()))\
         .exclude(status_id__status='Voided')\
         .aggregate(Count('year_proposed'))
-    print(fpc)
     return fpc
+
+
+def get_signed_crada_count():
+    scc = Crada.objects.all().filter(activity_phase="Signed")\
+        .aggregate(Count('activity_phase'))
+    return scc

@@ -3,8 +3,7 @@ from django.db import models
 from djmoney.models.fields import MoneyField
 from django.urls import reverse
 from shared.models import Sponsor, Contact
-from django.core.exceptions import ValidationError
-from django.utils.translation import gettext_lazy as _
+
 
 # set the year choices for various drop-downs - earliest data is from 2014
 YEAR_CHOICES = []

@@ -8,7 +8,6 @@ from django_filters.views import FilterView
 from .filters import ContactFilter
 from .tables import ContactTable
 from django.views import generic
-from django.db.models import Sum, F, Count
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -79,6 +78,7 @@ class IndexView(generic.TemplateView):
         context['fy_new_funds_count'] = get_fy_new_funds_count()
         context['royalty_funds_received'] = get_royalty_funds_received()
         context['fy_proposal_count'] = get_fy_proposal_count()
+        context['signed_crada_count'] = get_signed_crada_count()
         return context
 
 

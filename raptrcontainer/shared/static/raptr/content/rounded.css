@@ -51,7 +51,7 @@ div.roundedBox
 	{
 	margin: 5px;
 	position: relative;
-	width: 45%;
+	display: inline-block;
 	}
 	
 div.boxContent
@@ -61,8 +61,13 @@ div.boxContent
 
 div.contactBox
 	{
+	display: inline-block;
 	margin: 5px;
 	position: relative;
-	width: 540px;
 	}
+
+div.cradaBox{
+    margin: 5px;
+    position: relative;
+}
 	

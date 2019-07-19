@@ -1,5 +1,6 @@
 from django.db import models
 from shared.models import Sponsor, Contact
+from django.urls import reverse
 
 STATUS_CHOICES = (
     ('Open', 'Open'),
@@ -80,6 +81,9 @@ class Crada (models.Model):
         unique=True,
         max_length=50,
     )
+
+    def get_absolute_url(self):
+        return reverse('crada:crada_detail', kwargs={'slug': self.slug})
 
 
 class Filecatlist(models.Model):
