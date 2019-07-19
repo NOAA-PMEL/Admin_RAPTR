@@ -32,9 +32,6 @@ class ProjectAdmin(admin.ModelAdmin):
     ordering = (
         'proposal_id',
     )
-    raw_id_fields = (
-        'investigator_supported',
-    )
     prepopulated_fields = {
         'slug': ('proposal_id',)
     }

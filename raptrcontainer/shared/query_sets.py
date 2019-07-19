@@ -1,11 +1,11 @@
 import datetime
 from raptr.models import Project, Fundfy
+from proposal.models import Proposal
 from shared.models import Contact
 from django.db.models import Sum, F, Count
 
 
 def get_current_fy():
-    current_fy = 2000
     if datetime.date.today().month > 9:
         current_fy = datetime.date.today().year + 1
     else:
@@ -15,7 +15,7 @@ def get_current_fy():
 
 def get_by_division_data():
     bdd = Fundfy.objects.values(division=F('project_id__investigator_supported__division'))\
-        .filter(fcfy=str(get_current_fy()), fund_type=1) \
+        .filter(fcfy=str(get_current_fy()), fund_type_id__fund_type='New') \
         .annotate(Sum('budget')) \
         .order_by('-budget__sum')
     return bdd
@@ -23,14 +23,14 @@ def get_by_division_data():
 
 def get_by_division_total():
     bdt = Fundfy.objects.values(division=F('project_id__investigator_supported__division')) \
-        .filter(fcfy=str(get_current_fy()), fund_type=1) \
+        .filter(fcfy=str(get_current_fy()), fund_type_id__fund_type='New') \
         .aggregate(Sum('budget'))
     return bdt
 
 
 def get_by_research_program_data():
     brpd = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name'))\
-        .filter(fcfy=str(get_current_fy()), fund_type=1) \
+        .filter(fcfy=str(get_current_fy()), fund_type_id__fund_type='New') \
         .annotate(Sum('budget'))\
         .order_by('-budget__sum')
     return brpd
@@ -38,13 +38,13 @@ def get_by_research_program_data():
 
 def get_by_research_program_total():
     brpt = Fundfy.objects.values(research_program=F('project_id__investigator_supported__research_program__program_short_name')) \
-        .filter(fcfy=str(get_current_fy()), fund_type=1) \
+        .filter(fcfy=str(get_current_fy()), fund_type_id__fund_type='New') \
         .aggregate(Sum('budget'))
     return brpt
 
 
 def get_open_projects_total():
-    opt = Project.objects.all().filter(status=2).aggregate(Count('status'))
+    opt = Project.objects.all().filter(status_id__status="Open").aggregate(Count('status'))
     return opt
 
 
@@ -62,7 +62,7 @@ def get_royalty_funds_received():
 
 def get_by_division_chart_data():
     bdgd = Fundfy.objects.values_list('project_id__investigator_supported__division') \
-            .filter(fcfy=str(get_current_fy()), fund_type=1) \
+            .filter(fcfy=str(get_current_fy()), fund_type_id__fund_type='New') \
             .annotate(Sum('budget')) \
             .order_by('-budget__sum')
     return bdgd
@@ -70,7 +70,7 @@ def get_by_division_chart_data():
 
 def get_by_research_program_chart_data():
     brpcd = Fundfy.objects.values_list('project_id__investigator_supported__research_program__program_short_name') \
-            .filter(fcfy=str(get_current_fy()), fund_type=1) \
+            .filter(fcfy=str(get_current_fy()), fund_type_id__fund_type='New') \
             .annotate(Sum('budget')) \
             .order_by('-budget__sum')
     return brpcd
@@ -78,7 +78,15 @@ def get_by_research_program_chart_data():
 
 def get_by_sponsor_type_chart_data():
     bstcd = Fundfy.objects.values_list('project_id__sponsor_id__sponsor_type_id__sponsor_type') \
-            .filter(fcfy=str(get_current_fy()), fund_type=1) \
+            .filter(fcfy=str(get_current_fy()), fund_type_id__fund_type='New') \
             .annotate(Sum('budget')) \
             .order_by('-budget__sum')
     return bstcd
+
+
+def get_fy_proposal_count():
+    fpc = Proposal.objects.all().filter(year_proposed=str(get_current_fy()))\
+        .exclude(status_id__status='Voided')\
+        .aggregate(Count('year_proposed'))
+    print(fpc)
+    return fpc

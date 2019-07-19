@@ -34,6 +34,7 @@ class CradaAdmin(admin.ModelAdmin):
         FileuploadInLine,
     )
 
+
 class FilecatlistAdmin(admin.ModelAdmin):
     fields = [
         'cat_list',

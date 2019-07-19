@@ -78,6 +78,7 @@ class IndexView(generic.TemplateView):
         context['open_projects_total'] = get_open_projects_total()
         context['fy_new_funds_count'] = get_fy_new_funds_count()
         context['royalty_funds_received'] = get_royalty_funds_received()
+        context['fy_proposal_count'] = get_fy_proposal_count()
         return context
 
 
