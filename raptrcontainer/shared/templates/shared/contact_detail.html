@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
     <div class="details_content">
-        <h2>Detail for Contact: {{contact.first_name}}&nbsp{{ contact.last_name }}</h2>
+        <h2>Detail for Contact: {{contact.first_name}}&nbsp;{{ contact.last_name }}</h2>
     </div>
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
@@ -111,5 +111,5 @@
                 </div></div>
                 </div></div>
             </div>
-    </div>
+
 {% endblock %}
