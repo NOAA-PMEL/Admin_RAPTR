@@ -10,7 +10,7 @@ h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
  Format the project details table - detail.html
 */
 table.contact_detail{
-    width: 500px;
+    width: 100%;
 }
 
 table.project_detail{
@@ -56,7 +56,6 @@ table.funds_table th {
 table.docs_table{
     border: 1px solid gray;
     border-collapse: collapse;
-    width: 100%;
 }
 table.docs_table td{
     border: 1px solid gray;
@@ -86,6 +85,13 @@ table.docs_table th {
     vertical-align: top;
     border: 1px solid lightgray;
 }
+
+.crada-project-note{
+    width: 35%;
+    vertical-align: top;
+    border: 1px solid lightgray;
+}
+
 .dash_projs{
   position: relative;
   left: 30px;
@@ -93,13 +99,13 @@ table.docs_table th {
   border: 3px solid #73AD21;
 }
 
-.container {
-  width: 100%;
-  margin: 15px auto;
-}
-
 .top-buffer {
   margin-top:20px;
+}
+
+.rlp-container {
+  width: 95%;
+  margin: auto;
 }
 
 .row-bordered:after {

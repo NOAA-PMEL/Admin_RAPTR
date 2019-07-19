@@ -51,17 +51,20 @@
                                     <td colspan="5" class="pdata"><a href="../../../shared/sponsor/{{ crada.collaborator.slug }}/"> {{ crada.collaborator }} </a></td>
                                 </tr>
                                 <tr height="15px"> </tr>
-                                <tr>
-                                    <td class="labels">Documents:</td>
-                                    <td class="labels">Project Summary:</td>
 
-                                </tr>
-                                <tr id="sub_tables">
-                                        <td>
-                                            <table class="docs_table">
-                                            <tr id="docs_header">
-                                                <th>Type</th>
-                                            </tr>
+                        </table>
+                        <table id="sub_tables">
+                            <tr>
+                                <td class="labels">Documents:</td>
+                                <td class="labels">Project Summary:</td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table class="docs_table">
+                                    <tr id="docs_header">
+                                        <th>Type</th>
+                                    </tr>
                                         {% if project.fileupload_set.all %}
                                             {% for docs in project.fileupload_set.all %}
                                                 <tr>
@@ -73,15 +76,15 @@
                                                 <td>No files have been uploaded.</td>
                                             </tr>
                                         {% endif %}
-                                        </table>
-                                        </td>
-                                        <td class="project-note">{{ crada.project_summary|linebreaks }}</td>
-
-                                </tr>
-
+                                     </table>
+                                </td>
+                                <td class="project-note">{{ crada.project_summary|linebreaks }}</td>
+                            </tr>
                         </table>
                         </div>
                     </div>
+                </div>
+            </div>
 
                 </div></div>
                 </div></div>
