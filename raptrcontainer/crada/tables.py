@@ -13,4 +13,5 @@ class CradaTable(tables.Table):
         exclude = (
             'id',
             'slug',
+            'project_summary'
         )
