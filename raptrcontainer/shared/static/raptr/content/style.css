@@ -47,7 +47,7 @@ table.funds_table tr:nth-child(odd) {
    border: 1px solid gray;
 }
 table.funds_table th {
-    background-color: darkblue;
+    background-color: rgb(57, 106, 177);
     color: white;
     padding: 5px;
     text-align: left;
@@ -71,7 +71,7 @@ table.docs_table tr:nth-child(odd) {
    border: 1px solid gray;
 }
 table.docs_table th {
-    background-color: darkblue;
+    background-color: rgb(57, 106, 177);
     color: white;
     padding: 5px;
     text-align: left;
