@@ -17,6 +17,10 @@ table.project_detail{
    width: 100%;
 }
 
+table.crada_detail{
+   width: 100%;
+}
+
 .contact_photo{
     vertical-align: top;
 }
@@ -27,6 +31,7 @@ table.project_detail{
 
 .labels {
     font-weight: 600;
+    vertical-align: top;
 }
 
 table.funds_table{
@@ -87,7 +92,7 @@ table.docs_table th {
 }
 
 .crada-project-note{
-    width: 35%;
+    display: inline-block;
     vertical-align: top;
     border: 1px solid lightgray;
 }
@@ -122,4 +127,8 @@ table.docs_table th {
 .table-borderless > thead > tr > td,
 .table-borderless > thead > tr > th {
     border: none;
+}
+
+.crada_ps{
+  width: 300px;
 }

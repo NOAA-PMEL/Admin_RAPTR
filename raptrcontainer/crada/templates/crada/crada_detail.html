@@ -5,21 +5,19 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
-    <div class="details_content">
-
+    <div>
         <h2>Detail for CRADA: {{ crada.docket_number }}</h2>
 
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-            <div class="roundedBox"> <!-- set the box border -->
+            <div class="cradaBox"> <!-- set the box border -->
                 <div class="top"><div class="bottom">
                 <div class="left"><div class="right">
                 <div class="topLeft"><div class="topRight">
                 <div class="bottomLeft"><div class="bottomRight">
 
-                    <div class="cradaBox">
                         <div class="boxContent">
-                        <table>
+                        <table class="crada_detail">
                                 <tr>
                                     <td class="labels">Docket Number:</td>
                                     <td class="pdata">{{ crada.docket_number }}</td>
@@ -41,7 +39,7 @@
                                 </tr>
 
                             <tr>
-                                    <td class="labels">Investigator Supported:</td>
+                                    <td class="labels">PI Supported:</td>
                                     <td colspan="5" class="pdata"><a href="../../../shared/contact/{{ crada.noaa_pi.slug }}/"> {{ crada.noaa_pi }} </a></td>
                                 </tr>
 
@@ -51,13 +49,15 @@
                                     <td colspan="5" class="pdata"><a href="../../../shared/sponsor/{{ crada.collaborator.slug }}/"> {{ crada.collaborator }} </a></td>
                                 </tr>
                                 <tr height="15px"> </tr>
+                                                            <tr>
+                                    <td class="labels">Project Summary:</td>
+                                    <td colspan="5" class="pdata crada_ps"> {{ crada.project_summary|linebreaks }}</td>
+                                </tr>
 
                         </table>
                         <table id="sub_tables">
                             <tr>
                                 <td class="labels">Documents:</td>
-                                <td class="labels">Project Summary:</td>
-
                             </tr>
                             <tr>
                                 <td>
@@ -78,11 +78,9 @@
                                         {% endif %}
                                      </table>
                                 </td>
-                                <td class="project-note">{{ crada.project_summary|linebreaks }}</td>
                             </tr>
                         </table>
                         </div>
-                    </div>
 
                 </div></div>
                 </div></div>
