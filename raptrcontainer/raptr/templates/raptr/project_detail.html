@@ -7,117 +7,100 @@
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
 <div class="details_content">
 
-    <h2>Detail for Project: {{ project.project_number }}</h2>
+
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-        <div class="roundedBox">
-            <!-- set the box border -->
-            <div class="top">
-                <div class="bottom">
-                    <div class="left">
-                        <div class="right">
-                            <div class="topLeft">
-                                <div class="topRight">
-                                    <div class="bottomLeft">
-                                        <div class="bottomRight">
-                                            <div class="boxContent">
-                                                 <div class="container" style="border:2px solid #cecece;">
-                                                    <div class="row PID">
-                                                        <div class="labels col-md-1">Project:</div>
-                                                        <div class="pdata col-md-1">{{ project.project_id }}</div>
-                                                        <div class="labels col-md-1">Submitted:</div>
-                                                        <div class="pdata col-md-1">{{ project.year_proposed }}</div>
-<!--                                                        <div class="col-md-1"></div>-->
-<!--                                                        <div class="col-md-1"></div>-->
-                                                    </div>
-                                                    <div class="row PI">
-                                                        <div class="labels col-md-1">PI:</div>
-                                                        <div class="pdata col-md-5"><a href="../../../shared/contact/{{ project.investigator_supported.slug }}/">{{project.investigator_supported }} </a></div>
-                                                        <div class="col-md-0"></div>
-
-                                                    </div>
-                                                    <div class="row Title">
-                                                        <div class="labels col-md-1">Title:</div>
-                                                        <div class="pdata col-md-5">{{ project.project_title }}</div>
-                                                    </div>
-                                                    <div class="row Sponsor">
-                                                        <div class="labels col-md-1">Sponsor:</div>
-                                                        <div class="pdata col-md-5"><a href="../../../shared/sponsor/{{ project.sponsor.slug }}/">{{ project.sponsor }} </a></div>
-                                                    </div>
-                                                    <div class="row Status">
-                                                        <div class="labels col-md-1">Status:</div>
-                                                        <div class="pdata col-md-2">{{ project.status }}</div>
-                                                        <div class="labels col-md-1">Fund Cd:</div>
-                                                        <div class="pdata col-md-1">{{ project.fund_code }}</div>
-                                                    </div>
-                                                    <div class="row Project dates">
-                                                        <div class="labels col-md-1">Start:</div>
-                                                        <div class="pdata col-md-2">{{ project.oar_accept_date }}</div>
-                                                        <div class="labels col-md-1">Expires:</div>
-                                                        <div class="pdata col-md-2">{{ project.project_expiration_date }}</div>
-                                                    </div>
-                                                    <div class="row topbuffer">
-                                                        <div class="labels col-md-1">Funding:</div>
-                                                        <div class="col-md-4">
-                                                            <table class="table table-bordered table-condensed table-striped table-responsive">
-                                                                <tr id="funds_header">
-                                                                    <th scope="col">FCFY</th>
-                                                                    <th scope="col">Type</th>
-                                                                    <th scope="col"> Budget</th>
-                                                                    <th scope="col">Expires</th>
-                                                                </tr>
-                                                                {% if project.fundfy_set.all %}
-                                                                {% for funds in project.fundfy_set.all %}
-                                                                <tr>
-                                                                    <td>{{ funds.fcfy }}</td>
-                                                                    <td>{{ funds.fund_type}}</td>
-                                                                    <td>{{ funds.budget }}</td>
-                                                                    <td>{{ funds.funds_expire}}</td>
-                                                                </tr>
-                                                                {% endfor %}
-                                                                {% else %}
-                                                                <tr>
-                                                                    <td colspan="4">No funding has been entered.</td>
-                                                                </tr>
-                                                                {% endif %}
-                                                            </table>
-                                                        </div>
-                                                        <div class="col-md-1"></div>
-                                                    </div>
-                                                    <div class="row DocTable">
-                                                        <div class="labels col-md-1">Documents:</div>
-                                                        <div class="col-md-4">
-                                                            <table class="table table-bordered table-condensed table-striped table-responsive">
-                                                                {% if project.fileupload_set.all %}
-                                                                {% for docs in project.fileupload_set.all %}
-                                                                <tr>
-                                                                    <td><a href="\..\..\media\{{docs.file_upload}}">{{docs.file_category }}</a></td>
-                                                                </tr>
-                                                                {% endfor %}
-                                                                {% else %}
-                                                                <tr>
-                                                                    <td colspan="2">No files have been uploaded.</td>
-                                                                </tr>
-                                                                {% endif %}
-                                                            </table>
-                                                        </div>
-                                                        <div class="col-md-1"></div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="labels col-md-1">Notes:</div>
-                                                        <div class="col-md-5">{{ project.project_notes|linebreaks }}</div>
-                                                    </div>
-                                                </div>
-                                            </div><!--close boxContent-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+     <div class="container">
+        <h2>Detail for Project: {{ project.project_number }}</h2>
+        <div class="row row-eq-height PID">
+            <div class="labels col-md-1 detail-top-left">Project:</div>
+            <div class="pdata col-md-1 detail-top">{{ project.project_id }}</div>
+            <div class="col-md-1 detail-top"></div>
+            <div class="labels col-md-1 detail-top">Submitted:</div>
+            <div class="pdata col-md-1 detail-top">{{ project.year_proposed }}</div>
+            <div class="col-md-1 detail-top-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height PI">
+            <div class="labels col-md-1 detail-left">PI:</div>
+            <div class="pdata col-md-5 detail-right"><a href="../../../shared/contact/{{ project.investigator_supported.slug }}/">{{project.investigator_supported }} </a></div>
+        </div>
+        <div class="row row-eq-height Title">
+            <div class="labels col-md-1 detail-left">Title:</div>
+            <div class="pdata col-md-5 detail-right">{{ project.project_title }}</div>
+        </div>
+        <div class="row row-eq-height Sponsor">
+            <div class="labels col-md-1 detail-left">Sponsor:</div>
+            <div class="pdata col-md-5 detail-right"><a href="../../../shared/sponsor/{{ project.sponsor.slug }}/">{{ project.sponsor }} </a></div>
+        </div>
+        <div class="row row-eq-height Status">
+            <div class="labels col-md-1 detail-left">Status:</div>
+            <div class="pdata col-md-2">{{ project.status }}</div>
+            <div class="labels col-md-1">Fund Cd:</div>
+            <div class="pdata col-md-1">{{ project.fund_code }}</div>
+            <div class="col-md-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height Project dates">
+            <div class="labels col-md-1 detail-left">Start:</div>
+            <div class="pdata col-md-2">{{ project.oar_accept_date }}</div>
+            <div class="labels col-md-1">Expires:</div>
+            <div class="pdata col-md-2 detail-right">{{ project.project_expiration_date }}</div>
+        </div>
+        <div class="row row-eq-height">
+            <div class="col-md-6 detail-left detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height">
+            <div class="labels col-md-1 detail-left">Funding:</div>
+            <div class="col-md-4">
+                <table class="table table-bordered table-condensed table-striped table-responsive">
+                    <tr id="funds_header">
+                        <th scope="col">FCFY</th>
+                        <th scope="col">Type</th>
+                        <th scope="col"> Budget</th>
+                        <th scope="col">Expires</th>
+                    </tr>
+                    {% if project.fundfy_set.all %}
+                    {% for funds in project.fundfy_set.all %}
+                    <tr>
+                        <td>{{ funds.fcfy }}</td>
+                        <td>{{ funds.fund_type}}</td>
+                        <td>{{ funds.budget }}</td>
+                        <td>{{ funds.funds_expire}}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="4">No funding has been entered.</td>
+                    </tr>
+                    {% endif %}
+                </table>
             </div>
+            <div class="col-md-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height DocTable">
+            <div class="labels col-md-1 detail-left">Documents:</div>
+            <div class="col-md-4">
+                <table class="table table-bordered table-condensed table-striped table-responsive">
+                    {% if project.fileupload_set.all %}
+                    {% for docs in project.fileupload_set.all %}
+                    <tr>
+                        <td><a href="\..\..\media\{{docs.file_upload}}">{{docs.file_category }}</a></td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="2">No files have been uploaded.</td>
+                    </tr>
+                    {% endif %}
+                </table>
+            </div>
+            <div class="col-md-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height">
+            <div class="labels col-md-1 detail-bottom-left">Notes:</div>
+            <div class="col-md-5 detail-bottom-right">{{ project.project_notes|linebreaks }}</div>
         </div>
     </div>
+</div><!--close boxContent-->
+
 {% endblock %}
