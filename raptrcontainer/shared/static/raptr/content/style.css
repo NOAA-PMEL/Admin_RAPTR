@@ -120,3 +120,7 @@ table.docs_table th {
 .pdata {
     border: 1px solid lightgray;
 }
+
+.topbuffer {
+  margin-top: 25px;
+}

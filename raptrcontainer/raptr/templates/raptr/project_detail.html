@@ -58,24 +58,17 @@
                                                         <div class="labels col-md-1">Start:</div>
                                                         <div class="pdata col-md-2">{{ project.oar_accept_date }}</div>
                                                         <div class="labels col-md-1">Expires:</div>
-                                                        <div class="pdata col-md-2">{{ project.project_expiration_date
-                                                            }}
-                                                        </div>
+                                                        <div class="pdata col-md-2">{{ project.project_expiration_date }}</div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <hr>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row Funding Table">
+                                                    <div class="row topbuffer">
                                                         <div class="labels col-md-1">Funding:</div>
                                                         <div class="col-md-4">
-                                                            <table class="funds_table">
+                                                            <table class="table table-bordered table-condensed table-striped table-responsive">
                                                                 <tr id="funds_header">
-                                                                    <th>FCFY</th>
-                                                                    <th>Type</th>
-                                                                    <th>Budget</th>
-                                                                    <th>Expires</th>
+                                                                    <th scope="col">FCFY</th>
+                                                                    <th scope="col">Type</th>
+                                                                    <th scope="col"> Budget</th>
+                                                                    <th scope="col">Expires</th>
                                                                 </tr>
                                                                 {% if project.fundfy_set.all %}
                                                                 {% for funds in project.fundfy_set.all %}
@@ -95,11 +88,10 @@
                                                         </div>
                                                         <div class="col-md-1"></div>
                                                     </div>
-                                                    <hr>
                                                     <div class="row DocTable">
                                                         <div class="labels col-md-1">Documents:</div>
                                                         <div class="col-md-4">
-                                                            <table class="docs_table">
+                                                            <table class="table table-bordered table-condensed table-striped table-responsive">
                                                                 {% if project.fileupload_set.all %}
                                                                 {% for docs in project.fileupload_set.all %}
                                                                 <tr>
@@ -116,8 +108,7 @@
                                                         </div>
                                                         <div class="col-md-1"></div>
                                                     </div>
-                                                    <hr>
-                                                    <div class="row NotesPad">
+                                                    <div class="row">
                                                         <div class="labels col-md-1">Notes:</div>
                                                         <div class="col-md-5">{{ project.project_notes|linebreaks }}
                                                         </div>
