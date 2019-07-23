@@ -158,3 +158,12 @@ table.docs_table th {
 	font-weight: 600;
 	vertical-align: top;
 }
+
+/*set fixed footer*/
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+}
