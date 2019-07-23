@@ -11,8 +11,7 @@
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-    <div class="container-fluid">
-        <div class="roundedBox rlp-container">
+        <div class="roundedBox">
             <!-- set the box border -->
             <div class="top">
                 <div class="bottom">
@@ -23,20 +22,20 @@
                                     <div class="bottomLeft">
                                         <div class="bottomRight">
                                             <div class="boxContent">
-                                                <div class="container">
+                                                 <div class="container" style="border:2px solid #cecece;">
                                                     <div class="row PID">
                                                         <div class="labels col-md-1">Project:</div>
                                                         <div class="pdata col-md-1">{{ project.project_id }}</div>
                                                         <div class="labels col-md-1">Submitted:</div>
                                                         <div class="pdata col-md-1">{{ project.year_proposed }}</div>
-                                                        <div class="col-md-1"></div>
-                                                        <div class="col-md-1"></div>
+<!--                                                        <div class="col-md-1"></div>-->
+<!--                                                        <div class="col-md-1"></div>-->
                                                     </div>
                                                     <div class="row PI">
                                                         <div class="labels col-md-1">PI:</div>
-                                                        <div class="pdata col-md-5"><a
-                                                                href="../../../shared/contact/{{ project.investigator_supported.slug }}/">
-                                                            {{project.investigator_supported }} </a></div>
+                                                        <div class="pdata col-md-5"><a href="../../../shared/contact/{{ project.investigator_supported.slug }}/">{{project.investigator_supported }} </a></div>
+                                                        <div class="col-md-0"></div>
+
                                                     </div>
                                                     <div class="row Title">
                                                         <div class="labels col-md-1">Title:</div>
@@ -44,14 +43,12 @@
                                                     </div>
                                                     <div class="row Sponsor">
                                                         <div class="labels col-md-1">Sponsor:</div>
-                                                        <div class="pdata col-md-5"><a
-                                                                href="../../../shared/sponsor/{{ project.sponsor.slug }}/">
-                                                            {{ project.sponsor }} </a></div>
+                                                        <div class="pdata col-md-5"><a href="../../../shared/sponsor/{{ project.sponsor.slug }}/">{{ project.sponsor }} </a></div>
                                                     </div>
                                                     <div class="row Status">
                                                         <div class="labels col-md-1">Status:</div>
                                                         <div class="pdata col-md-2">{{ project.status }}</div>
-                                                        <div class="labels col-md-2">Fund Code:</div>
+                                                        <div class="labels col-md-1">Fund Cd:</div>
                                                         <div class="pdata col-md-1">{{ project.fund_code }}</div>
                                                     </div>
                                                     <div class="row Project dates">
@@ -95,8 +92,7 @@
                                                                 {% if project.fileupload_set.all %}
                                                                 {% for docs in project.fileupload_set.all %}
                                                                 <tr>
-                                                                    <td><a href="\..\..\media\{{docs.file_upload}}">{{
-                                                                        docs.file_category }}</a></td>
+                                                                    <td><a href="\..\..\media\{{docs.file_upload}}">{{docs.file_category }}</a></td>
                                                                 </tr>
                                                                 {% endfor %}
                                                                 {% else %}
@@ -110,12 +106,10 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="labels col-md-1">Notes:</div>
-                                                        <div class="col-md-5">{{ project.project_notes|linebreaks }}
-                                                        </div>
+                                                        <div class="col-md-5">{{ project.project_notes|linebreaks }}</div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!--close container-->
+                                            </div><!--close boxContent-->
                                         </div>
                                     </div>
                                 </div>
@@ -126,5 +120,4 @@
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

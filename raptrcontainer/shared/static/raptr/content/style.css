@@ -117,10 +117,6 @@ table.docs_table th {
 	font-weight: 600;
 	vertical-align: top;
 }
-.pdata {
-    border: 1px solid lightgray;
-}
-
 .topbuffer {
   margin-top: 25px;
 }
