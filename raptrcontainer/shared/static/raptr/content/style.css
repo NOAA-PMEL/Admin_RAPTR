@@ -24,16 +24,6 @@ table.crada_detail{
 .contact_photo{
     vertical-align: top;
 }
-
-.pdata {
-    border: 1px solid lightgray;
-}
-
-.labels {
-    font-weight: 600;
-    vertical-align: top;
-}
-
 table.funds_table{
     border: 1px solid gray;
     border-collapse: collapse;
@@ -84,19 +74,11 @@ table.docs_table th {
 #sub_tables{
     vertical-align: top;
 }
-
-.project-note{
-    width: 33%;
-    vertical-align: top;
-    border: 1px solid lightgray;
-}
-
 .crada-project-note{
     display: inline-block;
     vertical-align: top;
     border: 1px solid lightgray;
 }
-
 .dash_projs{
   position: relative;
   left: 30px;
@@ -107,12 +89,6 @@ table.docs_table th {
 .top-buffer {
   margin-top:20px;
 }
-
-.rlp-container {
-  width: 95%;
-  margin: auto;
-}
-
 .row-bordered:after {
   content: "";
   display: block;
@@ -131,4 +107,16 @@ table.docs_table th {
 
 .crada_ps{
   width: 300px;
+}
+
+.rlp-container {
+	width: 34%;
+	margin: auto;
+	}
+.labels {
+	font-weight: 600;
+	vertical-align: top;
+}
+.pdata {
+    border: 1px solid lightgray;
 }

@@ -5,111 +5,135 @@
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
-    <div class="details_content">
+<div class="details_content">
 
-        <h2>Detail for Project: {{ project.project_number }}</h2>
+    <h2>Detail for Project: {{ project.project_number }}</h2>
 
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-            <div class="roundedBox"> <!-- set the box border -->
-                <div class="top"><div class="bottom">
-                <div class="left"><div class="right">
-                <div class="topLeft"><div class="topRight">
-                <div class="bottomLeft"><div class="bottomRight">
-
-                    <div class="boxContent">
-                        <table class="project_detail">
-                                <tr>
-                                    <td class="labels">Project ID:</td>
-                                    <td class="pdata">{{ project.project_id }}</td>
-                                    <td class="labels" style="padding-left: 40px;">FY Submitted:</td>
-                                    <td class="pdata">{{ project.year_proposed }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">PI Supported:</td>
-                                    <td colspan="3" class="pdata"><a href="../../../shared/contact/{{ project.investigator_supported.slug }}/"> {{project.investigator_supported }} </a></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">Project Title:</td>
-                                    <td colspan="3" class="pdata"> {{ project.project_title }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">Sponsor:</td>
-                                    <td colspan="3" class="pdata"><a href="../../../shared/sponsor/{{ project.sponsor.slug }}/"> {{ project.sponsor }} </a></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">Status:</td>
-                                    <td class="pdata">{{ project.status }}</td>
-                                    <td class="labels" style="padding-left: 40px;">Fund Code:</td>
-                                    <td class="pdata">{{ project.fund_code }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">Start Date:</td>
-                                    <td class="pdata">{{ project.oar_accept_date }}</td>
-                                    <td class="labels" style="padding-left: 40px;">Expiration Date:</td>
-                                    <td class="pdata">{{ project.project_expiration_date }}</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="labels">Funding:</td>
-                                    <td class="labels">Documents:</td>
-                                    <td class="labels">Notes:</td>
-                                </tr>
-                                <tr id="sub_tables">
-                                    <td colspan="2">
-                                        <table class="funds_table">
-                                        <tr id="funds_header">
-                                            <th>FCFY</th>
-                                            <th>Budget</th>
-                                            <th>Expiration</th>
-                                            <th>Type</th>
-                                        </tr>
-                                        {% if project.fundfy_set.all %}
-                                            {% for funds in project.fundfy_set.all %}
-                                                <tr>
-                                                    <td>{{ funds.fcfy }}</td>
-                                                    <td>{{ funds.budget }}</td>
-                                                    <td>{{ funds.funds_expire}}</td>
-                                                    <td>{{ funds.fund_type}}</td>
-                                                </tr>
-                                            {% endfor %}
-                                        {% else %}
-                                            <tr>
-                                                <td colspan="4">No funding has been entered.</td>
-                                            </tr>
-                                        {% endif %}
-                                        </table></td>
-                                        <td>
-                                            <table class="docs_table">
-                                            <tr id="docs_header">
-                                                <th>Type</th>
-                                            </tr>
-                                        {% if project.fileupload_set.all %}
-                                            {% for docs in project.fileupload_set.all %}
-                                                <tr>
-                                                    <td><a href="\..\..\media\{{docs.file_upload}}">{{ docs.file_category }}</a></td>
-                                                </tr>
-                                            {% endfor %}
-                                        {% else %}
-                                            <tr>
-                                                <td colspan="2">No files have been uploaded.</td>
-                                            </tr>
-                                        {% endif %}
-                                        </table>
-                                        </td>
-                                        <td class="project-note">{{ project.project_notes|linebreaks }}</td>
-                                </tr>
-                        </table>
+    <div class="container-fluid">
+        <div class="roundedBox rlp-container">
+            <!-- set the box border -->
+            <div class="top">
+                <div class="bottom">
+                    <div class="left">
+                        <div class="right">
+                            <div class="topLeft">
+                                <div class="topRight">
+                                    <div class="bottomLeft">
+                                        <div class="bottomRight">
+                                            <div class="boxContent">
+                                                <div class="container">
+                                                    <div class="row PID">
+                                                        <div class="labels col-md-1">Project:</div>
+                                                        <div class="pdata col-md-1">{{ project.project_id }}</div>
+                                                        <div class="labels col-md-1">Submitted:</div>
+                                                        <div class="pdata col-md-1">{{ project.year_proposed }}</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-1"></div>
+                                                    </div>
+                                                    <div class="row PI">
+                                                        <div class="labels col-md-1">PI:</div>
+                                                        <div class="pdata col-md-5"><a
+                                                                href="../../../shared/contact/{{ project.investigator_supported.slug }}/">
+                                                            {{project.investigator_supported }} </a></div>
+                                                    </div>
+                                                    <div class="row Title">
+                                                        <div class="labels col-md-1">Title:</div>
+                                                        <div class="pdata col-md-5">{{ project.project_title }}</div>
+                                                    </div>
+                                                    <div class="row Sponsor">
+                                                        <div class="labels col-md-1">Sponsor:</div>
+                                                        <div class="pdata col-md-5"><a
+                                                                href="../../../shared/sponsor/{{ project.sponsor.slug }}/">
+                                                            {{ project.sponsor }} </a></div>
+                                                    </div>
+                                                    <div class="row Status">
+                                                        <div class="labels col-md-1">Status:</div>
+                                                        <div class="pdata col-md-2">{{ project.status }}</div>
+                                                        <div class="labels col-md-2">Fund Code:</div>
+                                                        <div class="pdata col-md-1">{{ project.fund_code }}</div>
+                                                    </div>
+                                                    <div class="row Project dates">
+                                                        <div class="labels col-md-1">Start:</div>
+                                                        <div class="pdata col-md-2">{{ project.oar_accept_date }}</div>
+                                                        <div class="labels col-md-1">Expires:</div>
+                                                        <div class="pdata col-md-2">{{ project.project_expiration_date
+                                                            }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <hr>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row Funding Table">
+                                                        <div class="labels col-md-1">Funding:</div>
+                                                        <div class="col-md-4">
+                                                            <table class="funds_table">
+                                                                <tr id="funds_header">
+                                                                    <th>FCFY</th>
+                                                                    <th>Type</th>
+                                                                    <th>Budget</th>
+                                                                    <th>Expires</th>
+                                                                </tr>
+                                                                {% if project.fundfy_set.all %}
+                                                                {% for funds in project.fundfy_set.all %}
+                                                                <tr>
+                                                                    <td>{{ funds.fcfy }}</td>
+                                                                    <td>{{ funds.fund_type}}</td>
+                                                                    <td>{{ funds.budget }}</td>
+                                                                    <td>{{ funds.funds_expire}}</td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                {% else %}
+                                                                <tr>
+                                                                    <td colspan="4">No funding has been entered.</td>
+                                                                </tr>
+                                                                {% endif %}
+                                                            </table>
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row DocTable">
+                                                        <div class="labels col-md-1">Documents:</div>
+                                                        <div class="col-md-4">
+                                                            <table class="docs_table">
+                                                                {% if project.fileupload_set.all %}
+                                                                {% for docs in project.fileupload_set.all %}
+                                                                <tr>
+                                                                    <td><a href="\..\..\media\{{docs.file_upload}}">{{
+                                                                        docs.file_category }}</a></td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                                {% else %}
+                                                                <tr>
+                                                                    <td colspan="2">No files have been uploaded.</td>
+                                                                </tr>
+                                                                {% endif %}
+                                                            </table>
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row NotesPad">
+                                                        <div class="labels col-md-1">Notes:</div>
+                                                        <div class="col-md-5">{{ project.project_notes|linebreaks }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--close container-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                </div></div>
-                </div></div>
-                </div></div>
-                </div></div>
+                </div>
             </div>
+        </div>
     </div>
+</div>
 {% endblock %}
