@@ -14,44 +14,44 @@
      <div class="container">
         <h2>Detail for Project: {{ project.project_number }}</h2>
         <div class="row row-eq-height PID">
-            <div class="labels col-md-1 detail-top-left">Project:</div>
-            <div class="pdata col-md-1 detail-top">{{ project.project_id }}</div>
-            <div class="col-md-1 detail-top"></div>
-            <div class="labels col-md-1 detail-top">Submitted:</div>
-            <div class="pdata col-md-1 detail-top">{{ project.year_proposed }}</div>
-            <div class="col-md-1 detail-top-right">&nbsp;</div>
+            <div class="labels col-xs-1 detail-top-left">Project:</div>
+            <div class="pdata col-xs-1 detail-top">{{ project.project_id }}</div>
+            <div class="col-xs-1 detail-top"></div>
+            <div class="labels col-xs-1 detail-top">Submitted:</div>
+            <div class="pdata col-xs-1 detail-top">{{ project.year_proposed }}</div>
+            <div class="col-xs-1 detail-top-right">&nbsp;</div>
         </div>
         <div class="row row-eq-height PI">
-            <div class="labels col-md-1 detail-left">PI:</div>
-            <div class="pdata col-md-5 detail-right"><a href="../../../shared/contact/{{ project.investigator_supported.slug }}/">{{project.investigator_supported }} </a></div>
+            <div class="labels col-xs-1 detail-left">PI:</div>
+            <div class="pdata col-xs-5 detail-right"><a href="../../../shared/contact/{{ project.investigator_supported.slug }}/">{{project.investigator_supported }} </a></div>
         </div>
         <div class="row row-eq-height Title">
-            <div class="labels col-md-1 detail-left">Title:</div>
-            <div class="pdata col-md-5 detail-right">{{ project.project_title }}</div>
+            <div class="labels col-xs-1 detail-left">Title:</div>
+            <div class="pdata col-xs-5 detail-right">{{ project.project_title }}</div>
         </div>
         <div class="row row-eq-height Sponsor">
-            <div class="labels col-md-1 detail-left">Sponsor:</div>
-            <div class="pdata col-md-5 detail-right"><a href="../../../shared/sponsor/{{ project.sponsor.slug }}/">{{ project.sponsor }} </a></div>
+            <div class="labels col-xs-1 detail-left">Sponsor:</div>
+            <div class="pdata col-xs-5 detail-right"><a href="../../../shared/sponsor/{{ project.sponsor.slug }}/">{{ project.sponsor }} </a></div>
         </div>
         <div class="row row-eq-height Status">
-            <div class="labels col-md-1 detail-left">Status:</div>
-            <div class="pdata col-md-2">{{ project.status }}</div>
-            <div class="labels col-md-1">Fund Cd:</div>
-            <div class="pdata col-md-1">{{ project.fund_code }}</div>
-            <div class="col-md-1 detail-right">&nbsp;</div>
+            <div class="labels col-xs-1 detail-left">Status:</div>
+            <div class="pdata col-xs-2">{{ project.status }}</div>
+            <div class="labels col-xs-1">Fund Cd:</div>
+            <div class="pdata col-xs-1">{{ project.fund_code }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
         </div>
         <div class="row row-eq-height Project dates">
-            <div class="labels col-md-1 detail-left">Start:</div>
-            <div class="pdata col-md-2">{{ project.oar_accept_date }}</div>
-            <div class="labels col-md-1">Expires:</div>
-            <div class="pdata col-md-2 detail-right">{{ project.project_expiration_date }}</div>
+            <div class="labels col-xs-1 detail-left">Start:</div>
+            <div class="pdata col-xs-2">{{ project.oar_accept_date }}</div>
+            <div class="labels col-xs-1">Expires:</div>
+            <div class="pdata col-xs-2 detail-right">{{ project.project_expiration_date }}</div>
         </div>
         <div class="row row-eq-height">
-            <div class="col-md-6 detail-left detail-right">&nbsp;</div>
+            <div class="col-xs-6 detail-left detail-right">&nbsp;</div>
         </div>
         <div class="row row-eq-height">
-            <div class="labels col-md-1 detail-left">Funding:</div>
-            <div class="col-md-4">
+            <div class="labels col-xs-1 detail-left">Funding:</div>
+            <div class="col-xs-4">
                 <table class="table table-bordered table-condensed table-striped table-responsive">
                     <tr id="funds_header">
                         <th scope="col">FCFY</th>
@@ -75,11 +75,11 @@
                     {% endif %}
                 </table>
             </div>
-            <div class="col-md-1 detail-right">&nbsp;</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
         </div>
         <div class="row row-eq-height DocTable">
-            <div class="labels col-md-1 detail-left">Documents:</div>
-            <div class="col-md-4">
+            <div class="labels col-xs-1 detail-left">Documents:</div>
+            <div class="col-xs-4">
                 <table class="table table-bordered table-condensed table-striped table-responsive">
                     {% if project.fileupload_set.all %}
                     {% for docs in project.fileupload_set.all %}
@@ -94,11 +94,11 @@
                     {% endif %}
                 </table>
             </div>
-            <div class="col-md-1 detail-right">&nbsp;</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
         </div>
         <div class="row row-eq-height">
-            <div class="labels col-md-1 detail-bottom-left">Notes:</div>
-            <div class="col-md-5 detail-bottom-right">{{ project.project_notes|linebreaks }}</div>
+            <div class="labels col-xs-1 detail-bottom-left">Notes:</div>
+            <div class="col-xs-5 detail-bottom-right">{{ project.project_notes|linebreaks }}</div>
         </div>
     </div>
 </div><!--close boxContent-->
