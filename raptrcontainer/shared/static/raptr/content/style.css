@@ -115,7 +115,7 @@ table.docs_table th {
 	}
 
 
-
+/*formatting for the detail views*/
 .detail-top{
   border-top:2px solid #e600e6;
  }
@@ -154,7 +154,6 @@ table.docs_table th {
   display: -ms-flexbox;
   display: flex;
 }
-
 .labels {
 	font-weight: 600;
 	vertical-align: top;
