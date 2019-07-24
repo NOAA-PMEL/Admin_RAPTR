@@ -4,88 +4,88 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
-    <div>
-        <h2>Detail for CRADA: {{ crada.docket_number }}</h2>
 
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<div class="details_content">
 
-            <div class="cradaBox"> <!-- set the box border -->
-                <div class="top"><div class="bottom">
-                <div class="left"><div class="right">
-                <div class="topLeft"><div class="topRight">
-                <div class="bottomLeft"><div class="bottomRight">
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-                        <div class="boxContent">
-                        <table class="crada_detail">
-                                <tr>
-                                    <td class="labels">Docket Number:</td>
-                                    <td class="pdata">{{ crada.docket_number }}</td>
-                                    <td class="labels">Project Status:</td>
-                                    <td class="pdata">{{ crada.project_status }}</td>
-                                    <td class="labels">Activity Phase:</td>
-                                    <td class="pdata">{{ crada.activity_phase }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="labels">Effective Date:</td>
-                                    <td class="pdata">{{ crada.effective_date }}</td>
-                                    <td class="labels">Expiration Date:</td>
-                                    <td class="pdata">{{ crada.expiration_date }}</td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class="labels">Project Title:</td>
-                                    <td colspan="5" class="pdata"> {{ crada.project_title }}</td>
-                                </tr>
-
+     <div class="container">
+         <h2>Detail for CRADA: {{ crada.docket_number }}</h2>
+         <div class="row row-eq-height">
+            <div class="col-xs-1 detail-top-left">
+                &nbsp;
+            </div>
+            <div class="col-xs-5 detail-top">
+                &nbsp;
+            </div>
+            <div class="col-xs-1 detail-top-right">
+                &nbsp;
+            </div>
+         </div>
+         <div class="row row-eq-height crada_ID">
+            <div class="labels col-xs-1 detail-left">Status:</div>
+            <div class="pdata col-xs-2">{{ crada.project_status }}</div>
+            <div class="labels col-xs-1">Phase:</div>
+            <div class="pdata col-xs-2">{{ crada.activity_phase }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+         </div>
+         <div class="row row-eq-height crada_dates">
+            <div class="labels col-xs-1 detail-left">Effective:</div>
+            <div class="pdata col-xs-2">{{ crada.effective_date }}</div>
+            <div class="labels col-xs-1">Expiration:</div>
+            <div class="pdata col-xs-2">{{ crada.expiration_date }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+         </div>
+         <div class="row row-eq-height crada_title">
+            <div class="labels col-xs-1 detail-left">Title:</div>
+            <div class="pdata col-xs-5">{{ crada.project_title }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+         </div>
+         <div class="row row-eq-height crada_PI">
+            <div class="labels col-xs-1 detail-left">PI:</div>
+            <div class="pdata col-xs-5"><a href="../../../shared/contact/{{ crada.noaa_pi.slug }}/">{{ crada.noaa_pi }} </a></div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+         </div>
+         <div class="row row-eq-height crada_sponsor">
+            <div class="labels col-xs-1 detail-left">Collaborator:</div>
+            <div class="pdata col-xs-5"><a href="../../../shared/sponsor/{{ crada.collaborator.slug }}/"> {{ crada.collaborator }}</a></div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+         </div>
+         <div class="row row-eq-height crada_summary">
+            <div class="labels col-xs-1 detail-left">Summary:</div>
+            <div class="pdata col-xs-6 detail-right">{{ crada.project_summary|linebreaks }}</a></div>
+         </div>
+         <div class="row row-eq-height DocTable">
+            <div class="labels col-xs-1 detail-left">Documents:</div>
+            <div class="col-xs-4">
+                <table class="table table-bordered table-condensed table-striped table-responsive">
+                    {% if crada.fileupload_set.all %}
+                        {% for docs in crada.fileupload_set.all %}
                             <tr>
-                                    <td class="labels">PI Supported:</td>
-                                    <td colspan="5" class="pdata"><a href="../../../shared/contact/{{ crada.noaa_pi.slug }}/"> {{ crada.noaa_pi }} </a></td>
-                                </tr>
-
-
-                                <tr>
-                                    <td class="labels">Collaborator:</td>
-                                    <td colspan="5" class="pdata"><a href="../../../shared/sponsor/{{ crada.collaborator.slug }}/"> {{ crada.collaborator }} </a></td>
-                                </tr>
-                                <tr height="15px"> </tr>
-                                                            <tr>
-                                    <td class="labels">Project Summary:</td>
-                                    <td colspan="5" class="pdata crada_ps"> {{ crada.project_summary|linebreaks }}</td>
-                                </tr>
-
-                        </table>
-                        <table id="sub_tables">
-                            <tr>
-                                <td class="labels">Documents:</td>
+                                <td><a href="\..\..\media\{{docs.file_upload}}">{{ docs.file_category }}</a></td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <table class="docs_table">
-                                    <tr id="docs_header">
-                                        <th>Type</th>
-                                    </tr>
-                                        {% if project.fileupload_set.all %}
-                                            {% for docs in project.fileupload_set.all %}
-                                                <tr>
-                                                    <td><a href="\..\..\media\{{docs.file_upload}}">{{ docs.file_category }}</a></td>
-                                                </tr>
-                                            {% endfor %}
-                                        {% else %}
-                                            <tr>
-                                                <td>No files have been uploaded.</td>
-                                            </tr>
-                                        {% endif %}
-                                     </table>
-                                </td>
-                            </tr>
-                        </table>
-                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td>No files have been uploaded.</td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </div>
+            <div class="col-xs-2 detail-right">&nbsp;</div>
+         </div>
+         <div class="row row-eq-height">
+            <div class="col-xs-1 detail-bottom-left">
+                &nbsp;
+            </div>
+            <div class="col-xs-5 detail-bottom">
+                &nbsp;
+            </div>
+            <div class="col-xs-1 detail-bottom-right">
+                &nbsp;
+            </div>
+         </div>
+     </div><!--close container-->
+</div><!--close details_content-->
 
-                </div></div>
-                </div></div>
-                </div></div>
-                </div></div>
-            </div> <!-- close roundedBox -->
-    </div> <!-- close details_content -->
 {% endblock %}
