@@ -21,9 +21,6 @@ table.crada_detail{
    width: 100%;
 }
 
-.contact_photo{
-    vertical-align: top;
-}
 table.funds_table{
     border: 1px solid gray;
     border-collapse: collapse;
@@ -157,6 +154,11 @@ table.docs_table th {
 .labels {
 	font-weight: 600;
 	vertical-align: top;
+}
+.photo-border {
+    width: 150px;
+    border: 1px solid;
+    box-shadow: 5px 5px #A9A9A9;
 }
 
 /*set fixed footer*/
