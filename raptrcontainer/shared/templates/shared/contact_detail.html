@@ -8,131 +8,139 @@
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
     <div class="details_content">
 
-    </div>
+
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-    <div class="container">
-        <h2>Detail for Contact: {{contact.first_name}}&nbsp;{{ contact.last_name }}</h2>
-        <div class="row row-eq-height">
-            <div class="col-xs-2 detail-top-left">
-                {{ contact.image_tag }}
-            </div>
-            <div class="labels col-xs-2 detail-top">
-                First Name:
-            </div>
-            <div class="pdata col-xs-2 detail-top-right">
-                {{ contact.first_name }}
-            </div>
-        </div>
-        <div class="row row-eq-height">
-                <div class="col-xs-2">
-                  &nbsp;
+        <div class="container">
+            <h2>Detail for Contact: {{contact.first_name}}&nbsp;{{ contact.last_name }}</h2>
+            <div class="row row-eq-height">
+                <div class="col-xs-1 detail-top-left">
+                    &nbsp;
                 </div>
-                <div class="label col-xs-2">
-                    Last Name:
+                <div class="col-xs-4 detail-top">
+                    &nbsp;
+                </div>
+                <div class="col-xs-1 detail-top-right">
+                    &nbsp;
                 </div>
             </div>
-        </div>
-    </div>
-    <!--            <div class="contactBox"> &lt;!&ndash; set the box border &ndash;&gt;-->
-<!--                <div class="top"><div class="bottom">-->
-<!--                <div class="left"><div class="right">-->
-<!--                <div class="topLeft"><div class="topRight">-->
-<!--                <div class="bottomLeft"><div class="bottomRight">-->
-
-<!--                    <div class="boxContent">-->
-<!--                        <table class="contact_detail">-->
-<!--                                <tr class="contact_photo">-->
-<!--                                    <td rowspan="12">{{ contact.image_tag }}</td>-->
-<!--                                    <td></td>-->
-<!--                                    <td></td>-->
-<!--                                </tr>-->
-
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">First Name:</td>-->
-<!--                                    <td colspan="3" class="pdata">{{ contact.first_name }}</td>-->
-<!--                                </tr>-->
-
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Last Name:</td>-->
-<!--                                    <td colspan="3" class="pdata"> {{ contact.last_name }}</td>-->
-<!--                                </tr>-->
-
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Job Title:</td>-->
-<!--                                    <td colspan="3" class="pdata"> {{ contact.job_title }}</td>-->
-<!--                                </tr>-->
-
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Phone:</td>-->
-<!--                                    <td class="pdata">{{ contact.phone_number }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Email:</td>-->
-<!--                                    <td class="pdata">{{ contact.email_address }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Room Number:</td>-->
-<!--                                    <td class="pdata">{{ contact.room_number }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Division:</td>-->
-<!--                                    <td class="pdata">{{ contact.division }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">OPT Sub Group:</td>-->
-<!--                                    <td class="pdata">{{ contact.opt_sub_group }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Research Program:</td>-->
-<!--                                    <td class="pdata">{{ contact.research_program }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Affiliation:</td>-->
-<!--                                    <td class="pdata">{{ contact.affiliation }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Location:</td>-->
-<!--                                    <td class="pdata">{{ contact.location }}</td>-->
-<!--                                </tr>-->
-<!--                            {% if request.user|has_group:"human_resources" %}-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Position Billet:</td>-->
-<!--                                    <td class="pdata">{{ contact.position_billet }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Position ID:</td>-->
-<!--                                    <td class="pdata">{{ contact.position_id }}</td>-->
-<!--                                </tr>-->
-<!--                                <tr>-->
-<!--                                    <td></td>-->
-<!--                                    <td></td>-->
-<!--                                    <td class="labels">Employee Pay Plan:</td>-->
-<!--                                    <td class="pdata">{{ contact.pay_plan }}-{{ contact.job_series }}-{{ contact.employee_band }}-{{ contact.employee_interval }}</td>-->
-<!--                                </tr>-->
-<!--                            {% endif %}-->
-<!--                        </table>-->
-<!--                    </div>-->
-
-<!--                </div></div>-->
-<!--                </div></div>-->
-<!--                </div></div>-->
-<!--                </div></div>-->
-<!--            </div>-->
+            <div class="row row-eq-height">
+                <div class="col-xs-2 detail-left">
+                    {{ contact.image_tag }}
+                </div>
+                <div class="labels col-xs-4">
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Title:
+                        </div>
+                        <div class="pdata col-xs-9 detail-right">
+                               {{ contact.job_title }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Phone:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.phone_number }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Email:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                           {{ contact.email_address }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Room #:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.room_number }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Division:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.division }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              OPT Sub:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.opt_sub_group }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Program:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.research_program }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Affiliation:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.affiliation }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Location:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.location }}
+                        </div>
+                    </div>
+                    {% if request.user|has_group:"human_resources" %}
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Billet:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.position_billet }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Position:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.position_id }}
+                        </div>
+                    </div>
+                    <div class="row row-eq-height">
+                        <div class="col-xs-3">
+                              Pay Plan:
+                        </div>
+                        <div class="col-xs-9 detail-right">
+                            {{ contact.pay_plan }}-{{ contact.job_series }}-{{ contact.employee_band }}-{{ contact.employee_interval }}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row row-eq-height">
+                <div class="col-xs-1 detail-bottom-left">
+                    &nbsp;
+                </div>
+                <div class="col-xs-4 detail-bottom">
+                    &nbsp;
+                </div>
+                <div class="col-xs-1 detail-bottom-right">
+                    &nbsp;
+                </div>
+            </div>
+        </div><!-- close container-->
+    </div><!--close detailsContent-->
 
 {% endblock %}

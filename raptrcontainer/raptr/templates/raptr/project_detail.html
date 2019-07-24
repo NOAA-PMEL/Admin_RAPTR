@@ -11,13 +11,24 @@
 
      <div class="container">
         <h2>Detail for Project: {{ project.project_number }}</h2>
-        <div class="row row-eq-height PID">
-            <div class="labels col-xs-1 detail-top-left">Project:</div>
-            <div class="pdata col-xs-1 detail-top">{{ project.project_id }}</div>
-            <div class="col-xs-1 detail-top"></div>
-            <div class="labels col-xs-1 detail-top">Submitted:</div>
-            <div class="pdata col-xs-1 detail-top">{{ project.year_proposed }}</div>
-            <div class="col-xs-1 detail-top-right">&nbsp;</div>
+        <div class="row row-eq-height">
+            <div class="col-xs-1 detail-top-left">
+                &nbsp;
+            </div>
+            <div class="col-xs-4 detail-top">
+                &nbsp;
+            </div>
+            <div class="col-xs-1 detail-top-right">
+                &nbsp;
+            </div>
+        </div>
+         <div class="row row-eq-height PID">
+            <div class="labels col-xs-1 detail-left">Project:</div>
+            <div class="pdata col-xs-1">{{ project.project_id }}</div>
+            <div class="col-xs-1"></div>
+            <div class="labels col-xs-1">Submitted:</div>
+            <div class="pdata col-xs-1">{{ project.year_proposed }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
         </div>
         <div class="row row-eq-height PI">
             <div class="labels col-xs-1 detail-left">PI:</div>
@@ -95,10 +106,21 @@
             <div class="col-xs-1 detail-right">&nbsp;</div>
         </div>
         <div class="row row-eq-height">
-            <div class="labels col-xs-1 detail-bottom-left">Notes:</div>
-            <div class="col-xs-5 detail-bottom-right">{{ project.project_notes|linebreaks }}</div>
+            <div class="labels col-xs-1 detail-left">Notes:</div>
+            <div class="col-xs-5 detail-right">{{ project.project_notes|linebreaks }}</div>
         </div>
-    </div>
-</div><!--close boxContent-->
+        <div class="row row-eq-height">
+            <div class="col-xs-1 detail-bottom-left">
+                &nbsp;
+            </div>
+            <div class="col-xs-4 detail-bottom">
+                &nbsp;
+            </div>
+            <div class="col-xs-1 detail-bottom-right">
+                &nbsp;
+            </div>
+        </div>
+    </div><!--close container-->
+</div><!--close detailsContent-->
 
 {% endblock %}
