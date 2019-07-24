@@ -4,7 +4,7 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
+
 <div class="details_content">
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -22,7 +22,7 @@
                 &nbsp;
             </div>
         </div>
-         <div class="row row-eq-height PID">
+        <div class="row row-eq-height PID">
             <div class="labels col-xs-1 detail-left">Project:</div>
             <div class="pdata col-xs-1">{{ project.project_id }}</div>
             <div class="col-xs-1"></div>

@@ -157,7 +157,7 @@ table.docs_table th {
 }
 .photo-border {
     width: 150px;
-    border: 1px solid;
+    border: 1px solid darkgray;
     box-shadow: 5px 5px #A9A9A9;
 }
 

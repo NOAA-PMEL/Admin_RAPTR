@@ -3,56 +3,67 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'raptr/content/style.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'raptr/content/rounded.css' %}">
 
-    <div class="details_content">
+
+<div class="details_content">
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <div class="container">
         <h2>Detail for Sponsor: {{sponsor.sponsor_acronym}}</h2>
-    </div>
-        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-            <div class="contactBox"> <!-- set the box border -->
-                <div class="top"><div class="bottom">
-                <div class="left"><div class="right">
-                <div class="topLeft"><div class="topRight">
-                <div class="bottomLeft"><div class="bottomRight">
-
-                    <div class="boxContent">
-                        <table class="sponsor_detail">
-                                <tr>
-                                    <td class="labels">Customer #:</td>
-                                    <td class="pdata">{{ sponsor.customer_number }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">Sponsor Acronym:</td>
-                                    <td class="pdata">{{ sponsor.sponsor_acronym }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">Sponsor Name:</td>
-                                    <td class="pdata"> {{ sponsor.sponsor_name }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">Sponsor Type:</td>
-                                    <td class="pdata"> {{ sponsor.sponsor_type }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="labels">Country:</td>
-                                    <td class="pdata">{{ sponsor.sponsor_country }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="labels">Website:</td>
-                                    <td class="pdata"><a href="{{ sponsor.sponsor_url }}">{{ sponsor.sponsor_url }}</a></td>
-                                </tr>
-                        </table>
-                    </div>
-
-                </div></div>
-                </div></div>
-                </div></div>
-                </div></div>
+        <div class="row row-eq-height">
+            <div class="col-xs-2 detail-top-left">
+                &nbsp;
             </div>
+            <div class="col-xs-4 detail-top">
+                &nbsp;
+            </div>
+            <div class="col-xs-1 detail-top-right">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row row-eq-height customer_num">
+            <div class="labels col-xs-2 detail-left">Sponsor #:</div>
+            <div class="pdata col-xs-4">{{ sponsor.customer_number }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height customer_acro">
+            <div class="labels col-xs-2 detail-left">Sponsor Acronym:</div>
+            <div class="pdata col-xs-4">{{ sponsor.sponsor_acronym }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height customer_name">
+            <div class="labels col-xs-2 detail-left">Name:</div>
+            <div class="pdata col-xs-4">{{ sponsor.sponsor_name }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height customer_type">
+            <div class="labels col-xs-2 detail-left">Sponsor Type:</div>
+            <div class="pdata col-xs-4">{{ sponsor.sponsor_type }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height customer_country">
+            <div class="labels col-xs-2 detail-left">Country:</div>
+            <div class="pdata col-xs-4">{{ sponsor.sponsor_country }}</div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height customer_url">
+            <div class="labels col-xs-2 detail-left">Website:</div>
+            <div class="pdata col-xs-4"><a href="{{ sponsor.sponsor_url }}">{{ sponsor.sponsor_url }}</a></div>
+            <div class="col-xs-1 detail-right">&nbsp;</div>
+        </div>
+        <div class="row row-eq-height">
+            <div class="col-xs-2 detail-bottom-left">
+                &nbsp;
+            </div>
+            <div class="col-xs-4 detail-bottom">
+                &nbsp;
+            </div>
+            <div class="col-xs-1 detail-bottom-right">
+                &nbsp;
+            </div>
+        </div>
+    </div><!--close container-->
+</div><!--close details_content-->
 
 {% endblock %}
