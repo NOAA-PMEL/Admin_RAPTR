@@ -53,7 +53,7 @@ class FilteredContactListView(SingleTableMixin, FilterView):
         return super(FilteredContactListView, self).get_queryset().filter(active=True)
 
     def get_table_kwargs(self):
-        return {'template_name': 'raptr/bootstrap.html'}
+        return {'template_name': 'raptr/table_bootstrap.html'}
 
     def get_context_data(self, **kwargs):
         context = super(FilteredContactListView, self).get_context_data(**kwargs)

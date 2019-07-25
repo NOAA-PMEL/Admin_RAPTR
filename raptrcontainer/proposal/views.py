@@ -28,7 +28,7 @@ class FilteredProposalListView(SingleTableMixin, FilterView):
         return super(FilteredProposalListView, self).get_queryset().all()
 
     def get_table_kwargs(self):
-        return {'template_name': 'shared/bootstrap.html'}
+        return {'template_name': 'shared/table_bootstrap.html'}
 
     def get_context_data(self, **kwargs):
         context = super(FilteredProposalListView, self).get_context_data(**kwargs)

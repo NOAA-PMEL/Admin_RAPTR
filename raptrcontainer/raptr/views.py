@@ -36,7 +36,7 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
         return super(FilteredProjectListView, self).get_queryset().all()
 
     def get_table_kwargs(self):
-        return {'template_name': 'shared/bootstrap.html'}
+        return {'template_name': 'shared/table_bootstrap.html'}
 
     def get_context_data(self, **kwargs):
         context = super(FilteredProjectListView, self).get_context_data(**kwargs)

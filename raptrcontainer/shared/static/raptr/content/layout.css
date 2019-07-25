@@ -1,28 +1,3 @@
-.navbar{
-    background-color: rgb(57,106,177);
-    font-size: 1em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: white;
-    padding: 5px 5px 5px 5px
-}
-.navbar a{
-    text-decoration: none;
-    color: inherit;
-}
-.navbar-brand{
-    font-size 1.2em;
-    font-weight: 600;
-}
-.navbar-item{
-    font-variant: small-caps;
-    margin-left: 30px;
-}
-.body-content{
-    padding: 5px;
-    font-family: 'Segoe UI', Tahoma, Verdana, Geneva, Verdana, sans-serif;
-}
-
-
 h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
 
 /*formatting for the detail views*/
@@ -82,7 +57,15 @@ h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
   width: 100%;
   text-align: left;
 }
-
+/*nested row data fields were defaulting to bold, this returns them to normal*/
 .cdata {
     font-weight: 400;
+}
+/*overrides the bootstrap label - adds space between filter label and field*/
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  margin-right: 8px;
+  font-weight: bold;
 }

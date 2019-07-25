@@ -18,7 +18,7 @@ class CradaListView(SingleTableMixin, FilterView):
         return super(CradaListView, self).get_queryset().all()
 
     def get_table_kwargs(self):
-        return {'template_name': 'raptr/bootstrap.html'}
+        return {'template_name': 'shared/table_bootstrap.html'}
 
     def get_context_data(self, **kwargs):
         context = super(CradaListView, self).get_context_data(**kwargs)
