@@ -69,3 +69,20 @@ label {
   margin-right: 8px;
   font-weight: bold;
 }
+
+#raptr-nav .navbar-nav li > a {
+	text-transform: capitalize;
+	color: #333;
+	transition: background-color .2s, color .2s;
+
+	&:hover,
+	&:focus {
+		background-color: #333;
+		color: #fff;
+	}
+}
+
+#raptr-nav .navbar-nav li.active > a {
+	background-color: #333;
+	color: #fff;
+}

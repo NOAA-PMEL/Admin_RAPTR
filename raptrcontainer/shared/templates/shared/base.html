@@ -1,45 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+{% include 'shared/navbar.html' %}
 <head>
     <meta charset="utf-8" />
     <title>{{ title }}</title>
     {% load static %}
-    {% include 'base/css.html' %}
-    {% include 'base/bootstrap_defaults.html' %}
-    {% include 'base/js.html' %}
     {% load render_table from django_tables2 %}
-    {% load bootstrap4 %}
+    {% load bootstrap3 %}
 </head>
 
 <body>
-
-    <div class="navbar navbar-default">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img src="{% static 'raptr/images/raptr_logo_sm.png' %}"></a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li><a href="/shared" class="navbar-item">Dashboard</a></li>
-            <li><a href="{% url 'raptr:project_list' %}" class="navbar-item">Reimbursable & Advance</a></li>
-            <li><a href="{% url 'crada:crada_list' %}" class="navbar-item">CRADA</a></li>
-            <li><a href="{% url 'proposal:proposal_list' %}" class="navbar-item">Proposals</a></li>
-            <li><a href="{% url 'shared:contact_list' %}" class="navbar-item">Contact List</a></li>
-            <li><a href="{% url 'shared:reports' %}" class="navbar-item">Reports</a></li>
-            <li><a href="{% url 'shared:about' %}" class="navbar-item">About</a></li>
-            {% if request.user.is_authenticated%}
-                {% if user.is_superuser %}
-                    <li><a href="/admin" class="navbar-item">Administration</a></li>
-                {% endif %}
-            {% endif %}
-            {% if request.user.is_authenticated %}
-              <li><a href = "">Hello, {{ request.user.first_name }}</a></li>
-              <li><a href="{% url 'raptr:logout' %}" class="navbar-item-right">Logout</a></li>
-            {% else %}
-              <li><a href="{% url 'raptr:login' %}" class="navbar-item-right">Log-in</a></li>
-            {% endif %}
-        </ul>
-    </div>
-
     <div class="container-fluid">
         {% block content %}{% endblock content %}
     </div>
@@ -47,7 +17,7 @@
     <script>
     $(document).ready(function(){
       {% block jquery %}{% endblock %}
-    })
+    });
     </script>
 
     <footer class="footer">
