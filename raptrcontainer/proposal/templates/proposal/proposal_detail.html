@@ -31,7 +31,11 @@
         </div>
         <div class="row row-eq-height PI">
             <div class="labels col-xs-1 detail-left">PI:</div>
-            <div class="pdata col-xs-5 detail-right"><a href="../../../shared/contact/{{ proposal.investigator_supported.slug }}/"> {{proposal.investigator_supported }}</a></div>
+            {% if proposal.investigator_supported %}
+                <div class="pdata col-xs-5 detail-right"><a href="../../../shared/contact/{{ proposal.investigator_supported.slug }}/"> {{proposal.investigator_supported }}</a></div>
+            {% else %}
+                <div class="pdata col-xs-5 detail-right">{{proposal.investigator_supported }}</div>
+            {% endif %}
         </div>
         <div class="row row-eq-height Title">
             <div class="labels col-xs-1 detail-left">Title:</div>
@@ -39,7 +43,11 @@
         </div>
         <div class="row row-eq-height Sponsor">
             <div class="labels col-xs-1 detail-left">Sponsor:</div>
-            <div class="pdata col-xs-5 detail-right"><a href="../../../shared/sponsor/{{ proposal.sponsor.slug }}/"> {{ proposal.sponsor }}</a></div>
+            {% if proposal.sponsor %}
+                <div class="pdata col-xs-5 detail-right"><a href="../../../shared/sponsor/{{ proposal.sponsor.slug }}/"> {{ proposal.sponsor }}</a></div>
+            {% else %}
+                <div class="pdata col-xs-5 detail-right">{{ proposal.sponsor }}</div>
+            {% endif %}
         </div>
         <div class="row row-eq-height Status">
             <div class="labels col-xs-1 detail-left">Status:</div>

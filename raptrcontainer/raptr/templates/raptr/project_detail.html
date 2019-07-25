@@ -31,7 +31,11 @@
         </div>
         <div class="row row-eq-height PI">
             <div class="labels col-xs-1 detail-left">PI:</div>
-            <div class="pdata col-xs-5 detail-right"><a href="../../../shared/contact/{{ project.investigator_supported.slug }}/">{{project.investigator_supported }} </a></div>
+            {% if project.investigator_supported %}
+                <div class="pdata col-xs-5 detail-right"><a href="../../../shared/contact/{{ project.investigator_supported.slug }}/">{{project.investigator_supported }}</a></div>
+            {% else %}
+                <div class="pdata col-xs-5 detail-right">{{project.investigator_supported }}</div>
+            {% endif %}
         </div>
         <div class="row row-eq-height Title">
             <div class="labels col-xs-1 detail-left">Title:</div>
@@ -39,7 +43,11 @@
         </div>
         <div class="row row-eq-height Sponsor">
             <div class="labels col-xs-1 detail-left">Sponsor:</div>
-            <div class="pdata col-xs-5 detail-right"><a href="../../../shared/sponsor/{{ project.sponsor.slug }}/">{{ project.sponsor }} </a></div>
+            {% if project.sponsor %}
+                <div class="pdata col-xs-5 detail-right"><a href="../../../shared/sponsor/{{ project.sponsor.slug }}/">{{ project.sponsor }}</a></div>
+            {% else %}
+                <div class="pdata col-xs-5 detail-right">{{ project.sponsor }}</div>
+            {% endif %}
         </div>
         <div class="row row-eq-height Status">
             <div class="labels col-xs-1 detail-left">Status:</div>
@@ -90,11 +98,11 @@
             <div class="col-xs-4">
                 <table class="table table-bordered table-condensed table-striped table-responsive">
                     {% if project.fileupload_set.all %}
-                    {% for docs in project.fileupload_set.all %}
-                    <tr>
-                        <td><a href="\..\..\media\{{docs.file_upload}}">{{docs.file_category }}</a></td>
-                    </tr>
-                    {% endfor %}
+                        {% for docs in project.fileupload_set.all %}
+                            <tr>
+                                <td><a href="\..\..\media\{{docs.file_upload}}">{{docs.file_category }}</a></td>
+                            </tr>
+                        {% endfor %}
                     {% else %}
                     <tr>
                         <td colspan="2">No files have been uploaded.</td>

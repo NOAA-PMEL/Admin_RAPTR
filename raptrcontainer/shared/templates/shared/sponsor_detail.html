@@ -47,7 +47,11 @@
         </div>
         <div class="row row-eq-height customer_url">
             <div class="labels col-xs-2 detail-left">Website:</div>
-            <div class="pdata col-xs-4"><a href="{{ sponsor.sponsor_url }}">{{ sponsor.sponsor_url }}</a></div>
+            {% if sponsor.sponsor_url %}
+                <div class="pdata col-xs-4"><a href="{{ sponsor.sponsor_url }}">{{ sponsor.sponsor_url }}</a></div>
+            {% else %}
+                <div class="pdata col-xs-4">{{ sponsor.sponsor_url }}</div>
+            {% endif %}
             <div class="col-xs-1 detail-right">&nbsp;</div>
         </div>
         <div class="row row-eq-height">
