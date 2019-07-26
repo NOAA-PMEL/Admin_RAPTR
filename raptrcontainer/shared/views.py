@@ -19,6 +19,7 @@ class ContactDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ContactDetailView, self).get_context_data(**kwargs)
         context['title'] = 'Contact Detail'
+        context['contact_page'] = 'active'
         return context
 
 
@@ -38,6 +39,7 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(AboutView, self).get_context_data(**kwargs)
         context['title'] = 'About RAPTR'
+        context['about_page'] = 'active'
         return context
 
 
@@ -58,6 +60,7 @@ class FilteredContactListView(SingleTableMixin, FilterView):
     def get_context_data(self, **kwargs):
         context = super(FilteredContactListView, self).get_context_data(**kwargs)
         context['title'] = 'RAPTR Contact List'
+        context['contact_page'] = 'active'
         return context
 
 
@@ -69,6 +72,7 @@ class IndexView(generic.TemplateView):
         context = super(IndexView, self).get_context_data(**kwargs)
         current_fy = get_current_fy()
         context['title'] = 'Dashboard'
+        context['dashboard_page'] = 'active'
         context['current_fy']=current_fy
         context['by_division'] = get_by_division_data()
         context['by_division_total'] = get_by_division_total()
@@ -88,6 +92,7 @@ class ReportView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ReportView, self).get_context_data(**kwargs)
         context['title'] = 'Reports'
+        context['report_page'] = 'active'
         return context
 
 

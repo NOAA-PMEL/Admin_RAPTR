@@ -21,6 +21,7 @@ class ProjectDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProjectDetailView, self).get_context_data(**kwargs)
         context['title'] = 'Project Detail'
+        context['ra_page'] = 'active'
         return context
 
 
@@ -30,7 +31,7 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
     template_name = 'raptr/project_list.html'
 
     filterset_class = ProjectFilter
-    paginate_by = 8
+    paginate_by = 10
 
     def get_queryset(self):
         return super(FilteredProjectListView, self).get_queryset().all()
@@ -41,6 +42,7 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
     def get_context_data(self, **kwargs):
         context = super(FilteredProjectListView, self).get_context_data(**kwargs)
         context['title'] = 'Reimbursable & Advance Project List'
+        context['ra_page'] = 'active'
         return context
 
 

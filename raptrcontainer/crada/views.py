@@ -23,6 +23,7 @@ class CradaListView(SingleTableMixin, FilterView):
     def get_context_data(self, **kwargs):
         context = super(CradaListView, self).get_context_data(**kwargs)
         context['title'] = 'CRADA Project List'
+        context['crada_page'] = 'active'
         return context
 
 
@@ -33,4 +34,5 @@ class CradaDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CradaDetailView, self).get_context_data(**kwargs)
         context['title'] = 'Crada Detail'
+        context['crada_page'] = 'active'
         return context

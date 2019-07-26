@@ -13,6 +13,7 @@ class ProposalDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ProposalDetailView, self).get_context_data(**kwargs)
         context['title'] = 'Proposal Detail'
+        context['proposal_page'] = 'active'
         return context
 
 
@@ -33,4 +34,5 @@ class FilteredProposalListView(SingleTableMixin, FilterView):
     def get_context_data(self, **kwargs):
         context = super(FilteredProposalListView, self).get_context_data(**kwargs)
         context['title'] = 'Proposal List'
+        context['proposal_page'] = 'active'
         return context
