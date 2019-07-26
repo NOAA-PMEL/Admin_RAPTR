@@ -16,10 +16,8 @@ class ContactTable(tables.Table):
         template_name = 'shared/contact_list.html'
         exclude = (
             'full_time_equivalent',
-            'is_pi',
             'service_computation_date',
             'pmel_base',
-            'affiliation',
             'active',
             'employee_band',
             'employee_interval',

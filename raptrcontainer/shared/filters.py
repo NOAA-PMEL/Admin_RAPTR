@@ -11,6 +11,7 @@ class ContactFilter(FilterSet):
     class Meta:
         model = Contact
         fields = {
-            'last_name': ['exact'],
+            'last_name': ['contains'],
             'division': ['exact'],
+            'affiliation' : ['exact'],
         }

@@ -277,6 +277,10 @@ class Contact(models.Model):
     phone_number = PhoneField(
         blank=True
     )
+    room_number = models.CharField(
+        max_length=15,
+        blank=True
+    )
     division = models.CharField(
         choices=DIVISION_CHOICES,
         max_length=4,
@@ -294,11 +298,6 @@ class Contact(models.Model):
         blank=True,
         null=True
     )
-    is_pi = models.BooleanField(
-        default=False,
-        verbose_name='PI?',
-        help_text='Is this person a PMEL Principal Investigator?'
-    )
     pmel_base = models.BooleanField(
         default=False,
         verbose_name='PMEL Base',
@@ -310,12 +309,13 @@ class Contact(models.Model):
         blank=True,
         null=True
     )
+    is_pi = models.BooleanField(
+        default=False,
+        verbose_name='PI?',
+        help_text='Is this person a PMEL Principal Investigator?'
+    )
     location = models.CharField(
         choices=LOCATIONS,
-        max_length=15,
-        blank=True
-    )
-    room_number = models.CharField(
         max_length=15,
         blank=True
     )

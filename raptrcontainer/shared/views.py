@@ -1,8 +1,7 @@
 from .query_sets import *
-from raptr.models import Fundfy, Project
 from shared.models import Contact, Sponsor
 from django.views.generic.detail import DetailView
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView
 from django_tables2 import SingleTableMixin
 from django_filters.views import FilterView
 from .filters import ContactFilter
@@ -49,7 +48,7 @@ class FilteredContactListView(SingleTableMixin, FilterView):
     template_name = 'shared/contact_list.html'
 
     filterset_class = ContactFilter
-    paginate_by = 12
+    paginate_by = 15
 
     def get_queryset(self):
         return super(FilteredContactListView, self).get_queryset().filter(active=True)
