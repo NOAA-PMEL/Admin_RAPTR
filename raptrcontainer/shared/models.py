@@ -31,6 +31,7 @@ DIVISION_CHOICES = (
 )
 
 PAY_BAND_CHOICES = (
+    ('00', '00'),
     ('I', 'I'),
     ('II', 'II'),
     ('III', 'III'),
@@ -39,6 +40,7 @@ PAY_BAND_CHOICES = (
 )
 
 PAY_INTERVAL_CHOICES = (
+    ('00', '00'),
     ('01', '01'),
     ('02', '02'),
     ('03', '03'),

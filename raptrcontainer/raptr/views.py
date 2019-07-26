@@ -31,7 +31,7 @@ class FilteredProjectListView(SingleTableMixin, FilterView):
     template_name = 'raptr/project_list.html'
 
     filterset_class = ProjectFilter
-    paginate_by = 10
+    paginate_by = 15
 
     def get_queryset(self):
         return super(FilteredProjectListView, self).get_queryset().all()
