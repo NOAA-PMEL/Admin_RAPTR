@@ -1,12 +1,17 @@
--e ..
 Django~=2.2.3
 django-bootstrap3~=11.1.0
+django-chartjs~=1.5.0
+django-debug-toolbar~=2.0
+django-docutils~=0.4.0
 django-extensions~=2.1.9
 django-filter~=2.1.0
+django-filters~=0.2.1
 django-money~=0.15
 django-phone-field~=1.7.1
 django-tables2~=2.0.6
 django-widget-tweaks~=1.4.5
+djangorestframework~=3.9.4
+djangorestframework-filters~=0.11.1
 docutils~=0.14
 phonenumbers~=8.10.14
 Pillow~=6.1.0
