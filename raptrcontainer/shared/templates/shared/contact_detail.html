@@ -10,134 +10,116 @@
 
         <div class="container">
             <h2>Detail for Contact: {{contact.first_name}}&nbsp;{{ contact.last_name }}</h2>
-            <div class="row row-eq-height">
-                <div class="col-xs-1 detail-top-left">
-                    &nbsp;
+            <div class="detail-border">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="photo-border">
+                            {{ contact.image_tag }}
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-3 labels">
+                                  Title:
+                            </div>
+                            <div class="col-lg-9 cdata">
+                                   {{ contact.job_title }}
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Phone:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.phone_number }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Email:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                   {{ contact.email_address }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Room #:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.room_number }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Division:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.division }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      OPT Sub:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.opt_sub_group }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Program:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.research_program }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Affiliation:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.affiliation }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Location:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.location }}
+                                </div>
+                            </div>
+                            {% if request.user|has_group:"human_resources" %}
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Billet:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.position_billet }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Position:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.position_id }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
+                                      Pay Plan:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.pay_plan }}-{{ contact.job_series }}-{{ contact.employee_band }}-{{ contact.employee_interval }}
+                                </div>
+                            </div>
+                            {% endif %}
+                    </div>
                 </div>
-                <div class="col-xs-4 detail-top">
-                    &nbsp;
-                </div>
-                <div class="col-xs-1 detail-top-right">
-                    &nbsp;
-                </div>
-            </div>
-            <div class="row row-eq-height">
-                <div class="col-xs-2 detail-left">
-                    <div class="photo-border"> {{ contact.image_tag }}</div>
-                </div>
-                <div class="labels col-xs-4">
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Title:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                               {{ contact.job_title }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Phone:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.phone_number }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Email:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                           {{ contact.email_address }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Room #:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.room_number }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Division:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.division }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              OPT Sub:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.opt_sub_group }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Program:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.research_program }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Affiliation:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.affiliation }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Location:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.location }}
-                        </div>
-                    </div>
-                    {% if request.user|has_group:"human_resources" %}
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Billet:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.position_billet }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Position:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.position_id }}
-                        </div>
-                    </div>
-                    <div class="row row-eq-height">
-                        <div class="col-xs-3">
-                              Pay Plan:
-                        </div>
-                        <div class="col-xs-9 cdata detail-right">
-                            {{ contact.pay_plan }}-{{ contact.job_series }}-{{ contact.employee_band }}-{{ contact.employee_interval }}
-                        </div>
-                    </div>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="row row-eq-height">
-                <div class="col-xs-1 detail-bottom-left">
-                    &nbsp;
-                </div>
-                <div class="col-xs-4 detail-bottom">
-                    &nbsp;
-                </div>
-                <div class="col-xs-1 detail-bottom-right">
-                    &nbsp;
-                </div>
-            </div>
-        </div><!-- close container-->
-    </div><!--close detailsContent-->
+            </div><!-- close detail-border -->
+        </div><!-- close container -->
+    </div><!--close detailsContent -->
 
 {% endblock %}

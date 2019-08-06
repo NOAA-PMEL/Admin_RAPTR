@@ -6,7 +6,7 @@ STATUS_CHOICES = (
     ('Open', 'Open'),
     ('Closed', 'Closed')
 )
-ACTIVITY_CHOICES =(
+ACTIVITY_CHOICES = (
     ('Draft', 'Draft'),
     ('Legal Review', 'Legal Review'),
     ('Signed', 'Signed'),
@@ -81,6 +81,9 @@ class Crada (models.Model):
         unique=True,
         max_length=50,
     )
+
+    class Meta:
+        ordering = ['docket_number']
 
     def get_absolute_url(self):
         return reverse('crada:crada_detail', kwargs={'slug': self.slug})

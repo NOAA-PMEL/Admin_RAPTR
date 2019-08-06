@@ -49,6 +49,18 @@ h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
     box-shadow: 5px 5px #A9A9A9;
 }
 
+.detail-border {
+  border-radius: 15px 15px 15px 15px;
+  border: 2px solid #e600e6;
+  padding: 10px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 670px;
+  }
+}
+
 /*set fixed footer*/
 .footer {
   position: fixed;
