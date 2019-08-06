@@ -176,4 +176,6 @@ atlassian-ide-plugin.xml
 
 /raptrcontainer/db.json
 
+/renv
+
 \.idea/
