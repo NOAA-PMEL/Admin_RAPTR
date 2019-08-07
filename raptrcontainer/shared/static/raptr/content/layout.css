@@ -1,44 +1,6 @@
 h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
 
 /*formatting for the detail views*/
-.detail-top{
-  border-top:2px solid #e600e6;
- }
-.detail-bottom{
-  border-bottom:2px solid #e600e6;
-}
-.detail-left{
-  border-left:2px solid #e600e6;
-}
-.detail-right{
-  border-right:2px solid #e600e6;
-}
-.detail-top-left{
-  border-top:2px solid #e600e6;
-  border-left: 2px solid #e600e6;
-  border-radius: 15px 0px 0px 0px;
-}
-.detail-top-right{
-  border-top:2px solid #e600e6;
-  border-right: 2px solid #e600e6;
-  border-radius: 0px 15px 0px 0px;
-}
-.detail-bottom-left{
-  border-bottom:2px solid #e600e6;
-  border-left: 2px solid #e600e6;
-  border-radius: 0px 0px 0px 15px;
-}
-.detail-bottom-right{
-  border-bottom:2px solid #e600e6;
-  border-right: 2px solid #e600e6;
-  border-radius: 0px 0px 15px 0px;
-}
-.row-eq-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
 .labels {
 	font-weight: 600;
 	vertical-align: top;
@@ -48,13 +10,11 @@ h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
     border: 1px solid darkgray;
     box-shadow: 5px 5px #A9A9A9;
 }
-
 .detail-border {
   border-radius: 15px 15px 15px 15px;
   border: 2px solid #e600e6;
   padding: 10px;
 }
-
 @media (min-width: 1200px) {
   .container {
     width: 670px;

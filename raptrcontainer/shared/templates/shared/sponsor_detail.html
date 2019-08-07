@@ -9,60 +9,40 @@
 
     <div class="container">
         <h2>Detail for Sponsor: {{sponsor.sponsor_acronym}}</h2>
-        <div class="row row-eq-height">
-            <div class="col-xs-2 detail-top-left">
-                &nbsp;
+        <div class="detail-border">
+            <div class="row row-eq-height customer_num">
+                <div class="labels col-lg-3">Sponsor #:</div>
+                <div class="pdata col-lg-5">{{ sponsor.customer_number }}</div>
+                <div class="col-lg-4">&nbsp;</div>
             </div>
-            <div class="col-xs-4 detail-top">
-                &nbsp;
+            <div class="row row-eq-height customer_acro">
+                <div class="labels col-lg-3 ">Sponsor Acronym:</div>
+                <div class="pdata col-lg-5">{{ sponsor.sponsor_acronym }}</div>
+                <div class="col-lg-4">&nbsp;</div>
             </div>
-            <div class="col-xs-1 detail-top-right">
-                &nbsp;
+            <div class="row row-eq-height customer_name">
+                <div class="labels col-lg-3">Name:</div>
+                <div class="pdata col-lg-5">{{ sponsor.sponsor_name }}</div>
+                <div class="col-lg-4">&nbsp;</div>
             </div>
-        </div>
-        <div class="row row-eq-height customer_num">
-            <div class="labels col-xs-2 detail-left">Sponsor #:</div>
-            <div class="pdata col-xs-4">{{ sponsor.customer_number }}</div>
-            <div class="col-xs-1 detail-right">&nbsp;</div>
-        </div>
-        <div class="row row-eq-height customer_acro">
-            <div class="labels col-xs-2 detail-left">Sponsor Acronym:</div>
-            <div class="pdata col-xs-4">{{ sponsor.sponsor_acronym }}</div>
-            <div class="col-xs-1 detail-right">&nbsp;</div>
-        </div>
-        <div class="row row-eq-height customer_name">
-            <div class="labels col-xs-2 detail-left">Name:</div>
-            <div class="pdata col-xs-4">{{ sponsor.sponsor_name }}</div>
-            <div class="col-xs-1 detail-right">&nbsp;</div>
-        </div>
-        <div class="row row-eq-height customer_type">
-            <div class="labels col-xs-2 detail-left">Sponsor Type:</div>
-            <div class="pdata col-xs-4">{{ sponsor.sponsor_type }}</div>
-            <div class="col-xs-1 detail-right">&nbsp;</div>
-        </div>
-        <div class="row row-eq-height customer_country">
-            <div class="labels col-xs-2 detail-left">Country:</div>
-            <div class="pdata col-xs-4">{{ sponsor.sponsor_country }}</div>
-            <div class="col-xs-1 detail-right">&nbsp;</div>
-        </div>
-        <div class="row row-eq-height customer_url">
-            <div class="labels col-xs-2 detail-left">Website:</div>
-            {% if sponsor.sponsor_url %}
-                <div class="pdata col-xs-4"><a href="{{ sponsor.sponsor_url }}">{{ sponsor.sponsor_url }}</a></div>
-            {% else %}
-                <div class="pdata col-xs-4">{{ sponsor.sponsor_url }}</div>
-            {% endif %}
-            <div class="col-xs-1 detail-right">&nbsp;</div>
-        </div>
-        <div class="row row-eq-height">
-            <div class="col-xs-2 detail-bottom-left">
-                &nbsp;
+            <div class="row row-eq-height customer_type">
+                <div class="labels col-lg-3">Sponsor Type:</div>
+                <div class="pdata col-lg-5">{{ sponsor.sponsor_type }}</div>
+                <div class="col-lg-4">&nbsp;</div>
             </div>
-            <div class="col-xs-4 detail-bottom">
-                &nbsp;
+            <div class="row row-eq-height customer_country">
+                <div class="labels col-lg-3">Country:</div>
+                <div class="pdata col-lg-5">{{ sponsor.sponsor_country }}</div>
+                <div class="col-lg-4">&nbsp;</div>
             </div>
-            <div class="col-xs-1 detail-bottom-right">
-                &nbsp;
+            <div class="row row-eq-height customer_url">
+                <div class="labels col-lg-3">Website:</div>
+                {% if sponsor.sponsor_url %}
+                    <div class="pdata col-lg-5"><a href="{{ sponsor.sponsor_url }}">{{ sponsor.sponsor_url }}</a></div>
+                {% else %}
+                    <div class="pdata col-lg-5">{{ sponsor.sponsor_url }}</div>
+                {% endif %}
+                <div class="col-lg-4">&nbsp;</div>
             </div>
         </div>
     </div><!--close container-->
