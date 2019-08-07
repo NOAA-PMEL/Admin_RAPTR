@@ -179,3 +179,4 @@ atlassian-ide-plugin.xml
 /renv
 
 \.idea/
+.vscode/settings.json
