@@ -51,7 +51,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     {% if request.user.is_authenticated %}
                       <li><a href = "">Hello, {{ request.user.first_name }}</a></li>
-                      <li><a href="{% url 'raptr:logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                      <li><a href="{% url 'raptr:logout' %}">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
                     {% else %}
                       <li><a href="{% url 'raptr:login' %}"><span class="glyphicon glyphicon-log-in"></span> Log-in</a></li>
                     {% endif %}
