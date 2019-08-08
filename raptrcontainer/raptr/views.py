@@ -9,11 +9,13 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from .forms import LoginForm
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
+@method_decorator(login_required, name='dispatch')
 class ProjectDetailView(DetailView):
     model = Project
     template_name = 'raptr/project_detail.html'
@@ -25,6 +27,7 @@ class ProjectDetailView(DetailView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class FilteredProjectListView(SingleTableMixin, FilterView):
     table_class = ProjectTable
     model = Project
@@ -67,6 +70,7 @@ def user_login(request):
     return render(request, 'login.html', {'form': form})
 
 
+@method_decorator(login_required, name='dispatch')
 class RAHistoryChartData(APIView):
     authentication_classes = []
     permission_classes = []
@@ -87,6 +91,7 @@ class RAHistoryChartData(APIView):
         return Response(data)
 
 
+@method_decorator(login_required, name='dispatch')
 class SponsorTypeChartData(APIView):
     authentication_classes = []
     permission_classes = []

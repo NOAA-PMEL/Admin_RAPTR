@@ -9,8 +9,11 @@ from .tables import ContactTable
 from django.views import generic
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name='dispatch')
 class ContactDetailView(DetailView):
     model = Contact
     template_name = 'shared/contact_detail.html'
@@ -22,6 +25,7 @@ class ContactDetailView(DetailView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class SponsorDetailView(DetailView):
     model = Sponsor
     template_name = 'shared/sponsor_detail.html'
@@ -32,6 +36,7 @@ class SponsorDetailView(DetailView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class AboutView(TemplateView):
     template_name = 'shared/about.html'
 
@@ -42,6 +47,7 @@ class AboutView(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class FilteredContactListView(SingleTableMixin, FilterView):
     table_class = ContactTable
     model = Contact
@@ -63,6 +69,7 @@ class FilteredContactListView(SingleTableMixin, FilterView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class IndexView(generic.TemplateView):
 
     template_name = 'shared/index.html'
@@ -85,6 +92,7 @@ class IndexView(generic.TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class ReportView(generic.TemplateView):
     template_name = 'shared/reports.html'
 
@@ -95,6 +103,7 @@ class ReportView(generic.TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class DivisionChartData(APIView):
     authentication_classes = []
     permission_classes = []
@@ -115,6 +124,7 @@ class DivisionChartData(APIView):
         return Response(data)
 
 
+@method_decorator(login_required, name='dispatch')
 class ResearchProgramChartData(APIView):
     authentication_classes = []
     permission_classes = []

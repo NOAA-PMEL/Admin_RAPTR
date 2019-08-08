@@ -4,8 +4,11 @@ from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
 from .tables import ProposalTable
 from django.views.generic.detail import DetailView
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name='dispatch')
 class ProposalDetailView(DetailView):
     model = Proposal
     template_name = 'proposal/proposal_detail.html'
@@ -17,6 +20,7 @@ class ProposalDetailView(DetailView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class FilteredProposalListView(SingleTableMixin, FilterView):
     table_class = ProposalTable
     model = Proposal

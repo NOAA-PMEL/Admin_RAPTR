@@ -42,7 +42,7 @@
                     <li class="{{ contact_page }}"><a href="{% url 'shared:contact_list' %}">Contact List</a></li>
                     <li class="{{ report_page }}"><a href="{% url 'shared:reports' %}">Reports</a></li>
                     <li class="{{ about_page }}"><a href="{% url 'shared:about' %}">About</a></li>
-                    {% if request.user.is_authenticated%}
+                    {% if request.user.is_authenticated %}
                         {% if user.is_superuser %}
                             <li><a href="/admin">Administration</a></li>
                         {% endif %}
@@ -64,11 +64,11 @@
         {% block content %}{% endblock content %}
     </div>
 
-    <script>
-        $(document).ready(function(){
-          {% block jquery %}{% endblock %}
-        });
-    </script>
+<script>
+    $(document).ready(function(){
+      {% block jquery %}{% endblock %}
+    });
+</script>
 
 <!--    <footer class="footer">-->
 <!--      &nbsp; &nbsp; 2019 - PMEL RAPTR-->
