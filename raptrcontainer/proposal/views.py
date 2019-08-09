@@ -27,7 +27,7 @@ class FilteredProposalListView(SingleTableMixin, FilterView):
     template_name = 'proposal/proposal_list.html'
 
     filterset_class = ProposalFilter
-    paginate_by = 8
+    paginate_by = 15
 
     def get_queryset(self):
         return super(FilteredProposalListView, self).get_queryset().all()

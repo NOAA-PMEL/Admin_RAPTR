@@ -30,11 +30,6 @@ h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
   text-align: left;
 }
 
-/*nested row data fields were defaulting to bold, this returns them to normal
-.cdata {
-    font-weight: 400;
-}*/
-
 /*overrides the bootstrap label - adds space between filter label and field*/
 label {
   display: inline-block;

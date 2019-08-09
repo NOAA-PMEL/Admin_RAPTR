@@ -15,7 +15,7 @@ class CradaListView(SingleTableMixin, FilterView):
     template_name = 'crada/crada_list.html'
 
     filterset_class = CradaFilter
-    paginate_by = 8
+    paginate_by = 15
 
     def get_queryset(self):
         return super(CradaListView, self).get_queryset().all()
