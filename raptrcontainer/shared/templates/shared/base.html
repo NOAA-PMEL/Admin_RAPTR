@@ -10,15 +10,14 @@
     {% load render_table from django_tables2 %}
     {% load bootstrap3 %}
 
-        <script src="{% static 'raptr/scripts/raptr_nav.js' %}" type="text/javascript"></script>
 </head>
 
 <body>
-<div id="raptr-nav">
+<!--<div id="raptr-nav">-->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#raptr-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#raptr-1" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -31,9 +30,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
 			    </button>
-                <a class="navbar-brand" href="#"><img src="{% static 'raptr/images/raptr_logo_md.png' %}" alt="PMEL RAPTR Logo"></a>
+                <a class="navbar-brand" href="#"><img src="{% static 'raptr/images/raptr_brand.png' %}" alt="PMEL RAPTR Logo"></a>
             </div>
-            <div class="collapse navbar-collapse" id="#raptr-1">
+            <div id="raptr-1" class="navbar-collapse collapse" >
                 <ul class="nav navbar-nav">
                     <li class="{{ dashboard_page }}"><a href="/shared">Dashboard<span class="sr-only">(current)</span></a></li>
                     <li class="{{ ra_page }}"><a href="{% url 'raptr:project_list' %}">Reimbursable & Advance</a></li>
@@ -59,7 +58,7 @@
             </div>
         </div>
     </nav>
-</div>
+<!--</div>-->
     <div class="container-fluid">
         {% block content %}{% endblock content %}
     </div>

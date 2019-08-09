@@ -29,10 +29,12 @@ h2 {font-family: 'Trebuchet MS', Arial, Verdana, sans-serif}
   width: 100%;
   text-align: left;
 }
-/*nested row data fields were defaulting to bold, this returns them to normal*/
+
+/*nested row data fields were defaulting to bold, this returns them to normal
 .cdata {
     font-weight: 400;
-}
+}*/
+
 /*overrides the bootstrap label - adds space between filter label and field*/
 label {
   display: inline-block;
@@ -41,18 +43,14 @@ label {
   margin-right: 8px;
   font-weight: bold;
 }
-/*format the navbar*/
-#raptr-nav .navbar-nav li > a {
-	color: #333;
-	transition: background-color .2s, color .2s;
 
-	&:hover,
-	&:focus {
-		background-color: #333;
-		color: #fff;
-	}
+/*format the navbar*/
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }
-#raptr-nav .navbar-nav li.active > a {
-	background-color: darkgray;
-	color: darkblue;
+
+/*add spacing between rows of detail view*/
+.row{
+  margin-bottom: 5px
 }
