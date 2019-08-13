@@ -49,3 +49,8 @@ label {
 .row{
   margin-bottom: 5px
 }
+
+/*add buffer to top of rows in dashboard view*/
+.top-buffer {
+  margin-top:30px;
+}
