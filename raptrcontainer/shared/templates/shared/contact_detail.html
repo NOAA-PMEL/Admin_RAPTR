@@ -115,6 +115,22 @@
                                     {{ contact.pay_plan }}-{{ contact.job_series }}-{{ contact.employee_band }}-{{ contact.employee_interval }}
                                 </div>
                             </div>
+                        <div class="row">
+                            <div class="col-lg-3 labels">
+                                SCD:
+                            </div>
+                            <div class="col-lg-9 cdata">
+                                {{ contact.service_computation_date }}
+                            </div>
+                        </div>
+                                                <div class="row">
+                            <div class="col-lg-3 labels">
+                                EOD:
+                            </div>
+                            <div class="col-lg-9 cdata">
+                                {{ contact.entry_on_duty }}
+                            </div>
+                        </div>
                             {% endif %}
                     </div>
                 </div><!-- close row -->

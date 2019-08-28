@@ -202,7 +202,7 @@ class Affiliation(models.Model):
 
     """
     affiliation_name = models.CharField(
-        max_length=10,
+        max_length=15,
         blank=True
     )
 
