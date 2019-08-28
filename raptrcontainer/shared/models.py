@@ -319,6 +319,15 @@ class Contact(models.Model):
         max_length=15,
         blank=True
     )
+    entry_on_duty = models.DateField(
+        verbose_name='EOD',
+        blank=True,
+        null=True
+    )
+    departure_date = models.DateField(
+        blank=True,
+        null=True
+    )
     active = models.BooleanField(
         default=True
     )

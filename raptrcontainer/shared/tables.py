@@ -33,4 +33,6 @@ class ContactTable(tables.Table):
             'flsa_status',
             'research_program',
             'slug',
+            'entry_on_duty',
+            'departure_date',
         )
