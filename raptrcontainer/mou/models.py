@@ -111,6 +111,8 @@ class Mou(models.Model):
     )
 
     class Meta:
+        verbose_name = 'MOU',
+        verbose_name_plural = 'MOUs'
         ordering = ['mou_id']
 
     def __str__(self):

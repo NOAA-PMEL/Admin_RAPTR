@@ -83,6 +83,8 @@ class Crada (models.Model):
     )
 
     class Meta:
+        verbose_name = 'CRADA',
+        verbose_name_plural = 'CRADAs'
         ordering = ['docket_number']
 
     def get_absolute_url(self):
