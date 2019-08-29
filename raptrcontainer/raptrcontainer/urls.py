@@ -48,6 +48,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('raptr/', include('raptr.urls')),
     path('crada/', include('crada.urls')),
+    path('mou/', include('mou.urls')),
     path('proposal/', include('proposal.urls')),
     path('shared/', include('shared.urls')),
     path('', RedirectView.as_view(url='/shared/', permanent=True)),

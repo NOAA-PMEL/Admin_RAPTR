@@ -258,11 +258,13 @@ class Contact(models.Model):
     )
     employee_band = models.CharField(
         choices=PAY_BAND_CHOICES,
+        verbose_name='band',
         max_length=4,
         blank=True
     )
     employee_interval = models.CharField(
         choices=PAY_INTERVAL_CHOICES,
+        verbose_name='interval',
         max_length=4,
         blank=True
     )
@@ -270,6 +272,7 @@ class Contact(models.Model):
         blank=True
     )
     flsa_status = models.CharField(
+        verbose_name='FLSA Status',
         choices=FLSA_CHOICES,
         max_length=4,
         blank=True
@@ -289,6 +292,7 @@ class Contact(models.Model):
     opt_sub_group = models.ForeignKey(
         Optsub,
         on_delete=models.DO_NOTHING,
+        verbose_name='OPT Sub Group',
         blank=True,
         null=True
     )

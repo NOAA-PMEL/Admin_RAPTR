@@ -9,52 +9,52 @@
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
      <div class="container">
-         <h2>Detail for MOU: {{ crada.docket_number }}</h2>
+         <h2>Detail for MOU: {{ mou.mou_id }}</h2>
          <div class="detail-border">
-             <div class="row crada_ID">
+             <div class="row mou_ID">
                  <div class="labels col-lg-2">Status:</div>
-                 <div class="pdata col-lg-3">{{ crada.project_status }}</div>
-                 <div class="labels col-lg-2">Phase:</div>
-                 <div class="pdata col-lg-4">{{ crada.activity_phase }}</div>
+                 <div class="pdata col-lg-3">{{ mou.status }}</div>
+                 <div class="labels col-lg-2"></div>
+<!--                 <div class="pdata col-lg-4">{{ crada.activity_phase }}</div>-->
                  <div class="col-lg-1">&nbsp;</div>
              </div>
-             <div class="row crada_dates">
+             <div class="row mou_dates">
                  <div class="labels col-lg-2">Effective:</div>
-                 <div class="pdata col-lg-3">{{ crada.effective_date }}</div>
+                 <div class="pdata col-lg-3">{{ mou.effective_date }}</div>
                  <div class="labels col-lg-2">Expiration:</div>
-                 <div class="pdata col-lg-3">{{ crada.expiration_date }}</div>
+                 <div class="pdata col-lg-3">{{ mou.expiration_date }}</div>
                  <div class="col-lg-2">&nbsp;</div>
              </div>
-             <div class="row crada_title">
+             <div class="row mou_title">
                  <div class="labels col-lg-2">Title:</div>
-                 <div class="pdata col-lg-10">{{ crada.project_title }}</div>
+                 <div class="pdata col-lg-10">{{ mou.mou_title }}</div>
              </div>
-             <div class="row crada_PI">
+             <div class="row mou_PI">
                  <div class="labels col-lg-2">PI:</div>
-                 {% if crada.noaa_pi %}
-                    <div class="pdata col-lg-10"><a href="../../../shared/contact/{{ crada.noaa_pi.slug }}/">{{ crada.noaa_pi }}</a></div>
+                 {% if mou.investigator_supported %}
+                    <div class="pdata col-lg-10"><a href="../../../shared/contact/{{ mou.investigator_supported.slug }}/">{{ mou.investigator_supported }}</a></div>
                  {% else %}
-                    <div class="pdata col-lg-10">{{ crada.noaa_pi }}</div>
+                    <div class="pdata col-lg-10">{{ mou.investigator_supported }}</div>
                  {% endif %}
              </div>
              <div class="row crada_sponsor">
-                 <div class="labels col-lg-2">Collaborator:</div>
-                 {% if crada.collaborator %}
-                     <div class="pdata col-lg-10"><a href="../../../shared/sponsor/{{ crada.collaborator.slug }}/"> {{ crada.collaborator }}</a></div>
+                 <div class="labels col-lg-2">Sponsor:</div>
+                 {% if mou.sponsor %}
+                     <div class="pdata col-lg-10"><a href="../../../shared/sponsor/{{ mou.sponsor.slug }}/"> {{ mou.sponsor }}</a></div>
                  {% else %}
-                     <div class="pdata col-lg-10">{{ crada.collaborator }}</div>
+                     <div class="pdata col-lg-10">{{ mou.sponsor }}</div>
                  {% endif %}
              </div>
              <div class="row crada_summary">
-                 <div class="labels col-lg-2">Summary:</div>
-                 <div class="pdata col-lg-10">{{ crada.project_summary|linebreaks }}</div>
+                 <div class="labels col-lg-2">Notes:</div>
+                 <div class="pdata col-lg-10">{{ mou.mou_notes|linebreaks }}</div>
              </div>
              <div class="row DocTable">
                  <div class="labels col-lg-2">Documents:</div>
                  <div class="col-lg-6">
                      <table class="table table-bordered table-condensed table-striped table-responsive">
-                         {% if crada.fileupload_set.all %}
-                             {% for docs in crada.fileupload_set.all %}
+                         {% if mou.fileupload_set.all %}
+                             {% for docs in mou.fileupload_set.all %}
                                  <tr>
                                      <td><a href="\..\..\media\{{docs.file_upload}}">{{ docs.file_category }}</a></td>
                                  </tr>

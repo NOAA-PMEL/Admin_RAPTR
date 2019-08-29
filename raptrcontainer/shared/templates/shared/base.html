@@ -30,13 +30,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
 			    </button>
-                <a class="navbar-brand" href="#"><img src="{% static 'raptr/images/raptr_brand.png' %}" alt="PMEL RAPTR Logo"></a>
+                <a class="navbar-brand" href="/shared"><img src="{% static 'raptr/images/raptr_brand.png' %}" alt="PMEL RAPTR Logo"></a>
             </div>
             <div id="raptr-1" class="navbar-collapse collapse" >
                 <ul class="nav navbar-nav">
                     <li class="{{ dashboard_page }}"><a href="/shared">Dashboard<span class="sr-only">(current)</span></a></li>
                     <li class="{{ ra_page }}"><a href="{% url 'raptr:project_list' %}">Reimbursable & Advance</a></li>
-                    <li class="{{ mou_page }}"><a href="#">MOUs</a></li>
+                    <li class="{{ mou_page }}"><a href="{% url 'mou:mou_list' %}">MOUs</a></li>
                     <li class="{{ crada_page }}"><a href="{% url 'crada:crada_list' %}">CRADA</a></li>
                     <li class="{{ proposal_page }}"><a href="{% url 'proposal:proposal_list' %}">Proposals</a></li>
                     <li class="{{ contact_page }}"><a href="{% url 'shared:contact_list' %}">Contact List</a></li>

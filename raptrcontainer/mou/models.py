@@ -52,7 +52,7 @@ class Status(models.Model):
 class Mou(models.Model):
     """
 
-    Stores information about PMEL research proposals.
+    Stores information about PMEL MOUs.
 
     """
     mou_id = models.CharField(
@@ -69,7 +69,7 @@ class Mou(models.Model):
     )
     investigator_supported = models.ForeignKey(
         Contact,
-        help_text='The Principal Investigator on the MOU',
+        help_text='The Principal Investigator on the MOU.',
         on_delete=models.CASCADE,
         blank=True,
         null=True,
