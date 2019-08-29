@@ -10,6 +10,11 @@ YEAR_CHOICES = []
 for yr in range(2014, (datetime.datetime.now().year + 2)):
     YEAR_CHOICES.append((yr, str(yr)))
 
+STATUS_CHOICES = (
+    ('Open', 'Open'),
+    ('Closed', 'Closed'),
+    ('In Progress', 'In Progress')
+)
 
 class Filecatlist(models.Model):
     """
@@ -82,13 +87,18 @@ class Mou(models.Model):
         blank=True,
         null=True
     )
-    status = models.ForeignKey(
-        Status,
-        help_text='Current status of the MOU.',
-        on_delete=models.DO_NOTHING,
-        blank=True,
-        null=True
+    status = models.CharField(
+        max_length=8,
+        choices=STATUS_CHOICES,
+        blank=True
     )
+    # status = models.ForeignKey(
+    #     Status,
+    #     help_text='Current status of the MOU.',
+    #     on_delete=models.DO_NOTHING,
+    #     blank=True,
+    #     null=True
+    # )
     effective_date = models.DateField(
         help_text='Date the MOU became effective.',
         verbose_name='Effective',

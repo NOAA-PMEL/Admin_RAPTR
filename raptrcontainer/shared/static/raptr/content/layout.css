@@ -54,3 +54,7 @@ label {
 .top-buffer {
   margin-top:30px;
 }
+
+.bad {
+  background-color:#ffe6e6;
+}
