@@ -170,6 +170,7 @@ atlassian-ide-plugin.xml
 /raptrcontainer/shared/migrations/
 /raptrcontainer/crada/migrations/
 /raptrcontainer/proposal/migrations/
+/raptrcontainer/mou/migrations/
 /raptrcontainer/shared/fixtures
 /raptrcontainer/raptr/static
 /raptrcontainer/raptr/fixtures
