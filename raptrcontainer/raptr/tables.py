@@ -14,7 +14,6 @@ class ProjectTable(tables.Table):
             'fund_code',
             'id',
             'oar_accept_date',
-            'project_expiration_date',
             'project_notes',
             'slug',
             'sponsor',
