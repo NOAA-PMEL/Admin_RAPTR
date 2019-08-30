@@ -45,7 +45,7 @@ def get_by_research_program_total():
 
 
 def get_open_projects_total():
-    opt = Project.objects.all().filter(status_id__status="Open").aggregate(Count('status'))
+    opt = Project.objects.all().filter(status="Open").aggregate(Count('status'))
     return opt
 
 

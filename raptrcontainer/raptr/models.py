@@ -4,6 +4,13 @@ from djmoney.models.fields import MoneyField
 from django.urls import reverse
 from shared.models import Sponsor, Contact
 
+STATUS_CHOICES = (
+    ('Open', 'Open'),
+    ('Closed', 'Closed'),
+    ('In Progress', 'In Progress'),
+    ('Active','Active'),
+    ('Cancelled', 'Cancelled')
+)
 
 # set the year choices for various drop-downs - earliest data is from 2014
 YEAR_CHOICES = []
@@ -138,11 +145,10 @@ class Project(models.Model):
         blank=True,
         null=True
     )
-    status = models.ForeignKey(
-        Status,
-        on_delete=models.DO_NOTHING,
-        blank=True,
-        null=True
+    status = models.CharField(
+        max_length=15,
+        choices=STATUS_CHOICES,
+        blank=True
     )
     oar_accept_date = models.DateField(
         blank=True,
