@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Mou, Fileupload, Filecatlist, Status
+from .models import Mou, Fileupload, Filecatlist
 
 
 class FileuploadInLine(admin.TabularInline):
@@ -37,11 +37,5 @@ class FilecatlistAdmin(admin.ModelAdmin):
         'cat_list',
     ]
 
-class StatusAdmin(admin.ModelAdmin):
-    fields = [
-        'status',
-    ]
 
-
-admin.site.register(Status, StatusAdmin)
 admin.site.register(Filecatlist, FilecatlistAdmin)

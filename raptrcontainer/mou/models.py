@@ -36,24 +36,6 @@ class Filecatlist(models.Model):
         return self.cat_list
 
 
-class Status(models.Model):
-    """
-
-    Stores a list of MOU statuses, related to :model:`mou.Mou`
-
-    """
-    status = models.CharField(
-        max_length=20,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name_plural = 'statuses'
-
-    def __str__(self):
-        return self.status
-
-
 class Mou(models.Model):
     """
 
@@ -92,13 +74,6 @@ class Mou(models.Model):
         choices=STATUS_CHOICES,
         blank=True
     )
-    # status = models.ForeignKey(
-    #     Status,
-    #     help_text='Current status of the MOU.',
-    #     on_delete=models.DO_NOTHING,
-    #     blank=True,
-    #     null=True
-    # )
     effective_date = models.DateField(
         help_text='Date the MOU became effective.',
         verbose_name='Effective',
