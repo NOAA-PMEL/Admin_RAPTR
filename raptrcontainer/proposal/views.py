@@ -30,7 +30,7 @@ class FilteredProposalListView(SingleTableMixin, FilterView):
     paginate_by = 15
 
     def get_queryset(self):
-        return super(FilteredProposalListView, self).get_queryset().all()
+        return super(FilteredProposalListView, self).get_queryset().all().order_by('-year_proposed')
 
     def get_table_kwargs(self):
         return {'template_name': 'shared/table_bootstrap.html'}
