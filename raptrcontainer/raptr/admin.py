@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, Status, Fundfy, Fundtype, Fundcodelist, Fileupload, Filecatlist, RaHistory
+from .models import Project, Fundfy, Fundtype, Fundcodelist, Fileupload, Filecatlist, RaHistory
 
 
 class FileuploadInLine(admin.TabularInline):
@@ -35,9 +35,6 @@ class ProjectAdmin(admin.ModelAdmin):
         'project_id',
         'project_number'
     )
-    # raw_id_fields = (
-    #     'investigator_supported',
-    # )
     prepopulated_fields = {
         'slug': ('project_id',)
     }
@@ -75,11 +72,6 @@ class FilecatlistAdmin(admin.ModelAdmin):
     ]
 
 
-class StatusAdmin(admin.ModelAdmin):
-    fields = [
-        'status',
-    ]
-
 @admin.register(RaHistory)
 class RaHistoryAdmin(admin.ModelAdmin):
     list_display = [
@@ -97,4 +89,3 @@ class RaHistoryAdmin(admin.ModelAdmin):
 admin.site.register(Fundtype, FundtypeAdmin)
 admin.site.register(Fundcodelist, FundcodelistAdmin)
 admin.site.register(Filecatlist, FilecatlistAdmin)
-admin.site.register(Status, StatusAdmin)

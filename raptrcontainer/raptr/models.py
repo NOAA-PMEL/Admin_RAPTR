@@ -37,24 +37,6 @@ class Filecatlist(models.Model):
         return self.cat_list
 
 
-class Status(models.Model):
-    """
-
-    Stores a list of project statuses, related to :model:`raptr.Project`
-
-    """
-    status = models.CharField(
-        max_length=20,
-        blank=True
-    )
-
-    class Meta:
-        verbose_name_plural = 'statuses'
-
-    def __str__(self):
-        return self.status
-
-
 class Fundtype(models.Model):
     """
 
