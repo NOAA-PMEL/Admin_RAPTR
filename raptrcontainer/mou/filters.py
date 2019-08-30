@@ -7,5 +7,5 @@ class MouFilter(FilterSet):
     class Meta:
         model = Mou
         fields = {
-            'mou_id': ['exact'],
+            'status': ['exact'],
         }

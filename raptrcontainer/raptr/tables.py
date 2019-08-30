@@ -1,5 +1,6 @@
-from .models import Project
 import django_tables2 as tables
+from datetime import date
+from .models import Project
 
 
 class ProjectTable(tables.Table):
@@ -18,3 +19,6 @@ class ProjectTable(tables.Table):
             'slug',
             'sponsor',
         )
+        row_attrs = {
+            "class": lambda record: "status-alert" if record.status == 1 and (record.project_expiration_date - date.today()).days < 90 else "good"
+        }

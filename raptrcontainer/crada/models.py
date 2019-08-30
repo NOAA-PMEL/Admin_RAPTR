@@ -4,7 +4,8 @@ from django.urls import reverse
 
 STATUS_CHOICES = (
     ('Open', 'Open'),
-    ('Closed', 'Closed')
+    ('Closed', 'Closed'),
+    ('In Progress', 'In Progress')
 )
 ACTIVITY_CHOICES = (
     ('Draft', 'Draft'),
@@ -28,7 +29,7 @@ class Crada (models.Model):
         null=True
     )
     project_status = models.CharField(
-        max_length=8,
+        max_length=15,
         choices=STATUS_CHOICES,
         blank=True
     )

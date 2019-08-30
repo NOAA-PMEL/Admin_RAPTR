@@ -17,5 +17,5 @@ class MouTable(tables.Table):
             'mou_notes'
         )
         row_attrs = {
-            "class": lambda record: "bad" if (record.expiration_date - date.today()).days < 90 and record.status=='Open' else "good"
+            "class": lambda record: "status-alert" if record.status == 'Open' and (record.expiration_date - date.today()).days < 90 else "good"
         }

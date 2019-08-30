@@ -88,7 +88,7 @@ class Mou(models.Model):
         null=True
     )
     status = models.CharField(
-        max_length=8,
+        max_length=15,
         choices=STATUS_CHOICES,
         blank=True
     )
