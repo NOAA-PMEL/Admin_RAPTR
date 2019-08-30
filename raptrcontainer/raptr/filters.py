@@ -15,7 +15,7 @@ DIVISION_CHOICES = (
 
 class ProjectFilter(FilterSet):
     investigator_supported__division = django_filters.ChoiceFilter(choices=DIVISION_CHOICES, lookup_expr='exact', label='Division')
-    investigator_supported = django_filters.ModelChoiceFilter(queryset=Contact.objects.all().filter(active=True), lookup_expr='exact', label='PI')
+    investigator_supported = django_filters.ModelChoiceFilter(queryset=Contact.objects.all().filter(active=True, is_pi=True), lookup_expr='exact', label='PI')
 
     class Meta:
         model = Project
