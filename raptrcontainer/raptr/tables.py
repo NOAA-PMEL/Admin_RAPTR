@@ -20,5 +20,5 @@ class ProjectTable(tables.Table):
             'sponsor',
         )
         row_attrs = {
-            "class": lambda record: "status-alert" if record.status == 'Open' and (record.project_expiration_date - date.today()).days < 90 else "good"
+            "class": lambda record: "status-alert-red" if record.status == 'Open' and (record.project_expiration_date - date.today()).days < 90 else "status-alert-none"
         }
