@@ -210,6 +210,25 @@ class Affiliation(models.Model):
         return self.affiliation_name
 
 
+class Employeetype(models.Model):
+    """
+
+    Stores a list of employee types, related to :model:`shared.Contact`.
+
+    """
+    employee_type = models.CharField(
+        max_length=15,
+        blank=True
+    )
+
+    class Meta:
+        verbose_name = 'Employee Type'
+        verbose_name_plural = 'Employee Types'
+
+    def __str__(self):
+        return self.employee_type
+
+
 class Contact(models.Model):
     """
 
@@ -307,6 +326,12 @@ class Contact(models.Model):
         default=False,
         verbose_name='PMEL Base',
         help_text='Is the position funded by PMEL Base Funds?'
+    )
+    employee_type = models.ForeignKey(
+        Employeetype,
+        on_delete=models.DO_NOTHING,
+        blank=True,
+        null=True
     )
     affiliation = models.ForeignKey(
         Affiliation,
