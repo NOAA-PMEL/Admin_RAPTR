@@ -93,6 +93,14 @@
                             {% if request.user|has_group:"human_resources" %}
                             <div class="row">
                                 <div class="col-lg-3 labels">
+                                    Supervisor:
+                                </div>
+                                <div class="col-lg-9 cdata">
+                                    {{ contact.supervisor }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 labels">
                                       Billet:
                                 </div>
                                 <div class="col-lg-9 cdata">
