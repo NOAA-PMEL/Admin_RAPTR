@@ -229,6 +229,30 @@ class Employeetype(models.Model):
         return self.employee_type
 
 
+class Supervisor(models.Model):
+    """
+
+    Stores a list of employee supervisors, related to :model:`shared.Contact`.
+
+    """
+    last_name = models.CharField(
+        max_length=15,
+        blank=True
+    )
+    first_name = models.CharField(
+        max_length=15,
+        blank=True
+    )
+    active = models.BooleanField(
+        default=True,
+        help_text='Is the person still at a supervisor?'
+    )
+
+    def __str__(self):
+        return self.last_name
+
+
+
 class Contact(models.Model):
     """
 
@@ -318,6 +342,12 @@ class Contact(models.Model):
     )
     research_program = models.ForeignKey(
         Program,
+        on_delete=models.DO_NOTHING,
+        blank=True,
+        null=True
+    )
+    supervisor = models.ForeignKey(
+        Supervisor,
         on_delete=models.DO_NOTHING,
         blank=True,
         null=True

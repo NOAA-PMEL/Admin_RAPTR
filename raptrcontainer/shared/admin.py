@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sponsor,Sponsortype, Country, Contact, Program, Affiliation, Optsub, Employeetype
+from .models import Sponsor,Sponsortype, Country, Contact, Program, Affiliation, Optsub, Employeetype, Supervisor
 
 
 @admin.register(Sponsor)
@@ -32,6 +32,14 @@ class SponsortypeAdmin(admin.ModelAdmin):
 class EmployeetypeAdmin(admin.ModelAdmin):
     fields = [
         'employee_type'
+    ]
+
+
+class SupervisorAdmin(admin.ModelAdmin):
+    fields = [
+        'last_name',
+        'first_name',
+        'active'
     ]
 
 
@@ -99,6 +107,7 @@ class OptsubAdmin(admin.ModelAdmin):
 admin.site.site_header = 'RAPTR Admin Dashboard'
 admin.site.register(Sponsortype, SponsortypeAdmin)
 admin.site.register(Employeetype, EmployeetypeAdmin)
+admin.site.register(Supervisor, SupervisorAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Program, ProgramAdmin)
 admin.site.register(Affiliation, AffiliationAdmin)
