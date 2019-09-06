@@ -74,7 +74,6 @@ class Fundcodelist(models.Model):
         return self.fund_code
 
 
-# TODO: Add validators to oar_accept_date and project_expiration_date
 class Project(models.Model):
     """
 

@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib import admin
 from .models import Project, Fundfy, Fundtype, Fundcodelist, Fileupload, Filecatlist, RaHistory
 
@@ -12,8 +13,22 @@ class FundfyInLine(admin.TabularInline):
     extra = 0
 
 
+class ProjectAdminForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+    def clean(self):
+        start_date = self.cleaned_data.get('oar_accept_date')
+        end_date = self.cleaned_data.get('project_expiration_date')
+        if start_date > end_date:
+            raise forms.ValidationError('Project Expiration Date must be after OAR Accept Date')
+        return self.cleaned_data
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
+    form = ProjectAdminForm
     list_display = (
         'project_id',
         'project_number',
