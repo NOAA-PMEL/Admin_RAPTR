@@ -100,7 +100,7 @@ $.ajax({
   </div>
 
 <div class="row top-buffer">
-  <div class="col-md-3">
+  <div class="col-md-4">
     <table class="table table-bordered table-condensed table-striped table-responsive">
       <tr class="by_division_header">
         <th scope="col">Division</th>
@@ -125,7 +125,7 @@ $.ajax({
       </tr>
     </table>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
       <table class="table table-bordered table-condensed table-striped table-responsive">
         <tr class="by_research_program_header">
           <th scope="col">Research Program</th>
@@ -150,7 +150,7 @@ $.ajax({
         </tr>
       </table>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
       <h4 class="text-center">R&amp;A Funds Five-Year Trend</h4>
       <canvas id="byHistoryChart"></canvas>
   </div>
@@ -163,6 +163,28 @@ $.ajax({
     <h5>Royalty funds received: {{ royalty_funds_received.budget__sum|currency }}</h5>
     <h5>Proposals Submitted: {{ fy_proposal_count.year_proposed__count }}</h5>
     <h5>Signed CRADAs: {{ signed_crada_count.activity_phase__count }}</h5>
+  </div>
+  <div class="col-lg-2">
+      <h4>Manpower Distribution</h4>
+      <table class="table table-bordered table-condensed table-striped table-responsive">
+        <tr class="by_research_program_header">
+          <th scope="col">Employee Type</th>
+          <th scope="col">Number</th>
+        </tr>
+        {% if by_employee_type %}
+          {% for et in by_employee_type %}
+            <tr>
+              <td>{{ et.emp_type }}</td>
+              <td class="text-right">{{ et.total }}</td>
+            </tr>
+          {% endfor %}
+        {% else %}
+        <tr>
+          <td>No data retrieved.</td>
+          <td></td>
+        </tr>
+        {% endif %}
+      </table>
   </div>
 </div>
 </div>

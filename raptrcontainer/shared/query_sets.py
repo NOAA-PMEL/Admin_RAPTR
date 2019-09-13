@@ -50,7 +50,7 @@ def get_open_projects_total():
 
 
 def get_fy_new_funds_count():
-    fnfc = Fundfy.objects.all().filter(fcfy=str(get_current_fy()), fund_type=1, project_id__status=2)\
+    fnfc = Fundfy.objects.all().filter(fcfy=str(get_current_fy()), fund_type=1, project_id__status='Open')\
         .aggregate(Count('fcfy'))
     return fnfc
 
@@ -59,6 +59,14 @@ def get_royalty_funds_received():
     rfr = Fundfy.objects.all().filter(fcfy=str(get_current_fy()), project_id__fund_code__fund_code='0096')\
         .aggregate(Sum('budget'))
     return rfr
+
+
+def get_employee_type():
+    emptype = Contact.objects.filter(active=True)\
+        .values(emp_type=F('employee_type__employee_type'))\
+        .annotate(total=Count('employee_type'))\
+        .order_by('employee_type')
+    return emptype
 
 
 def get_by_division_chart_data():

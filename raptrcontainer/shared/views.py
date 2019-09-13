@@ -89,6 +89,7 @@ class IndexView(generic.TemplateView):
         context['royalty_funds_received'] = get_royalty_funds_received()
         context['fy_proposal_count'] = get_fy_proposal_count()
         context['signed_crada_count'] = get_signed_crada_count()
+        context['by_employee_type'] = get_employee_type()
         return context
 
 
