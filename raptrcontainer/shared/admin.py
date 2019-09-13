@@ -61,13 +61,13 @@ class ContactAdmin(admin.ModelAdmin):
         'employee_interval',
         'division',
         'research_program',
-        'affiliation',
+        'employee_type',
         'active'
     )
     list_filter = (
         'division',
         'research_program',
-        'affiliation',
+        'employee_type',
         'active'
     )
     search_fields = (

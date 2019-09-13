@@ -312,7 +312,9 @@ class Contact(models.Model):
         blank=True
     )
     service_computation_date = models.DateField(
-        blank=True
+        blank=True,
+        null=True,
+        help_text='Employee\'s retirement service computation date.'
     )
     flsa_status = models.CharField(
         verbose_name='FLSA Status',
