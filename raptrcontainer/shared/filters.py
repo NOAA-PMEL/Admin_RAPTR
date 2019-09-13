@@ -13,5 +13,6 @@ class ContactFilter(FilterSet):
         fields = {
             'last_name': ['contains'],
             'division': ['exact'],
+            'employee_type': ['exact'],
             'affiliation' : ['exact'],
         }
