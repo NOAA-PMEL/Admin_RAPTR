@@ -80,114 +80,113 @@ $.ajax({
 </script>
 
 {% block content %}
-<div class="container-fluid">
-  <div class="row">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-3">
+              <h4 class="text-center">FY {{ current_fy }} R&amp;A Funds by Division</h4>
+              <canvas id="byDivisionChart"></canvas>
+          </div>
+          <div class="col-md-3">
+              <h4 class="text-center">FY {{ current_fy }} R&amp;A Funds by Research Program</h4>
+              <canvas id="byResearchProgramChart"></canvas>
+          </div>
+          <div class="col-md-3">
+              <h4 class="text-center">FY {{ current_fy }} R&amp;A Funds by Sponsor Type</h4>
+              <canvas id="bySponsorTypeChart"></canvas>
+          </div>
+          <div class="col-md-3">
+              <h4 class="text-center">R&amp;A Funds Five-Year Trend</h4>
+              <canvas id="byHistoryChart"></canvas>
+          </div>
+      </div>
+      <div class="row top-buffer">
+          <div class="col-md-3">
+              <table class="table table-bordered table-condensed table-striped table-responsive">
+                  <tr class="by_division_header">
+                      <th scope="col">Division</th>
+                      <th scope="col">Funds Received</th>
+                  </tr>
+                  {% if by_division %}
+                      {% for division in by_division %}
+                          <tr>
+                              <td>{{ division.division }}</td>
+                              <td class="text-right">{{ division.budget__sum|currency }}</td>
+                          </tr>
+                  {% endfor %}
+                  {% else %}
+                      <tr>
+                          <td>No data retrieved.</td>
+                          <td></td>
+                      </tr>
+                  {% endif %}
+                  <tr>
+                      <td><strong>Total</strong></td>
+                      <td class="text-right"><strong>{{ by_division_total.budget__sum|currency }}</strong></td>
+                  </tr>
+              </table>
+          </div>
+          <div class="col-md-3">
+              <table class="table table-bordered table-condensed table-striped table-responsive">
+                  <tr class="by_research_program_header">
+                      <th scope="col">Research Program</th>
+                      <th scope="col">Funds Received</th>
+                  </tr>
+                  {% if by_research_program %}
+                      {% for rp in by_research_program %}
+                          <tr>
+                              <td>{{ rp.research_program }}</td>
+                              <td class="text-right">{{ rp.budget__sum|currency }}</td>
+                          </tr>
+                      {% endfor %}
+                  {% else %}
+                      <tr>
+                          <td>No data retrieved.</td>
+                          <td></td>
+                      </tr>
+                  {% endif %}
+                  <tr>
+                      <td><strong>Total</strong></td>
+                      <td class="text-right"><strong>{{ by_research_program_total.budget__sum|currency }}</strong></td>
+                  </tr>
+              </table>
+          </div>
+          <div class="col-md-3">
+              <h4>FY {{ current_fy }} Current Stats:</h4>
 
-    <div class="col-md-4">
-      <h4 class="text-center">FY {{ current_fy }} R&amp;A Funds by Division</h4>
-      <canvas id="byDivisionChart"></canvas>
-    </div>
+              <h5>Open Projects: {{ open_projects_total.status__count }}</h5>
+              <h5>Projects receiving new funds: {{ fy_new_funds_count.fcfy__count }}</h5>
+              <h5>Royalty funds received: {{ royalty_funds_received.budget__sum|currency }}</h5>
+              <h5>Proposals Submitted: {{ fy_proposal_count.year_proposed__count }}</h5>
+              <h5>Signed CRADAs: {{ signed_crada_count.activity_phase__count }}</h5>
+        </div>
+      </div>
+      <div class="row top-buffer">
+          <hr>
+          <div class="col-md-2">
+              <h4>Manpower Distribution</h4>
+              <table class="table table-bordered table-condensed table-striped table-responsive">
+                  <tr class="by_research_program_header">
+                      <th scope="col">Employee Type</th>
+                      <th scope="col">Number</th>
+                  </tr>
+                  {% if by_employee_type %}
+                      {% for et in by_employee_type %}
+                          <tr>
+                              <td>{{ et.emp_type }}</td>
+                              <td class="text-right">{{ et.total }}</td>
+                          </tr>
+                      {% endfor %}
+                  {% else %}
+                      <tr>
+                          <td>No data retrieved.</td>
+                          <td></td>
+                      </tr>
+                  {% endif %}
+              </table>
+          </div>
+          <div class =col-md-8">
 
-    <div class="col-md-4">
-      <h4 class="text-center">FY {{ current_fy }} R&amp;A Funds by Research Program</h4>
-        <canvas id="byResearchProgramChart"></canvas>
-    </div>
-
-    <div class="col-md-4">
-      <h4 class="text-center">FY {{ current_fy }} R&amp;A Funds by Sponsor Type</h4>
-      <canvas id="bySponsorTypeChart"></canvas>
-    </div>
+          </div>
+      </div>
   </div>
-
-<div class="row top-buffer">
-  <div class="col-md-4">
-    <table class="table table-bordered table-condensed table-striped table-responsive">
-      <tr class="by_division_header">
-        <th scope="col">Division</th>
-        <th scope="col">Funds Received</th>
-      </tr>
-      {% if by_division %}
-        {% for division in by_division %}
-          <tr>
-            <td>{{ division.division }}</td>
-            <td class="text-right">{{ division.budget__sum|currency }}</td>
-          </tr>
-        {% endfor %}
-      {% else %}
-      <tr>
-        <td>No data retrieved.</td>
-        <td></td>
-      </tr>
-      {% endif %}
-      <tr>
-        <td><strong>Total</strong></td>
-        <td class="text-right"><strong>{{ by_division_total.budget__sum|currency }}</strong></td>
-      </tr>
-    </table>
-  </div>
-  <div class="col-md-4">
-      <table class="table table-bordered table-condensed table-striped table-responsive">
-        <tr class="by_research_program_header">
-          <th scope="col">Research Program</th>
-          <th scope="col">Funds Received</th>
-        </tr>
-        {% if by_research_program %}
-          {% for rp in by_research_program %}
-            <tr>
-              <td>{{ rp.research_program }}</td>
-              <td class="text-right">{{ rp.budget__sum|currency }}</td>
-            </tr>
-          {% endfor %}
-        {% else %}
-        <tr>
-          <td>No data retrieved.</td>
-          <td></td>
-        </tr>
-        {% endif %}
-        <tr>
-          <td><strong>Total</strong></td>
-          <td class="text-right"><strong>{{ by_research_program_total.budget__sum|currency }}</strong></td>
-        </tr>
-      </table>
-  </div>
-  <div class="col-md-4">
-      <h4 class="text-center">R&amp;A Funds Five-Year Trend</h4>
-      <canvas id="byHistoryChart"></canvas>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-2 border">
-    <div class="row row-bordered">
-      <h4>FY {{ current_fy }} Current Stats:</h4>
-    </div>
-    <h5>Open Projects: {{ open_projects_total.status__count }}</h5>
-    <h5>Projects receiving new funds: {{ fy_new_funds_count.fcfy__count }}</h5>
-    <h5>Royalty funds received: {{ royalty_funds_received.budget__sum|currency }}</h5>
-    <h5>Proposals Submitted: {{ fy_proposal_count.year_proposed__count }}</h5>
-    <h5>Signed CRADAs: {{ signed_crada_count.activity_phase__count }}</h5>
-  </div>
-  <div class="col-lg-2">
-      <h4>Manpower Distribution</h4>
-      <table class="table table-bordered table-condensed table-striped table-responsive">
-        <tr class="by_research_program_header">
-          <th scope="col">Employee Type</th>
-          <th scope="col">Number</th>
-        </tr>
-        {% if by_employee_type %}
-          {% for et in by_employee_type %}
-            <tr>
-              <td>{{ et.emp_type }}</td>
-              <td class="text-right">{{ et.total }}</td>
-            </tr>
-          {% endfor %}
-        {% else %}
-        <tr>
-          <td>No data retrieved.</td>
-          <td></td>
-        </tr>
-        {% endif %}
-      </table>
-  </div>
-</div>
-</div>
 {% endblock %}

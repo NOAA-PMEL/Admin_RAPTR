@@ -65,7 +65,7 @@ function setbyDivisionChart(labels, defaultData){
                     });
                     //get the current items value
                     var currentValue = dataset.data[tooltipItem.index];
-                    //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                    //calculate the percentage based on the total and current item, also this does a rough rounding to give a whole number
                     var dollars = currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     var percentage = Math.floor(((currentValue/total) * 100)+0.5);
 
@@ -108,7 +108,7 @@ function setbyResearchProgramChart(labels, defaultData){
                     });
                     //get the current items value
                     var currentValue = dataset.data[tooltipItem.index];
-                    //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                    //calculate the percentage based on the total and current item, also this does a rough rounding to give a whole number
                     var dollars = currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     var percentage = Math.floor(((currentValue/total) * 100)+0.5);
 
