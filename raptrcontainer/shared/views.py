@@ -90,6 +90,7 @@ class IndexView(generic.TemplateView):
         context['fy_proposal_count'] = get_fy_proposal_count()
         context['signed_crada_count'] = get_signed_crada_count()
         context['by_employee_type'] = get_employee_type()
+        context['by_employee_type_total'] = get_employee_type_total()
         return context
 
 

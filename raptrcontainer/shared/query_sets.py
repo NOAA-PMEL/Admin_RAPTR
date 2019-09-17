@@ -69,6 +69,12 @@ def get_employee_type():
     return emptype
 
 
+def get_employee_type_total():
+    emptype_total = Contact.objects.filter(active=True)\
+        .aggregate(total=Count('employee_type'))
+    return emptype_total
+
+
 def get_by_division_chart_data():
     bdgd = Fundfy.objects.values_list('project_id__investigator_supported__division') \
             .filter(fcfy=str(get_current_fy()), fund_type_id__fund_type='New') \
