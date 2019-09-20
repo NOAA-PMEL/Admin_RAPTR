@@ -1,5 +1,6 @@
-from .models import Crada
 import django_tables2 as tables
+from datetime import date
+from .models import Crada
 
 
 class CradaTable(tables.Table):
@@ -15,3 +16,7 @@ class CradaTable(tables.Table):
             'slug',
             'project_summary'
         )
+
+        row_attrs = {
+            "class": lambda record: "status-alert-red" if record.activity_phase == 'Signed' and (record.expiration_date - date.today()).days < 180 else "status-alert-none"
+        }
