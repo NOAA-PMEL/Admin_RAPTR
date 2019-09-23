@@ -89,7 +89,7 @@ class IndexView(generic.TemplateView):
         context['royalty_funds_received'] = get_royalty_funds_received()
         context['fy_proposal_count'] = get_fy_proposal_count()
         context['signed_crada_count'] = get_signed_crada_count()
-        context['by_employee_type'] = get_employee_type()
+        context['by_employee_type'] = get_by_employee_type_data()
         context['by_employee_type_total'] = get_employee_type_total()
         return context
 
@@ -119,6 +119,28 @@ class DivisionChartData(APIView):
             by_division_graph_data.append(d[1])
         labels = by_division_graph_labels
         default_items = by_division_graph_data
+        data = {
+                "labels": labels,
+                "default": default_items,
+        }
+        return Response(data)
+
+
+@method_decorator(login_required, name='dispatch')
+class ManpowerChartData(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        by_employee_type_data = get_by_employee_type_data()
+        print(by_employee_type_data)
+        by_employee_type_graph_labels = []
+        by_employee_type_graph_data = []
+        for emp in by_employee_type_data:
+            by_employee_type_graph_labels.append(emp[0])
+            by_employee_type_graph_data.append(emp[1])
+        labels = by_employee_type_graph_labels
+        default_items = by_employee_type_graph_data
         data = {
                 "labels": labels,
                 "default": default_items,

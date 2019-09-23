@@ -43,5 +43,10 @@ urlpatterns = [
         'api/data/2/',
         views.ResearchProgramChartData.as_view(),
         name='program-data'
+    ),
+    path(
+        'api/data/5/',
+        views.ManpowerChartData.as_view(),
+        name='manpower-data'
     )
 ]

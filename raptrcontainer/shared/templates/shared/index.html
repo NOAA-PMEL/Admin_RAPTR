@@ -76,9 +76,26 @@ $.ajax({
         console.log(error_data)
     }
 })
+
+var endpoint = '../shared/api/data/5/'
+var defaultData = []
+var labels = [];
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        labels = data.labels
+        defaultData = data.default
+        console.log("success")
+        setbyEmployeeTypeChart(labels, defaultData)
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
 {% endblock %}
 </script>
-
 {% block content %}
   <div class="container-fluid">
       <div class="row">
@@ -162,37 +179,41 @@ $.ajax({
       </div>
       <div class="row top-buffer">
           <hr>
-          <div class="col-md-2">
-              <h4 class="text-center">Manpower Distribution</h4>
-              <table class="table table-bordered table-condensed table-striped table-responsive">
-                  <tr class="by_research_program_header">
-                      <th scope="col">Employee Type</th>
-                      <th scope="col">Number</th>
-                      <th scope="col">% of Total</th>
-                  </tr>
-                  {% if by_employee_type %}
-                      {% for et in by_employee_type %}
-                          <tr>
-                              <td>{{ et.emp_type }}</td>
-                              <td class="text-right">{{ et.total }}</td>
-                              <td class="text-right">{{ et.total|div:by_employee_type_total.total|percent }}</td>
-                          </tr>
-                      {% endfor %}
-                          <tr>
-                              <td><strong>Total</strong></td>
-                              <td class="text-right"><strong>{{ by_employee_type_total.total }}</strong></td>
-                              <td></td>
-                          </tr>
-                  {% else %}
-                      <tr>
-                          <td>No data retrieved.</td>
-                          <td></td>
-                          <td></td>
-                      </tr>
-                  {% endif %}
-              </table>
+<!--          <div class="col-md-2">-->
+<!--              <h4 class="text-center">Manpower Distribution</h4>-->
+<!--              <table class="table table-bordered table-condensed table-striped table-responsive">-->
+<!--                  <tr class="by_research_program_header">-->
+<!--                      <th scope="col">Employee Type</th>-->
+<!--                      <th scope="col">Number</th>-->
+<!--                      <th scope="col">% of Total</th>-->
+<!--                  </tr>-->
+<!--                  {% if by_employee_type %}-->
+<!--                      {% for et in by_employee_type %}-->
+<!--                          <tr>-->
+<!--                              <td>{{ et__emp_type }}</td>-->
+<!--                              <td class="text-right">{{ et.total }}</td>-->
+<!--                              <td class="text-right">{{ et.total|div:by_employee_type_total.total }}</td>-->
+<!--                          </tr>-->
+<!--                      {% endfor %}-->
+<!--                          <tr>-->
+<!--                              <td><strong>Total</strong></td>-->
+<!--                              <td class="text-right"><strong>{{ by_employee_type_total.total }}</strong></td>-->
+<!--                              <td></td>-->
+<!--                          </tr>-->
+<!--                  {% else %}-->
+<!--                      <tr>-->
+<!--                          <td>No data retrieved.</td>-->
+<!--                          <td></td>-->
+<!--                          <td></td>-->
+<!--                      </tr>-->
+<!--                  {% endif %}-->
+<!--              </table>-->
+<!--          </div>-->
+          <div class="col-md-3">
+              <h4 class="text-center">Employee Type</h4>
+              <canvas id="byEmployeeTypeChart"></canvas>
           </div>
-          <div class =col-md-8">
+          <div class =col-md-9">
 
           </div>
       </div>

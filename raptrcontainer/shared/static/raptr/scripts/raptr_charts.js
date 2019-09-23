@@ -207,7 +207,50 @@ function setbySponsorTypeChart(labels, defaultData){
                     //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
                     var percentage = Math.floor(((currentValue/total) * 100)+0.5);
                     var dollars = currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    return "$" + dollars + " {" + percentage + "%)";
+                    return "$" + dollars + " (" + percentage + "%)";
+            },
+          }
+        }
+      }
+    })
+}
+
+function setbyEmployeeTypeChart(labels, defaultData){
+    var ctx2 = document.getElementById('byEmployeeTypeChart').getContext('2d');
+    var byEmployeeTypeChart = new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: "Employee Type",
+            backgroundColor: get_bgColors(),
+            borderColor: get_borderColors(),
+            borderWidth: 1,
+            data: defaultData
+        }]
+      },
+      options: {
+        title: {
+          display: false,
+        },
+        legend: {
+          position: 'right'
+        },
+        tooltips: {
+          callbacks: {
+            label: function(tooltipItem, data) {
+                    var dataset = data.datasets[tooltipItem.datasetIndex];
+                    //calculate the total of this data set
+                    var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                    });
+                    //get the current items value
+                    var currentValue = dataset.data[tooltipItem.index];
+                    //calculate the percentage based on the total and current item, also this does a rough rounding to give a whole number
+                    var types = currentValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+
+                    return types + " (" + percentage + "%)";
             },
           }
         }
