@@ -19,128 +19,136 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="row">
-                            <div class="col-lg-3 labels">
+                            <div class="col-lg-4 labels">
+                                  Employee Type:
+                            </div>
+                            <div class="col-lg-8 cdata">
+                                   {{ contact.employee_type }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 labels">
                                   Title:
                             </div>
-                            <div class="col-lg-9 cdata">
+                            <div class="col-lg-8 cdata">
                                    {{ contact.job_title }}
                             </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Phone:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.phone_number }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Email:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                   {{ contact.email_address }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Room #:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.room_number }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Division:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.division }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      OPT Sub:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.opt_sub_group }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Program:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.research_program }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Affiliation:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.affiliation }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Location:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.location }}
-                                </div>
-                            </div>
-                            {% if request.user|has_group:"human_resources" %}
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                    Supervisor:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.supervisor }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Billet:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.position_billet }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Position:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.position_id }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 labels">
-                                      Pay Plan:
-                                </div>
-                                <div class="col-lg-9 cdata">
-                                    {{ contact.pay_plan }}-{{ contact.job_series }}-{{ contact.employee_band }}-{{ contact.employee_interval }}
-                                </div>
-                            </div>
                         <div class="row">
-                            <div class="col-lg-3 labels">
-                                SCD:
+                            <div class="col-lg-4 labels">
+                                  Phone:
                             </div>
-                            <div class="col-lg-9 cdata">
-                                {{ contact.service_computation_date }}
-                            </div>
-                        </div>
-                                                <div class="row">
-                            <div class="col-lg-3 labels">
-                                EOD:
-                            </div>
-                            <div class="col-lg-9 cdata">
-                                {{ contact.entry_on_duty }}
+                            <div class="col-lg-8 cdata">
+                                {{ contact.phone_number }}
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-4 labels">
+                                  Email:
+                            </div>
+                            <div class="col-lg-8 cdata">
+                               {{ contact.email_address }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 labels">
+                                  Room #:
+                            </div>
+                            <div class="col-lg-8 cdata">
+                                {{ contact.room_number }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 labels">
+                                  Division:
+                            </div>
+                            <div class="col-lg-8 cdata">
+                                {{ contact.division }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 labels">
+                                  OPT Sub:
+                            </div>
+                            <div class="col-lg-8 cdata">
+                                {{ contact.opt_sub_group }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 labels">
+                                  Program:
+                            </div>
+                            <div class="col-lg-8 cdata">
+                                {{ contact.research_program }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 labels">
+                                  Affiliation:
+                            </div>
+                            <div class="col-lg-8 cdata">
+                                {{ contact.affiliation }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 labels">
+                                  Location:
+                            </div>
+                            <div class="col-lg-8 cdata">
+                                {{ contact.location }}
+                            </div>
+                        </div>
+                        {% if request.user|has_group:"human_resources" and contact.employee_type.id == 1 %}
+                                <div class="row">
+                                    <div class="col-lg-4 labels">
+                                        Supervisor:
+                                    </div>
+                                    <div class="col-lg-8 cdata">
+                                        {{ contact.supervisor }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 labels">
+                                          Billet:
+                                    </div>
+                                    <div class="col-lg-8 cdata">
+                                        {{ contact.position_billet }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 labels">
+                                          Position:
+                                    </div>
+                                    <div class="col-lg-8 cdata">
+                                        {{ contact.position_id }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 labels">
+                                          Pay Plan:
+                                    </div>
+                                    <div class="col-lg-8 cdata">
+                                        {{ contact.pay_plan }}-{{ contact.job_series }}-{{ contact.employee_band }}-{{ contact.employee_interval }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 labels">
+                                        SCD:
+                                    </div>
+                                    <div class="col-lg-8 cdata">
+                                        {{ contact.service_computation_date }}
+                                    </div>
+                                </div>
                             {% endif %}
-                    </div>
+                            <div class="row">
+                                <div class="col-lg-4 labels">
+                                    Entry On Duty:
+                                </div>
+                                <div class="col-lg-8 cdata">
+                                    {{ contact.entry_on_duty }}
+                                </div>
+                            </div>
+                    </div><!--close column 2-->
                 </div><!-- close row -->
             </div><!-- close detail-border -->
         </div><!-- close container -->
