@@ -98,7 +98,7 @@
                                 {{ contact.location }}
                             </div>
                         </div>
-                        {% if request.user|has_group:"human_resources" and contact.employee_type.id == 1 %}
+                        {% if request.user|has_group:"human_resources" and contact.employee_type|stringformat:"s" == "Federal" %}
                                 <div class="row">
                                     <div class="col-lg-4 labels">
                                         Supervisor:
@@ -140,14 +140,16 @@
                                     </div>
                                 </div>
                             {% endif %}
-                            <div class="row">
-                                <div class="col-lg-4 labels">
-                                    Entry On Duty:
+                            {% if request.user|has_group:"human_resources" %}
+                                <div class="row">
+                                    <div class="col-lg-4 labels">
+                                        Entry On Duty:
+                                    </div>
+                                    <div class="col-lg-8 cdata">
+                                        {{ contact.entry_on_duty }}
+                                    </div>
                                 </div>
-                                <div class="col-lg-8 cdata">
-                                    {{ contact.entry_on_duty }}
-                                </div>
-                            </div>
+                            {% endif %}
                     </div><!--close column 2-->
                 </div><!-- close row -->
             </div><!-- close detail-border -->
