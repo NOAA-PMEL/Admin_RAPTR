@@ -35,4 +35,5 @@ class ContactTable(tables.Table):
             'slug',
             'entry_on_duty',
             'departure_date',
+            'supervisor',
         )
