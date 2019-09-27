@@ -8,104 +8,104 @@
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-     <div class="container">
-         <h2>Detail for Proposal: {{ proposal.proposal_id }}</h2>
-         <div class="detail-border">
-             <div class="row PID">
-                <div class="labels col-lg-2">Proposal:</div>
-                <div class="pdata col-lg-2">{{ proposal.proposal_id }}</div>
-                <div class="col-lg-2"></div>
-                <div class="labels col-lg-2">Submitted:</div>
-                <div class="pdata col-lg-2">{{ proposal.year_proposed }}</div>
-                <div class="col-lg-2">&nbsp;</div>
-            </div>
-            <div class="row row-eq-height PI">
-                <div class="labels col-lg-2">PI:</div>
-                {% if proposal.investigator_supported %}
-                    <div class="pdata col-lg-10"><a href="../../../shared/contact/{{ proposal.investigator_supported.slug }}/"> {{proposal.investigator_supported }}</a></div>
-                {% else %}
-                    <div class="pdata col-lg-10">{{proposal.investigator_supported }}</div>
-                {% endif %}
-            </div>
-            <div class="row Title">
-                <div class="labels col-lg-2">Title:</div>
-                <div class="pdata col-lg-10">{{ proposal.proposal_title }}</div>
-            </div>
-            <div class="row Sponsor">
-                <div class="labels col-lg-2">Sponsor:</div>
-                {% if proposal.sponsor %}
-                    <div class="pdata col-lg-10"><a href="../../../shared/sponsor/{{ proposal.sponsor.slug }}/"> {{ proposal.sponsor }}</a></div>
-                {% else %}
-                    <div class="pdata col-lg-10">{{ proposal.sponsor }}</div>
-                {% endif %}
-            </div>
-            <div class="row Status">
-                <div class="labels col-lg-2">Status:</div>
-                <div class="pdata col-lg-2">{{ proposal.status }}</div>
-                <div class="col-lg-2"></div>
-                <div class="labels col-lg-2">Fund Cd:</div>
-                <div class="pdata col-lg-2">{{ proposal.fund_code }}</div>
-                <div class="col-lg-2">&nbsp;</div>
-            </div>
-            <div class="row Proposal-dates">
-                <div class="labels col-lg-2">Submitted:</div>
-                <div class="pdata col-lg-3">{{ proposal.date_submitted }}</div>
-                <div class="labels col-lg-7">&nbsp;</div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">&nbsp;</div>
-            </div>
-            <div class="row">
-                <div class="labels col-lg-2">Funding:</div>
-                <div class="col-lg-10">
-                    <table class="table table-bordered table-condensed table-striped table-responsive">
-                        <tr id="funds_header">
-                            <th scope="col">FCFY</th>
-                            <th scope="col">Type</th>
-                            <th scope="col"> Budget</th>
-                            <th scope="col">Expires</th>
-                        </tr>
-                        {% if proposal.fundfy_set.all %}
-                        {% for funds in proposal.fundfy_set.all %}
-                        <tr>
-                            <td>{{ funds.fcfy }}</td>
-                            <td>{{ funds.fund_type}}</td>
-                            <td>{{ funds.budget }}</td>
-                            <td>{{ funds.funds_expire}}</td>
-                        </tr>
-                        {% endfor %}
-                        {% else %}
-                        <tr>
-                            <td colspan="4">No funding has been entered.</td>
-                        </tr>
-                        {% endif %}
-                    </table>
-                </div>
-            </div>
-            <div class="row DocTable">
-                <div class="labels col-lg-2">Documents:</div>
-                <div class="col-lg-6">
-                    <table class="table table-bordered table-condensed table-striped table-responsive">
-                        {% if proposal.fileupload_set.all %}
-                        {% for docs in proposal.fileupload_set.all %}
-                        <tr>
-                            <td><a href="\..\..\media\{{docs.file_upload}}">{{docs.file_category }}</a></td>
-                        </tr>
-                        {% endfor %}
-                        {% else %}
-                        <tr>
-                            <td colspan="2">No files have been uploaded.</td>
-                        </tr>
-                        {% endif %}
-                    </table>
-                </div>
-                <div class="col-lg-4">&nbsp;</div>
-            </div>
-            <div class="row row-eq-height">
-                <div class="labels col-lg-2">Notes:</div>
-                <div class="col-lg-10">{{ proposal.proposal_notes|linebreaks }}</div>
-            </div>
-        </div><!-- close detail-border -->
+    <div class="container">
+    <h2>Detail for Proposal: {{ proposal.proposal_id }}</h2>
+    <div class="detail-border">
+     <div class="row PID">
+         <div class="labels col-lg-2">Proposal:</div>
+         <div class="pdata col-lg-2">{{ proposal.proposal_id }}</div>
+         <div class="col-lg-2"></div>
+         <div class="labels col-lg-2">Submitted:</div>
+         <div class="pdata col-lg-2">{{ proposal.year_proposed }}</div>
+         <div class="col-lg-2">&nbsp;</div>
+     </div>
+     <div class="row row-eq-height PI">
+         <div class="labels col-lg-2">PI:</div>
+         {% if proposal.investigator_supported %}
+             <div class="pdata col-lg-10"><a href="../../../shared/contact/{{ proposal.investigator_supported.slug }}/"> {{proposal.investigator_supported }}</a></div>
+         {% else %}
+             <div class="pdata col-lg-10">{{proposal.investigator_supported }}</div>
+         {% endif %}
+     </div>
+     <div class="row Title">
+         <div class="labels col-lg-2">Title:</div>
+         <div class="pdata col-lg-10">{{ proposal.proposal_title }}</div>
+     </div>
+     <div class="row Sponsor">
+         <div class="labels col-lg-2">Sponsor:</div>
+         {% if proposal.sponsor %}
+             <div class="pdata col-lg-10"><a href="../../../shared/sponsor/{{ proposal.sponsor.slug }}/"> {{ proposal.sponsor }}</a></div>
+         {% else %}
+             <div class="pdata col-lg-10">{{ proposal.sponsor }}</div>
+         {% endif %}
+     </div>
+     <div class="row Status">
+         <div class="labels col-lg-2">Status:</div>
+         <div class="pdata col-lg-2">{{ proposal.status }}</div>
+         <div class="col-lg-2"></div>
+         <div class="labels col-lg-2">Fund Cd:</div>
+         <div class="pdata col-lg-2">{{ proposal.fund_code }}</div>
+         <div class="col-lg-2">&nbsp;</div>
+     </div>
+     <div class="row Proposal-dates">
+         <div class="labels col-lg-2">Submitted:</div>
+         <div class="pdata col-lg-3">{{ proposal.date_submitted }}</div>
+         <div class="labels col-lg-7">&nbsp;</div>
+     </div>
+     <div class="row">
+         <div class="col-lg-6">&nbsp;</div>
+     </div>
+     <div class="row">
+         <div class="labels col-lg-2">Funding:</div>
+         <div class="col-lg-10">
+             <table class="table table-bordered table-condensed table-striped table-responsive">
+                 <tr id="funds_header">
+                     <th scope="col">FCFY</th>
+                     <th scope="col">Type</th>
+                     <th scope="col"> Budget</th>
+                     <th scope="col">Expires</th>
+                 </tr>
+                 {% if proposal.fundfy_set.all %}
+                 {% for funds in proposal.fundfy_set.all %}
+                 <tr>
+                     <td>{{ funds.fcfy }}</td>
+                     <td>{{ funds.fund_type}}</td>
+                     <td>{{ funds.budget }}</td>
+                     <td>{{ funds.funds_expire}}</td>
+                 </tr>
+                 {% endfor %}
+                 {% else %}
+                 <tr>
+                     <td colspan="4">No funding has been entered.</td>
+                 </tr>
+                 {% endif %}
+             </table>
+         </div>
+     </div>
+     <div class="row DocTable">
+         <div class="labels col-lg-2">Documents:</div>
+         <div class="col-lg-6">
+             <table class="table table-bordered table-condensed table-striped table-responsive">
+                 {% if proposal.fileupload_set.all %}
+                 {% for docs in proposal.fileupload_set.all %}
+                 <tr>
+                     <td><a href="\..\..\media\{{docs.file_upload}}">{{docs.file_category }}</a></td>
+                 </tr>
+                 {% endfor %}
+                 {% else %}
+                 <tr>
+                     <td colspan="2">No files have been uploaded.</td>
+                 </tr>
+                 {% endif %}
+             </table>
+         </div>
+         <div class="col-lg-4">&nbsp;</div>
+     </div>
+     <div class="row row-eq-height">
+         <div class="labels col-lg-2">Notes:</div>
+         <div class="col-lg-10">{{ proposal.proposal_notes|linebreaks }}</div>
+     </div>
+    </div><!-- close detail-border -->
     </div><!-- close container -->
 </div><!-- close detailsContent -->
 
