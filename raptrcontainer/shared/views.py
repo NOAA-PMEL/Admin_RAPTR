@@ -133,7 +133,6 @@ class ManpowerChartData(APIView):
 
     def get(self, request, format=None):
         by_employee_type_data = get_by_employee_type_data()
-        print(by_employee_type_data)
         by_employee_type_graph_labels = []
         by_employee_type_graph_data = []
         for emp in by_employee_type_data:

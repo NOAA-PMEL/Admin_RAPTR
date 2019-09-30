@@ -174,7 +174,7 @@ class Program(models.Model):
 
     """
     program_short_name = models.CharField(
-        max_length=10,
+        max_length=20,
         blank=True
     )
     program_long_name = models.CharField(
@@ -252,7 +252,6 @@ class Supervisor(models.Model):
         return self.last_name
 
 
-
 class Contact(models.Model):
     """
 
@@ -260,6 +259,7 @@ class Contact(models.Model):
 
     """
     full_time_equivalent = models.FloatField(
+        blank=True,
         validators=[
             MinValueValidator(0.0, message='FTEs must be between 0 and 1.'),
             MaxValueValidator(1.0, message='FTEs must be between 0 and 1.')
@@ -286,9 +286,34 @@ class Contact(models.Model):
         blank=True,
         null=True
     )
+    phone_number = PhoneField(
+        blank=True
+    )
+    room_number = models.CharField(
+        max_length=15,
+        blank=True
+    )
     job_title = models.CharField(
         max_length=50,
         blank=True
+    )
+    division = models.CharField(
+        choices=DIVISION_CHOICES,
+        max_length=4,
+        blank=True,
+    )
+    opt_sub_group = models.ForeignKey(
+        Optsub,
+        on_delete=models.DO_NOTHING,
+        verbose_name='OPT Sub Group',
+        blank=True,
+        null=True
+    )
+    research_program = models.ForeignKey(
+        Program,
+        on_delete=models.DO_NOTHING,
+        blank=True,
+        null=True
     )
     pay_plan = models.CharField(
         choices=GRADE_CHOICES,
@@ -322,31 +347,6 @@ class Contact(models.Model):
         max_length=4,
         blank=True,
         help_text='Is the person Fair Labor Standards Act (E)xempt or (N)on Exempt?'
-    )
-    phone_number = PhoneField(
-        blank=True
-    )
-    room_number = models.CharField(
-        max_length=15,
-        blank=True
-    )
-    division = models.CharField(
-        choices=DIVISION_CHOICES,
-        max_length=4,
-        blank=True,
-    )
-    opt_sub_group = models.ForeignKey(
-        Optsub,
-        on_delete=models.DO_NOTHING,
-        verbose_name='OPT Sub Group',
-        blank=True,
-        null=True
-    )
-    research_program = models.ForeignKey(
-        Program,
-        on_delete=models.DO_NOTHING,
-        blank=True,
-        null=True
     )
     supervisor = models.ForeignKey(
         Supervisor,
