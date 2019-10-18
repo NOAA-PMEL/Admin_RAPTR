@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="feather feather-file-text" fill="none" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" height="24">
+    <circle
+        cx="12"
+        cy="12"
+        r="10"
+    />
+    <circle
+       cx="12"
+       cy="17.6"
+       r=".5"
+       stroke="grey"
+       stroke-width="1.5"
+       fill="grey"
+    />
+    <line
+       x1="12"
+       y1="6"
+       x2="12"
+       y2="14"/>
+</svg>
