@@ -238,9 +238,10 @@ class RaHistory(models.Model):
     fiscal_year = models.CharField(
         max_length=4,
     )
-    dollars_received = models.DecimalField(
+    dollars_received = MoneyField(
         max_digits=14,
         decimal_places=2,
+        default_currency='USD'
     )
     
     class Meta:

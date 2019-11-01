@@ -76,12 +76,12 @@ class RAHistoryChartData(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-        ra_history_data = RaHistory.objects.all().order_by('-fiscal_year')[:5]
+        ra_history_data = RaHistory.objects.values_list().order_by('-fiscal_year')[:5]
         ra_history_graph_labels = []
         ra_history_graph_data = []
         for d in reversed(ra_history_data):
-            ra_history_graph_labels.append(d.fiscal_year)
-            ra_history_graph_data.append(d.dollars_received)
+            ra_history_graph_labels.append(d[1])
+            ra_history_graph_data.append(d[3])
         labels = ra_history_graph_labels
         default_items = ra_history_graph_data
         data = {
