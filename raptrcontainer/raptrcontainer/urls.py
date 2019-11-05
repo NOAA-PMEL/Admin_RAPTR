@@ -47,6 +47,7 @@ urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('raptr/', include('raptr.urls')),
+    # path('appropriated/', include('appropriated.urls')),
     path('crada/', include('crada.urls')),
     path('mou/', include('mou.urls')),
     path('proposal/', include('proposal.urls')),
