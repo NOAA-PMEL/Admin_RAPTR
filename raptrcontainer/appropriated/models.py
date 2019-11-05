@@ -6,7 +6,6 @@ SOURCE_CHOICES = (
     ('Base', 'Base'),
     ('OAR', 'OAR'),
     ('Other NOAA', 'Other NOAA'),
-    ('A&R','A&R')
 )
 
 
