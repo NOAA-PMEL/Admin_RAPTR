@@ -181,3 +181,5 @@ atlassian-ide-plugin.xml
 
 \.idea/
 .vscode/settings.json
+
+raptrcontainer/appropriated/migrations/
