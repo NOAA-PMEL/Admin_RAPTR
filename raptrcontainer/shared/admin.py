@@ -64,6 +64,9 @@ class ContactAdmin(admin.ModelAdmin):
         'employee_type',
         'active'
     )
+    list_editable = (
+        'active',
+    )
     list_filter = (
         'division',
         'research_program',
@@ -93,10 +96,17 @@ class ProgramAdmin(admin.ModelAdmin):
     ]
 
 
+@admin.register(Affiliation)
 class AffiliationAdmin(admin.ModelAdmin):
-    fields = [
+    list_display = [
         'affiliation_name',
+        'active',
     ]
+
+    list_editable = [
+        'active',
+    ]
+
 
 class OptsubAdmin(admin.ModelAdmin):
     fields = [
@@ -110,5 +120,4 @@ admin.site.register(Employeetype, EmployeetypeAdmin)
 admin.site.register(Supervisor, SupervisorAdmin)
 admin.site.register(Country, CountryAdmin)
 admin.site.register(Program, ProgramAdmin)
-admin.site.register(Affiliation, AffiliationAdmin)
 admin.site.register(Optsub, OptsubAdmin)

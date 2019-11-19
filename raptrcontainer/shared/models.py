@@ -51,6 +51,7 @@ PAY_INTERVAL_CHOICES = (
 LOCATIONS = (
     ('Seattle', 'Seattle'),
     ('Newport', 'Newport'),
+    ('Hawaii', 'Hawaii'),
     ('Other', 'Other'),
 )
 
@@ -202,8 +203,13 @@ class Affiliation(models.Model):
 
     """
     affiliation_name = models.CharField(
-        max_length=15,
+        max_length=30,
         blank=True
+    )
+
+    active = models.BooleanField(
+        default=True,
+        help_text='Uncheck when the affiliation is no longer used.'
     )
 
     def __str__(self):
