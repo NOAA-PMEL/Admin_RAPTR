@@ -16,7 +16,7 @@ GRADE_CHOICES = (
     ('WG', 'WG'),
 )
 
-FLSA_CHOICES =(
+FLSA_CHOICES = (
     ('E', 'E'),
     ('N', 'N'),
 )
@@ -396,7 +396,7 @@ class Contact(models.Model):
     departure_date = models.DateField(
         blank=True,
         null=True,
-        help_text = 'Date person left PMEL'
+        help_text='Date person left PMEL'
     )
     active = models.BooleanField(
         default=True,

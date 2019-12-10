@@ -79,7 +79,7 @@ class IndexView(generic.TemplateView):
         current_fy = get_current_fy()
         context['title'] = 'Dashboard'
         context['dashboard_page'] = 'active'
-        context['current_fy']=current_fy
+        context['current_fy'] = current_fy
         context['by_division'] = get_by_division_data()
         context['by_division_total'] = get_by_division_total()
         context['by_research_program'] = get_by_research_program_data()

@@ -14,5 +14,5 @@ class ContactFilter(FilterSet):
             'last_name': ['contains'],
             'division': ['exact'],
             'employee_type': ['exact'],
-            'affiliation' : ['exact'],
+            'affiliation': ['exact'],
         }

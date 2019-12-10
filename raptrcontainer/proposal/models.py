@@ -223,5 +223,5 @@ class Fileupload(models.Model):
         null=True
     )
     file_upload = models.FileField(
-        upload_to='documents\proposals'
+        upload_to='documents\\proposals'
     )

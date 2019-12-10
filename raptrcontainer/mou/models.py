@@ -16,6 +16,7 @@ STATUS_CHOICES = (
     ('In Progress', 'In Progress')
 )
 
+
 class Filecatlist(models.Model):
     """
 
@@ -126,5 +127,5 @@ class Fileupload(models.Model):
         null=True
     )
     file_upload = models.FileField(
-        upload_to='documents\mous'
+        upload_to='documents\\mous'
     )

@@ -131,5 +131,5 @@ class Fileupload(models.Model):
         null=True
     )
     file_upload = models.FileField(
-        upload_to='documents\cradas'
+        upload_to='documents\\cradas'
     )

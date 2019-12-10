@@ -23,4 +23,3 @@ class ProjectFilter(FilterSet):
             'status': ['exact'],
             'year_proposed': ['exact']
         }
-

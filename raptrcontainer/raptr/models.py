@@ -8,7 +8,7 @@ STATUS_CHOICES = (
     ('Open', 'Open'),
     ('Closed', 'Closed'),
     ('In Progress', 'In Progress'),
-    ('Active','Active'),
+    ('Active', 'Active'),
     ('Cancelled', 'Cancelled')
 )
 
@@ -243,8 +243,8 @@ class RaHistory(models.Model):
         decimal_places=2,
         default_currency='USD'
     )
-    
+
     class Meta:
         ordering = ['fiscal_year']
-        verbose_name='RA History'
+        verbose_name = 'RA History'
         verbose_name_plural = 'RA History'

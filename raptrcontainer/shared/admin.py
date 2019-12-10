@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Sponsor,Sponsortype, Country, Contact, Program, Affiliation, Optsub, Employeetype, Supervisor
+from .models import Sponsor, Sponsortype, Country, Contact, Program, Affiliation, Optsub, Employeetype, Supervisor
 
 
 @admin.register(Sponsor)

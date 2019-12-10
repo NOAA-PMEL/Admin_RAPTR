@@ -40,4 +40,3 @@ class MouDetailView(DetailView):
         context['title'] = 'MOU Detail'
         context['mou_page'] = 'active'
         return context
-
