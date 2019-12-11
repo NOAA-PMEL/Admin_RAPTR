@@ -27,10 +27,10 @@ def div(value, arg):
     try:
         value = int(value)
         arg = int(arg)
-        if arg: return value/arg
-    except:
-        pass
-    return ''
+        if arg:
+            return value / arg
+    except (TypeError, ZeroDivisionError):
+        return ''
 
 
 @register.filter
@@ -41,4 +41,3 @@ def percent(value):
     else:
         value = round(float(value), 2)
     return "%s%s%%" % (intcomma(int(value)), ("% 0.2f" % value)[-3:])
-

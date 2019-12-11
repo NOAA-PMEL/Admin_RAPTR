@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Mou, Fileupload, Filecatlist
+
+from .models import Filecatlist, Fileupload, Mou
 
 
 class FileuploadInLine(admin.TabularInline):

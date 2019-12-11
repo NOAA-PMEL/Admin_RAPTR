@@ -1,7 +1,10 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import time
+# import time
+
 import unittest
+
+from selenium import webdriver
+
+# from selenium.webdriver.common.keys import Keys
 
 
 class NewVisitorTest(unittest.TestCase):

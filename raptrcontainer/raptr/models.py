@@ -1,8 +1,11 @@
 import datetime
+
 from django.db import models
-from djmoney.models.fields import MoneyField
 from django.urls import reverse
-from shared.models import Sponsor, Contact
+
+from djmoney.models.fields import MoneyField
+
+from shared.models import Contact, Sponsor
 
 STATUS_CHOICES = (
     ('Open', 'Open'),

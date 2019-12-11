@@ -1,18 +1,23 @@
-from shared.query_sets import *
-from .models import Project, RaHistory
-from .filters import ProjectFilter
-from django_filters.views import FilterView
-from django_tables2 import SingleTableMixin
-from .tables import ProjectTable
-from django.views.generic.detail import DetailView
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from django.shortcuts import render
 from django.utils.decorators import method_decorator
-from .forms import LoginForm
-from rest_framework.views import APIView
+from django.views.generic.detail import DetailView
+
+from django_filters.views import FilterView
+
+from django_tables2 import SingleTableMixin
+
 from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from shared.query_sets import *
+
+from .filters import ProjectFilter
+from .forms import LoginForm
+from .models import Project, RaHistory
+from .tables import ProjectTable
 
 
 @method_decorator(login_required, name='dispatch')

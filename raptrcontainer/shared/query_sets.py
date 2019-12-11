@@ -1,9 +1,14 @@
 import datetime
-from raptr.models import Project, Fundfy
-from proposal.models import Proposal
+
 from crada.models import Crada
+
+from django.db.models import Count, F, Sum
+
+from proposal.models import Proposal
+
+from raptr.models import Fundfy, Project
+
 from shared.models import Contact
-from django.db.models import Sum, F, Count
 
 
 def get_current_fy():

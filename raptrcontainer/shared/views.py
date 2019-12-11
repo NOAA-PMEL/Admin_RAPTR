@@ -1,16 +1,21 @@
-from .query_sets import *
-from shared.models import Contact, Sponsor
-from django.views.generic.detail import DetailView
-from django.views.generic import TemplateView
-from django_tables2 import SingleTableMixin
-from django_filters.views import FilterView
-from .filters import ContactFilter
-from .tables import ContactTable
-from django.views import generic
-from rest_framework.views import APIView
-from rest_framework.response import Response
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.views import generic
+from django.views.generic import TemplateView
+from django.views.generic.detail import DetailView
+
+from django_filters.views import FilterView
+
+from django_tables2 import SingleTableMixin
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from shared.models import Contact, Sponsor
+
+from .filters import ContactFilter
+from .query_sets import *
+from .tables import ContactTable
 
 
 @method_decorator(login_required, name='dispatch')

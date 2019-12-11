@@ -1,7 +1,9 @@
 import django_filters
 from django_filters import FilterSet
-from .models import Proposal
+
 from shared.models import Contact
+
+from .models import Proposal
 
 
 class ProposalFilter(FilterSet):

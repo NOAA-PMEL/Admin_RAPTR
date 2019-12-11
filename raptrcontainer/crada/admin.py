@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Crada, Fileupload, Filecatlist
+
+from .models import Crada, Filecatlist, Fileupload
 
 
 class FileuploadInLine(admin.TabularInline):

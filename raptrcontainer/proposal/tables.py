@@ -1,5 +1,6 @@
-from .models import Proposal
 import django_tables2 as tables
+
+from .models import Proposal
 
 
 class ProposalTable(tables.Table):

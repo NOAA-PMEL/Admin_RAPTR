@@ -1,9 +1,9 @@
+from django.core.validators import EmailValidator, MaxValueValidator, MinValueValidator
 from django.db import models
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-from phone_field import PhoneField
-from django.core.validators import MinValueValidator, MaxValueValidator, EmailValidator
 
+from phone_field import PhoneField
 
 GRADE_CHOICES = (
     ('ZA', 'ZA'),

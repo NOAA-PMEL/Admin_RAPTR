@@ -1,11 +1,14 @@
-from .models import Proposal
-from .filters import ProposalFilter
-from django_filters.views import FilterView
-from django_tables2 import SingleTableMixin
-from .tables import ProposalTable
-from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.views.generic.detail import DetailView
+
+from django_filters.views import FilterView
+
+from django_tables2 import SingleTableMixin
+
+from .filters import ProposalFilter
+from .models import Proposal
+from .tables import ProposalTable
 
 
 @method_decorator(login_required, name='dispatch')

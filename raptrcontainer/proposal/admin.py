@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Proposal, Status, Fundtype, Fundfy, Fundcodelist, Filecatlist, Fileupload
+
+from .models import Filecatlist, Fileupload, Fundcodelist, Fundfy, Fundtype, Proposal, Status
 
 
 class FileuploadInLine(admin.TabularInline):

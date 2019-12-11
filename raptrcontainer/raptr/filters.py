@@ -1,7 +1,9 @@
 import django_filters
 from django_filters import FilterSet
-from .models import Project
+
 from shared.models import Contact
+
+from .models import Project
 
 DIVISION_CHOICES = (
     ('AD', 'AD'),

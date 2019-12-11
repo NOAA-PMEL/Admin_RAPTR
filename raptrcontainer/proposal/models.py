@@ -2,8 +2,10 @@ import datetime
 
 from django.db import models
 from django.urls import reverse
-from shared.models import Sponsor, Contact
+
 from djmoney.models.fields import MoneyField
+
+from shared.models import Contact, Sponsor
 
 # set the year choices for various drop-downs - earliest data is from 2014
 YEAR_CHOICES = []

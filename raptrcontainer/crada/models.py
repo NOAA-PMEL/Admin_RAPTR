@@ -1,6 +1,7 @@
 from django.db import models
-from shared.models import Sponsor, Contact
 from django.urls import reverse
+
+from shared.models import Contact, Sponsor
 
 STATUS_CHOICES = (
     ('Open', 'Open'),

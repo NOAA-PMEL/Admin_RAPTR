@@ -1,11 +1,14 @@
-from django_tables2 import SingleTableMixin
-from django_filters.views import FilterView
-from django.views.generic.detail import DetailView
-from .tables import CradaTable
-from .models import Crada
-from .filters import CradaFilter
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.views.generic.detail import DetailView
+
+from django_filters.views import FilterView
+
+from django_tables2 import SingleTableMixin
+
+from .filters import CradaFilter
+from .models import Crada
+from .tables import CradaTable
 
 
 @method_decorator(login_required, name='dispatch')

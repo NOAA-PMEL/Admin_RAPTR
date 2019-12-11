@@ -1,6 +1,8 @@
-from .models import Mou
 from datetime import date
+
 import django_tables2 as tables
+
+from .models import Mou
 
 
 class MouTable(tables.Table):

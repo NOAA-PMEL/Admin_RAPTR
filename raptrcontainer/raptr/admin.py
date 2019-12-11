@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib import admin
-from .models import Project, Fundfy, Fundtype, Fundcodelist, Fileupload, Filecatlist, RaHistory
+
+from .models import Filecatlist, Fileupload, Fundcodelist, Fundfy, Fundtype, Project, RaHistory
 
 
 class FileuploadInLine(admin.TabularInline):
