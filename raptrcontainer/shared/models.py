@@ -266,12 +266,14 @@ class Contact(models.Model):
     """
     full_time_equivalent = models.FloatField(
         blank=True,
+        default=1.0,
         validators=[
             MinValueValidator(0.0, message='FTEs must be between 0 and 1.'),
             MaxValueValidator(1.0, message='FTEs must be between 0 and 1.')
         ]
     )
     position_billet = models.CharField(
+
         max_length=10,
         blank=True,
     )

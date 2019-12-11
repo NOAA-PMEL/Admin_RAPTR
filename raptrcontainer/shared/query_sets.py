@@ -65,7 +65,7 @@ def get_by_employee_type_data():
     emptype = Contact.objects.values_list('employee_type__employee_type')\
         .filter(active=True)\
         .annotate(total=Count('employee_type'))\
-        .order_by('employee_type')
+        .order_by('-total')
     return emptype
 
 
