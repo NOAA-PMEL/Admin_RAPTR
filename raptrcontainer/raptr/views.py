@@ -12,7 +12,7 @@ from django_tables2 import SingleTableMixin
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from shared.query_sets import *
+from shared.query_sets import get_by_sponsor_type_chart_data
 
 from .filters import ProjectFilter
 from .forms import LoginForm
