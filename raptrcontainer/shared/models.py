@@ -55,6 +55,14 @@ LOCATIONS = (
     ('Other', 'Other'),
 )
 
+EMPLOYEE_CATEGORY = (
+    ("Scientific", "Scientific"),
+    ("Tech Support", "Tech Support"),
+    ("Admin Support", "Admin Support"),
+    ("Management", "Management"),
+    ("Other", "Other"),
+)
+
 
 class Country(models.Model):
     """
@@ -378,6 +386,11 @@ class Contact(models.Model):
         on_delete=models.DO_NOTHING,
         blank=True,
         null=True
+    )
+    employee_category = models.CharField(
+        choices=EMPLOYEE_CATEGORY,
+        max_length=20,
+        blank=True
     )
     is_pi = models.BooleanField(
         default=False,
