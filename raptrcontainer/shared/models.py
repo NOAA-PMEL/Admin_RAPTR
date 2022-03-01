@@ -259,7 +259,7 @@ class Supervisor(models.Model):
     )
     active = models.BooleanField(
         default=True,
-        help_text='Is the person still at a supervisor?'
+        help_text='Is the person still a supervisor?'
     )
 
     def __str__(self):
