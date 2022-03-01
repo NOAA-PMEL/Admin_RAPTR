@@ -417,6 +417,10 @@ class Contact(models.Model):
         default=True,
         help_text='Is the person still at PMEL? Uncheck when departure date is entered.'
     )
+    issupervisor = models.BooleanField(
+        default=False,
+        help_text='Is this person a supervisor of others?'
+    )
     photo = models.ImageField(
         verbose_name='Upload Photo',
         upload_to='photos',
